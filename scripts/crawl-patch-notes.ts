@@ -35,8 +35,6 @@ type ApiResponse = {
   articles: ApiArticle[];
 };
 
-const API_BASE = 'https://playeternalreturn.com/api/v1/posts/news';
-
 async function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
