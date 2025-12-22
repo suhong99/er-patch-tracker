@@ -68,6 +68,41 @@ type ValidationData = {
   results: ValidationResult[];
 };
 
+
+// ============================================
+// 유효한 캐릭터 목록 (공식 실험체)
+// ============================================
+
+const VALID_CHARACTERS = new Set([
+  // 가나다순
+  '가넷', '광휘', '나딘', '나타폰', '니아', '니키', '다니엘', '다르코',
+  '데비&마를렌', '띠아', '라우라', '레녹스', '레니', '레온', '로지', '루크',
+  '르노어', '리 다이린', '리오', '마르티나', '마이', '마커스', '매그너스',
+  '미르카', '바냐', '바바라', '버니스', '블레어', '비앙카', '샬럿', '셀린',
+  '쇼우', '쇼이치', '수아', '슈린', '시셀라', '실비아', '아델라', '아드리아나',
+  '아디나', '아르다', '아비게일', '아야', '아이솔', '아이작', '알렉스', '알론소',
+  '얀', '에스텔', '에이든', '에키온', '엘레나', '엠마', '요한', '윌리엄',
+  '유민', '유스티나', '유키', '이렘', '이바', '이슈트반', '이안', '일레븐',
+  '자히르', '재키', '제니', '츠바메', '카밀로', '카티야', '칼라', '캐시',
+  '케네스', '클로에', '키아라', '타지아', '테오도르', '펠릭스', '프리야',
+  '피오라', '피올로', '하트', '헤이즈', '헨리', '현우', '혜진', '히스이',
+]);
+
+// 캐릭터 이름 정규화 (HTML 엔티티 및 공백 처리)
+function normalizeCharacterName(name: string): string {
+  return name
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// 유효한 캐릭터인지 검증
+function isValidCharacter(name: string): boolean {
+  const normalized = normalizeCharacterName(name);
+  return VALID_CHARACTERS.has(normalized);
+}
+
 // ============================================
 // 버프/너프 판별 로직
 // ============================================
@@ -354,14 +389,18 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
       return results;
     });
 
-    // 변경 타입 결정
-    return characters.map(char => ({
-      ...char,
-      changes: char.changes.map(change => ({
-        ...change,
-        changeType: determineChangeType(change.stat, change.before, change.after),
-      })),
-    }));
+    // 유효한 캐릭터만 필터링하고 변경 타입 결정
+    return characters
+      .filter(char => isValidCharacter(char.name))
+      .map(char => ({
+        ...char,
+        name: normalizeCharacterName(char.name),
+        nameEn: normalizeCharacterName(char.nameEn),
+        changes: char.changes.map(change => ({
+          ...change,
+          changeType: determineChangeType(change.stat, change.before, change.after),
+        })),
+      }));
   } catch (error) {
     console.error(`파싱 오류 (${url}):`, error);
     return [];
