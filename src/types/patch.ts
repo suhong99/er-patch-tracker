@@ -46,12 +46,7 @@ export type BalanceChangesData = {
 };
 
 // 정렬 옵션
-export type SortOption =
-  | 'name'
-  | 'totalPatches'
-  | 'buffCount'
-  | 'nerfCount'
-  | 'recentPatch';
+export type SortOption = 'name' | 'totalPatches' | 'buffCount' | 'nerfCount' | 'recentPatch';
 
 export type SortDirection = 'asc' | 'desc';
 

@@ -16,13 +16,8 @@ export const extractCharacters = (data: BalanceChangesData): Character[] =>
   Object.values(data.characters);
 
 // 순수 함수: 캐릭터 이름으로 찾기
-export const findCharacterByName = (
-  characters: Character[],
-  name: string
-): Character | undefined =>
-  characters.find(
-    (char) => char.name === name || encodeURIComponent(char.name) === name
-  );
+export const findCharacterByName = (characters: Character[], name: string): Character | undefined =>
+  characters.find((char) => char.name === name || encodeURIComponent(char.name) === name);
 
 // 순수 함수: 통계 요약 계산
 export const calculateStatsSummary = (
@@ -37,19 +32,16 @@ export const calculateStatsSummary = (
 
   const avgPatches =
     totalCharacters > 0
-      ? characters.reduce((sum, char) => sum + char.stats.totalPatches, 0) /
-        totalCharacters
+      ? characters.reduce((sum, char) => sum + char.stats.totalPatches, 0) / totalCharacters
       : 0;
 
   const mostBuffed = characters.reduce<Character | null>(
-    (max, char) =>
-      !max || char.stats.buffCount > max.stats.buffCount ? char : max,
+    (max, char) => (!max || char.stats.buffCount > max.stats.buffCount ? char : max),
     null
   );
 
   const mostNerfed = characters.reduce<Character | null>(
-    (max, char) =>
-      !max || char.stats.nerfCount > max.stats.nerfCount ? char : max,
+    (max, char) => (!max || char.stats.nerfCount > max.stats.nerfCount ? char : max),
     null
   );
 

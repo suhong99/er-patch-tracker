@@ -2,10 +2,7 @@
 
 import Link from 'next/link';
 import type { Character, ChangeType } from '@/types/patch';
-import {
-  getChangeTypeColor,
-  formatDate,
-} from '@/lib/patch-utils';
+import { getChangeTypeColor, formatDate } from '@/lib/patch-utils';
 
 type Props = {
   character: Character;
@@ -116,9 +113,7 @@ export default function CharacterCard({ character }: Props): React.ReactElement 
                 >
                   v{latestPatch.patchVersion}
                 </span>
-                <span className="text-xs text-zinc-600">
-                  {formatDate(latestPatch.patchDate)}
-                </span>
+                <span className="text-xs text-zinc-600">{formatDate(latestPatch.patchDate)}</span>
               </div>
             </div>
           </div>

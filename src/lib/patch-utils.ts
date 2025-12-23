@@ -1,10 +1,4 @@
-import type {
-  Character,
-  SortOption,
-  SortDirection,
-  FilterOption,
-  ChangeType,
-} from '@/types/patch';
+import type { Character, SortOption, SortDirection, FilterOption, ChangeType } from '@/types/patch';
 
 // 순수 함수: 파이프 유틸리티
 const pipe =
@@ -59,9 +53,7 @@ const createSearchFilter =
   (characters: Character[]): Character[] => {
     if (!query.trim()) return characters;
     const lowerQuery = query.toLowerCase();
-    return characters.filter((char) =>
-      char.name.toLowerCase().includes(lowerQuery)
-    );
+    return characters.filter((char) => char.name.toLowerCase().includes(lowerQuery));
   };
 
 // 순수 함수: 캐릭터 필터링 및 정렬 (파이프 패턴)
@@ -74,12 +66,7 @@ export const filterAndSortCharacters = (
     search?: string;
   }
 ): Character[] => {
-  const {
-    filter = 'all',
-    sort = 'name',
-    direction = 'asc',
-    search = '',
-  } = options;
+  const { filter = 'all', sort = 'name', direction = 'asc', search = '' } = options;
 
   return pipe<Character[]>(
     createSearchFilter(search),

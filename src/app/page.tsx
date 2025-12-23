@@ -54,9 +54,7 @@ export default async function Home(): Promise<React.ReactElement> {
           <h1 className="bg-gradient-to-r from-white via-violet-200 to-cyan-200 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl lg:text-6xl">
             ETERNAL RETURN
           </h1>
-          <p className="mt-3 text-xl text-zinc-400">
-            실험체별 밸런스 패치 히스토리
-          </p>
+          <p className="mt-3 text-xl text-zinc-400">실험체별 밸런스 패치 히스토리</p>
         </header>
 
         {/* 통계 카드 */}
@@ -77,9 +75,7 @@ export default async function Home(): Promise<React.ReactElement> {
               >
                 {card.value}
               </p>
-              {card.subtext && (
-                <p className="mt-1 text-sm text-zinc-500">{card.subtext}</p>
-              )}
+              {card.subtext && <p className="mt-1 text-sm text-zinc-500">{card.subtext}</p>}
 
               {/* 배경 그라데이션 */}
               <div

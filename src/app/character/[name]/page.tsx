@@ -1,10 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import {
-  loadBalanceData,
-  extractCharacters,
-  findCharacterByName,
-} from '@/lib/patch-data';
+import { loadBalanceData, extractCharacters, findCharacterByName } from '@/lib/patch-data';
 import { getChangeTypeLabel } from '@/lib/patch-utils';
 import PatchCard from '@/components/PatchCard';
 
@@ -21,12 +17,32 @@ const createStatsItems = (stats: {
   maxBuffStreak: number;
   maxNerfStreak: number;
 }): Array<{ label: string; value: number; color: string; bgColor: string }> => [
-  { label: '총 패치', value: stats.totalPatches, color: 'text-violet-400', bgColor: 'bg-violet-500/10' },
-  { label: '상향', value: stats.buffCount, color: 'text-emerald-400', bgColor: 'bg-emerald-500/10' },
+  {
+    label: '총 패치',
+    value: stats.totalPatches,
+    color: 'text-violet-400',
+    bgColor: 'bg-violet-500/10',
+  },
+  {
+    label: '상향',
+    value: stats.buffCount,
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-500/10',
+  },
   { label: '하향', value: stats.nerfCount, color: 'text-rose-400', bgColor: 'bg-rose-500/10' },
   { label: '조정', value: stats.mixedCount, color: 'text-amber-400', bgColor: 'bg-amber-500/10' },
-  { label: '최대 상향 연속', value: stats.maxBuffStreak, color: 'text-emerald-400', bgColor: 'bg-emerald-500/10' },
-  { label: '최대 하향 연속', value: stats.maxNerfStreak, color: 'text-rose-400', bgColor: 'bg-rose-500/10' },
+  {
+    label: '최대 상향 연속',
+    value: stats.maxBuffStreak,
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-500/10',
+  },
+  {
+    label: '최대 하향 연속',
+    value: stats.maxNerfStreak,
+    color: 'text-rose-400',
+    bgColor: 'bg-rose-500/10',
+  },
 ];
 
 export async function generateStaticParams(): Promise<Array<{ name: string }>> {
@@ -75,7 +91,12 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           목록으로 돌아가기
         </Link>
@@ -100,9 +121,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
               </span>
             )}
           </div>
-          <p className="mt-3 text-zinc-500">
-            밸런스 패치 히스토리 및 통계
-          </p>
+          <p className="mt-3 text-zinc-500">밸런스 패치 히스토리 및 통계</p>
         </header>
 
         {/* 통계 그리드 */}
@@ -112,9 +131,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
               key={item.label}
               className={`rounded-xl border border-[#2a2d35] bg-[#13151a] p-4 text-center`}
             >
-              <p className={`font-mono text-2xl font-black ${item.color}`}>
-                {item.value}
-              </p>
+              <p className={`font-mono text-2xl font-black ${item.color}`}>{item.value}</p>
               <p className="mt-1 text-xs text-zinc-500">{item.label}</p>
             </div>
           ))}
@@ -124,8 +141,18 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
         <section>
           <div className="mb-6 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10">
-              <svg className="h-5 w-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                className="h-5 w-5 text-violet-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
             </div>
             <div>

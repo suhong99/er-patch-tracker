@@ -77,17 +77,25 @@ export default function CharacterList({ characters, updatedAt }: Props): React.R
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-[#2a2d35] bg-[#13151a] px-5 py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10">
-            <svg className="h-5 w-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            <svg
+              className="h-5 w-5 text-violet-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+              />
             </svg>
           </div>
           <div>
             <p className="font-medium text-zinc-200">
               총 <span className="text-violet-400">{characters.length}</span>명
               {filteredCharacters.length !== characters.length && (
-                <span className="text-zinc-500">
-                  {' '}/ {filteredCharacters.length}명 표시
-                </span>
+                <span className="text-zinc-500"> / {filteredCharacters.length}명 표시</span>
               )}
             </p>
             <p className="text-xs text-zinc-500">실험체 데이터</p>
@@ -95,7 +103,12 @@ export default function CharacterList({ characters, updatedAt }: Props): React.R
         </div>
         <div className="flex items-center gap-2 text-xs text-zinc-500">
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
           </svg>
           {formattedDate}
         </div>

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /* 이터널 리턴 다크 테마 */
@@ -82,7 +82,9 @@ body {
   padding: 1px;
   border-radius: inherit;
   background: linear-gradient(135deg, var(--er-purple), var(--er-cyan));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -95,7 +97,9 @@ body {
 
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2), 0 0 60px rgba(34, 211, 238, 0.1);
+  box-shadow:
+    0 0 30px rgba(139, 92, 246, 0.2),
+    0 0 60px rgba(34, 211, 238, 0.1);
 }
 
 /* 스캔라인 효과 (옵션) */
@@ -135,7 +139,8 @@ body {
 
 /* 애니메이션 */
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
   }
   50% {
@@ -157,12 +162,7 @@ body {
 }
 
 .shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(139, 92, 246, 0.1),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }

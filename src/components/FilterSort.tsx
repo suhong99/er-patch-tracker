@@ -41,8 +41,7 @@ export default function FilterSort({
   onSearchChange,
 }: Props): React.ReactElement {
   const handleFilterClick = (value: FilterOption) => () => onFilterChange(value);
-  const toggleDirection = (): void =>
-    onDirectionChange(direction === 'asc' ? 'desc' : 'asc');
+  const toggleDirection = (): void => onDirectionChange(direction === 'asc' ? 'desc' : 'asc');
 
   return (
     <div className="mb-8 space-y-4">
@@ -74,7 +73,12 @@ export default function FilterSort({
             className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-1 text-zinc-600 hover:bg-zinc-800 hover:text-zinc-400"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         )}
@@ -86,10 +90,18 @@ export default function FilterSort({
           {filterOptions.map(({ value, label, color }) => {
             const isActive = filter === value;
             const colorClasses = {
-              violet: isActive ? 'border-violet-500 bg-violet-500/20 text-violet-300' : 'border-[#2a2d35] text-zinc-500 hover:border-violet-500/50 hover:text-violet-400',
-              emerald: isActive ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300' : 'border-[#2a2d35] text-zinc-500 hover:border-emerald-500/50 hover:text-emerald-400',
-              rose: isActive ? 'border-rose-500 bg-rose-500/20 text-rose-300' : 'border-[#2a2d35] text-zinc-500 hover:border-rose-500/50 hover:text-rose-400',
-              amber: isActive ? 'border-amber-500 bg-amber-500/20 text-amber-300' : 'border-[#2a2d35] text-zinc-500 hover:border-amber-500/50 hover:text-amber-400',
+              violet: isActive
+                ? 'border-violet-500 bg-violet-500/20 text-violet-300'
+                : 'border-[#2a2d35] text-zinc-500 hover:border-violet-500/50 hover:text-violet-400',
+              emerald: isActive
+                ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300'
+                : 'border-[#2a2d35] text-zinc-500 hover:border-emerald-500/50 hover:text-emerald-400',
+              rose: isActive
+                ? 'border-rose-500 bg-rose-500/20 text-rose-300'
+                : 'border-[#2a2d35] text-zinc-500 hover:border-rose-500/50 hover:text-rose-400',
+              amber: isActive
+                ? 'border-amber-500 bg-amber-500/20 text-amber-300'
+                : 'border-[#2a2d35] text-zinc-500 hover:border-amber-500/50 hover:text-amber-400',
             }[color];
 
             return (

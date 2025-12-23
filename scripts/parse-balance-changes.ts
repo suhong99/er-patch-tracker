@@ -68,24 +68,97 @@ type ValidationData = {
   results: ValidationResult[];
 };
 
-
 // ============================================
 // 유효한 캐릭터 목록 (공식 실험체)
 // ============================================
 
 const VALID_CHARACTERS = new Set([
   // 가나다순
-  '가넷', '광휘', '나딘', '나타폰', '니아', '니키', '다니엘', '다르코',
-  '데비&마를렌', '띠아', '라우라', '레녹스', '레니', '레온', '로지', '루크',
-  '르노어', '리 다이린', '리오', '마르티나', '마이', '마커스', '매그너스',
-  '미르카', '바냐', '바바라', '버니스', '블레어', '비앙카', '샬럿', '셀린',
-  '쇼우', '쇼이치', '수아', '슈린', '시셀라', '실비아', '아델라', '아드리아나',
-  '아디나', '아르다', '아비게일', '아야', '아이솔', '아이작', '알렉스', '알론소',
-  '얀', '에스텔', '에이든', '에키온', '엘레나', '엠마', '요한', '윌리엄',
-  '유민', '유스티나', '유키', '이렘', '이바', '이슈트반', '이안', '일레븐',
-  '자히르', '재키', '제니', '츠바메', '카밀로', '카티야', '칼라', '캐시',
-  '케네스', '클로에', '키아라', '타지아', '테오도르', '펠릭스', '프리야',
-  '피오라', '피올로', '하트', '헤이즈', '헨리', '현우', '혜진', '히스이',
+  '가넷',
+  '나딘',
+  '나타폰',
+  '니아',
+  '니키',
+  '다니엘',
+  '다르코',
+  '데비&마를렌',
+  '띠아',
+  '라우라',
+  '레녹스',
+  '레니',
+  '레온',
+  '로지',
+  '루크',
+  '르노어',
+  '리 다이린',
+  '리오',
+  '마르티나',
+  '마이',
+  '마커스',
+  '매그너스',
+  '미르카',
+  '바냐',
+  '바바라',
+  '버니스',
+  '블레어',
+  '비앙카',
+  '샬럿',
+  '셀린',
+  '쇼우',
+  '쇼이치',
+  '수아',
+  '슈린',
+  '시셀라',
+  '실비아',
+  '아델라',
+  '아드리아나',
+  '아디나',
+  '아르다',
+  '아비게일',
+  '아야',
+  '아이솔',
+  '아이작',
+  '알렉스',
+  '알론소',
+  '얀',
+  '에스텔',
+  '에이든',
+  '에키온',
+  '엘레나',
+  '엠마',
+  '요한',
+  '윌리엄',
+  '유민',
+  '유스티나',
+  '유키',
+  '이렘',
+  '이바',
+  '이슈트반',
+  '이안',
+  '일레븐',
+  '자히르',
+  '재키',
+  '제니',
+  '츠바메',
+  '카밀로',
+  '카티야',
+  '칼라',
+  '캐시',
+  '케네스',
+  '클로에',
+  '키아라',
+  '타지아',
+  '테오도르',
+  '펠릭스',
+  '프리야',
+  '피오라',
+  '피올로',
+  '하트',
+  '헤이즈',
+  '헨리',
+  '현우',
+  '혜진',
+  '히스이',
 ]);
 
 // 캐릭터 이름 정규화 (HTML 엔티티 및 공백 처리)
@@ -109,30 +182,62 @@ function isValidCharacter(name: string): boolean {
 
 // 감소가 버프인 스탯들 (쿨다운, 마나 소모, 시전 시간, 딜레이 등)
 const DECREASE_IS_BUFF = [
-  '쿨다운', 'cooldown', 'cd',
-  '마나', 'mana', 'sp', 'mp', '소모',
-  '시전', 'cast', 'casting',
-  '딜레이', 'delay',
-  '대기', 'wait',
-  '충전', 'charge time',
-  '선딜', '후딜',
+  '쿨다운',
+  'cooldown',
+  'cd',
+  '마나',
+  'mana',
+  'sp',
+  'mp',
+  '소모',
+  '시전',
+  'cast',
+  'casting',
+  '딜레이',
+  'delay',
+  '대기',
+  'wait',
+  '충전',
+  'charge time',
+  '선딜',
+  '후딜',
 ];
 
 // 증가가 버프인 스탯들 (데미지, 회복량, 공격력 등)
 const INCREASE_IS_BUFF = [
-  '피해', 'damage', '데미지',
-  '회복', 'heal', 'recovery',
-  '공격력', 'attack',
-  '체력', 'health', 'hp',
-  '방어', 'defense', 'armor',
-  '속도', 'speed',
-  '범위', 'range', 'radius',
-  '지속', 'duration',
-  '증폭', 'amplification',
-  '흡혈', 'lifesteal', 'omnivamp',
-  '관통', 'penetration',
-  '치명타', 'critical', 'crit',
-  '보호막', 'shield',
+  '피해',
+  'damage',
+  '데미지',
+  '회복',
+  'heal',
+  'recovery',
+  '공격력',
+  'attack',
+  '체력',
+  'health',
+  'hp',
+  '방어',
+  'defense',
+  'armor',
+  '속도',
+  'speed',
+  '범위',
+  'range',
+  'radius',
+  '지속',
+  'duration',
+  '증폭',
+  'amplification',
+  '흡혈',
+  'lifesteal',
+  'omnivamp',
+  '관통',
+  'penetration',
+  '치명타',
+  'critical',
+  'crit',
+  '보호막',
+  'shield',
 ];
 
 function extractNumbers(value: string): number[] {
@@ -160,7 +265,7 @@ function determineChangeType(stat: string, before: string, after: string): Chang
   const isIncrease = afterAvg > beforeAvg;
 
   // 감소가 버프인 스탯인지 확인
-  const isDecreaseBuffStat = DECREASE_IS_BUFF.some(keyword =>
+  const isDecreaseBuffStat = DECREASE_IS_BUFF.some((keyword) =>
     statLower.includes(keyword.toLowerCase())
   );
 
@@ -173,8 +278,8 @@ function determineChangeType(stat: string, before: string, after: string): Chang
 }
 
 function determineOverallChange(changes: Change[]): ChangeType {
-  const buffCount = changes.filter(c => c.changeType === 'buff').length;
-  const nerfCount = changes.filter(c => c.changeType === 'nerf').length;
+  const buffCount = changes.filter((c) => c.changeType === 'buff').length;
+  const nerfCount = changes.filter((c) => c.changeType === 'nerf').length;
 
   if (buffCount > 0 && nerfCount === 0) return 'buff';
   if (nerfCount > 0 && buffCount === 0) return 'nerf';
@@ -184,24 +289,73 @@ function determineOverallChange(changes: Change[]): ChangeType {
 // 개발자 코멘트에서 너프/버프 의도 추출
 const NERF_KEYWORDS = [
   // 영어
-  'reducing', 'reduce', 'decreased', 'decrease', 'lowering', 'lower',
-  'nerfing', 'nerf', 'weaken', 'weakening', 'toning down', 'tune down',
-  'too strong', 'very strong', 'overperforming', 'high win rate',
-  'high pick rate', 'dominant', 'oppressive', 'keep in check',
+  'reducing',
+  'reduce',
+  'decreased',
+  'decrease',
+  'lowering',
+  'lower',
+  'nerfing',
+  'nerf',
+  'weaken',
+  'weakening',
+  'toning down',
+  'tune down',
+  'too strong',
+  'very strong',
+  'overperforming',
+  'high win rate',
+  'high pick rate',
+  'dominant',
+  'oppressive',
+  'keep in check',
   // 한글
-  '너프', '하향', '감소', '약화', '줄이', '낮추',
-  '너무 강', '강력해서', '승률이 높', '픽률이 높', '지배적',
+  '너프',
+  '하향',
+  '감소',
+  '약화',
+  '줄이',
+  '낮추',
+  '너무 강',
+  '강력해서',
+  '승률이 높',
+  '픽률이 높',
+  '지배적',
 ];
 
 const BUFF_KEYWORDS = [
   // 영어
-  'buffing', 'buff', 'increasing', 'increase', 'improving', 'improve',
-  'enhancing', 'enhance', 'strengthening', 'strengthen', 'boosting', 'boost',
-  'underperforming', 'low win rate', 'low pick rate', 'weak', 'struggling',
-  'needs help', 'giving more',
+  'buffing',
+  'buff',
+  'increasing',
+  'increase',
+  'improving',
+  'improve',
+  'enhancing',
+  'enhance',
+  'strengthening',
+  'strengthen',
+  'boosting',
+  'boost',
+  'underperforming',
+  'low win rate',
+  'low pick rate',
+  'weak',
+  'struggling',
+  'needs help',
+  'giving more',
   // 한글
-  '버프', '상향', '증가', '강화', '올리', '높이',
-  '약해서', '승률이 낮', '픽률이 낮', '부족', '개선',
+  '버프',
+  '상향',
+  '증가',
+  '강화',
+  '올리',
+  '높이',
+  '약해서',
+  '승률이 낮',
+  '픽률이 낮',
+  '부족',
+  '개선',
 ];
 
 function extractIntentFromComment(comment: string | null): ChangeType | null {
@@ -209,10 +363,10 @@ function extractIntentFromComment(comment: string | null): ChangeType | null {
 
   const commentLower = comment.toLowerCase();
 
-  const hasNerfIntent = NERF_KEYWORDS.some(keyword =>
+  const hasNerfIntent = NERF_KEYWORDS.some((keyword) =>
     commentLower.includes(keyword.toLowerCase())
   );
-  const hasBuffIntent = BUFF_KEYWORDS.some(keyword =>
+  const hasBuffIntent = BUFF_KEYWORDS.some((keyword) =>
     commentLower.includes(keyword.toLowerCase())
   );
 
@@ -249,7 +403,7 @@ type ParsedCharacter = {
 async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[]> {
   try {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const characters = await page.evaluate(() => {
       const content = document.querySelector('.er-article-detail__content');
@@ -268,11 +422,9 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
       const cobaltMatch = html.slice(charStart).match(/<h5[^>]*>코발트 프로토콜<\/h5>/);
       const loneWolfMatch = html.slice(charStart).match(/<h5[^>]*>론울프<\/h5>/);
 
-      const endIndices = [
-        weaponMatch?.index,
-        cobaltMatch?.index,
-        loneWolfMatch?.index,
-      ].filter((i): i is number => i !== undefined);
+      const endIndices = [weaponMatch?.index, cobaltMatch?.index, loneWolfMatch?.index].filter(
+        (i): i is number => i !== undefined
+      );
 
       const endIndex = endIndices.length > 0 ? charStart + Math.min(...endIndices) : html.length;
       const characterSection = html.slice(charStart, endIndex);
@@ -280,7 +432,17 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
       // 캐릭터별로 파싱
       // 패턴: <p><strong>캐릭터명</strong></p> 다음에 코멘트와 변경사항
       const characterPattern = /<p[^>]*><span[^>]*><strong>([^<]+)<\/strong><\/span><\/p>/g;
-      const results: Array<{ name: string; nameEn: string; devComment: string | null; changes: Array<{ target: string; stat: string; before: string; after: string }> }> = [];
+      const results: Array<{
+        name: string;
+        nameEn: string;
+        devComment: string | null;
+        changes: Array<{
+          target: string;
+          stat: string;
+          before: string;
+          after: string;
+        }>;
+      }> = [];
 
       let match;
       const matches: Array<{ name: string; index: number; fullMatch: string }> = [];
@@ -328,7 +490,12 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
         }
 
         // 변경사항 파싱
-        const changes: Array<{ target: string; stat: string; before: string; after: string }> = [];
+        const changes: Array<{
+          target: string;
+          stat: string;
+          before: string;
+          after: string;
+        }> = [];
         let currentTarget = '기본 스탯';
 
         // <li> 태그에서 변경사항 추출
@@ -349,7 +516,9 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
           // 변경사항 감지 (→ 기호)
           if (cleanText.includes('→')) {
             // 스킬명이 같은 줄에 있는 경우
-            const fullMatch = cleanText.match(/^([^→]+\([QWERP]\)|[^→]+\(패시브\))?(.+?)\s+([^\s→]+(?:[^→]*?))\s*→\s*(.+)$/);
+            const fullMatch = cleanText.match(
+              /^([^→]+\([QWERP]\)|[^→]+\(패시브\))?(.+?)\s+([^\s→]+(?:[^→]*?))\s*→\s*(.+)$/
+            );
             if (fullMatch) {
               if (fullMatch[1]) {
                 currentTarget = fullMatch[1].trim();
@@ -363,7 +532,9 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
               }
             } else {
               // 간단한 형식
-              const simpleMatch = cleanText.match(/(.+?)\s+([^\s→]+(?:\([^)]+\))?(?:[^→]*?))\s*→\s*(.+)$/);
+              const simpleMatch = cleanText.match(
+                /(.+?)\s+([^\s→]+(?:\([^)]+\))?(?:[^→]*?))\s*→\s*(.+)$/
+              );
               if (simpleMatch) {
                 changes.push({
                   target: currentTarget,
@@ -391,12 +562,12 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
 
     // 유효한 캐릭터만 필터링하고 변경 타입 결정
     return characters
-      .filter(char => isValidCharacter(char.name))
-      .map(char => ({
+      .filter((char) => isValidCharacter(char.name))
+      .map((char) => ({
         ...char,
         name: normalizeCharacterName(char.name),
         nameEn: normalizeCharacterName(char.nameEn),
-        changes: char.changes.map(change => ({
+        changes: char.changes.map((change) => ({
           ...change,
           changeType: determineChangeType(change.stat, change.before, change.after),
         })),
@@ -525,7 +696,7 @@ async function main(): Promise<void> {
 
   // hasCharacterData가 true인 패치만 필터링
   const targetPatches = validationData.results
-    .filter(r => r.status === 'success' && r.hasCharacterData)
+    .filter((r) => r.status === 'success' && r.hasCharacterData)
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
   // 테스트 모드: 명령줄 인수로 제한된 수만 처리
@@ -595,11 +766,13 @@ async function main(): Promise<void> {
       });
 
       const commentInfo = char.devComment ? ` (코멘트: "${char.devComment.slice(0, 30)}...")` : '';
-      console.log(`  - ${char.name}: ${char.changes.length}개 변경 (${overallChange})${commentInfo}`);
+      console.log(
+        `  - ${char.name}: ${char.changes.length}개 변경 (${overallChange})${commentInfo}`
+      );
     }
 
     // 서버 부하 방지
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
   await browser.close();
@@ -643,7 +816,7 @@ async function main(): Promise<void> {
 
   // 연속 기록 Top 5 출력
   const streakRanking = Object.values(characterMap)
-    .filter(c => c.stats.currentStreak.count >= 2)
+    .filter((c) => c.stats.currentStreak.count >= 2)
     .sort((a, b) => b.stats.currentStreak.count - a.stats.currentStreak.count)
     .slice(0, 5);
 

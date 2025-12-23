@@ -98,10 +98,10 @@ function main(): void {
     const cleanedChar: CharacterDataNew = {
       name: cleanHtmlEntities(char.name),
       stats: char.stats,
-      patchHistory: char.patchHistory.map(patch => ({
+      patchHistory: char.patchHistory.map((patch) => ({
         ...patch,
         devComment: patch.devComment ? cleanHtmlEntities(patch.devComment) : null,
-        changes: patch.changes.map(change => {
+        changes: patch.changes.map((change) => {
           const beforeCleaned = cleanHtmlEntities(change.before);
           const afterCleaned = cleanHtmlEntities(change.after);
           const targetCleaned = cleanHtmlEntities(change.target);

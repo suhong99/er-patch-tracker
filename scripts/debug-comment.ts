@@ -10,7 +10,7 @@ async function debugComment(): Promise<void> {
     timeout: 30000,
   });
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const html = await page.evaluate(() => {
     const content = document.querySelector('.er-article-detail__content');

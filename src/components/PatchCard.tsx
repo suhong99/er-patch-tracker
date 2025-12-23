@@ -1,9 +1,5 @@
 import type { PatchEntry, Change } from '@/types/patch';
-import {
-  getChangeTypeLabel,
-  getChangeTypeColor,
-  formatDate,
-} from '@/lib/patch-utils';
+import { getChangeTypeLabel, getChangeTypeColor, formatDate } from '@/lib/patch-utils';
 
 type Props = {
   patch: PatchEntry;
@@ -63,15 +59,9 @@ export default function PatchCard({ patch }: Props): React.ReactElement {
           >
             {getChangeTypeLabel(patch.overallChange)}
           </span>
-          {patch.streak > 1 && (
-            <span className="text-xs text-zinc-500">
-              {patch.streak}연속
-            </span>
-          )}
+          {patch.streak > 1 && <span className="text-xs text-zinc-500">{patch.streak}연속</span>}
         </div>
-        <span className="font-mono text-sm text-zinc-500">
-          {formatDate(patch.patchDate)}
-        </span>
+        <span className="font-mono text-sm text-zinc-500">{formatDate(patch.patchDate)}</span>
       </div>
 
       <div className="p-5">
@@ -80,13 +70,16 @@ export default function PatchCard({ patch }: Props): React.ReactElement {
           <div className="mb-5 rounded-lg border border-violet-500/20 bg-violet-500/5 p-4">
             <div className="mb-2 flex items-center gap-2 text-xs font-medium text-violet-400">
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
               </svg>
               개발자 코멘트
             </div>
-            <p className="text-sm leading-relaxed text-zinc-300">
-              {patch.devComment}
-            </p>
+            <p className="text-sm leading-relaxed text-zinc-300">{patch.devComment}</p>
           </div>
         )}
 
@@ -104,21 +97,27 @@ export default function PatchCard({ patch }: Props): React.ReactElement {
                     key={`${change.stat}-${idx}`}
                     className="flex items-start gap-3 rounded border border-[#2a2d35] bg-[#13151a] p-3"
                   >
-                    <span
-                      className={`mt-0.5 text-sm ${getChangeTypeColor(change.changeType)}`}
-                    >
+                    <span className={`mt-0.5 text-sm ${getChangeTypeColor(change.changeType)}`}>
                       {getChangeIcon(change.changeType)}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <span className="text-sm font-medium text-zinc-300">
-                        {change.stat}
-                      </span>
+                      <span className="text-sm font-medium text-zinc-300">{change.stat}</span>
                       <div className="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-xs">
                         <span className="rounded bg-zinc-800 px-2 py-1 text-zinc-500 line-through">
                           {change.before}
                         </span>
-                        <svg className="h-3 w-3 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        <svg
+                          className="h-3 w-3 text-zinc-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"
+                          />
                         </svg>
                         <span
                           className={`rounded px-2 py-1 ${
