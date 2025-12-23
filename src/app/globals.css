@@ -1,8 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 이터널 리턴 다크 테마 */
+  --background: #0a0b0f;
+  --foreground: #e4e4e7;
+
+  /* 메인 컬러 */
+  --er-purple: #8b5cf6;
+  --er-cyan: #22d3ee;
+  --er-pink: #ec4899;
+  --er-blue: #3b82f6;
+
+  /* 서피스 컬러 */
+  --er-surface: #13151a;
+  --er-surface-light: #1a1d24;
+  --er-border: #2a2d35;
+
+  /* 상태 컬러 */
+  --er-buff: #22c55e;
+  --er-nerf: #ef4444;
+  --er-mixed: #f59e0b;
 }
 
 @theme inline {
@@ -10,17 +27,142 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* 커스텀 색상 */
+  --color-er-purple: var(--er-purple);
+  --color-er-cyan: var(--er-cyan);
+  --color-er-pink: var(--er-pink);
+  --color-er-blue: var(--er-blue);
+  --color-er-surface: var(--er-surface);
+  --color-er-surface-light: var(--er-surface-light);
+  --color-er-border: var(--er-border);
+  --color-er-buff: var(--er-buff);
+  --color-er-nerf: var(--er-nerf);
+  --color-er-mixed: var(--er-mixed);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* 글로우 효과 */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+.glow-pink {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+/* 텍스트 글로우 */
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+/* 그라데이션 보더 */
+.gradient-border {
+  position: relative;
+  background: var(--er-surface);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--er-purple), var(--er-cyan));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 카드 호버 효과 */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2), 0 0 60px rgba(34, 211, 238, 0.1);
+}
+
+/* 스캔라인 효과 (옵션) */
+.scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* 커스텀 스크롤바 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--er-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--er-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--er-purple);
+}
+
+/* 애니메이션 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
