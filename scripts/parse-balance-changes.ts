@@ -203,8 +203,8 @@ const DECREASE_IS_BUFF = [
   '후딜',
 ];
 
-// 증가가 버프인 스탯들 (데미지, 회복량, 공격력 등)
-const INCREASE_IS_BUFF = [
+// 증가가 버프인 스탯들 (데미지, 회복량, 공격력 등) - 기본값이므로 현재 미사용
+const _INCREASE_IS_BUFF = [
   '피해',
   'damage',
   '데미지',
@@ -462,14 +462,14 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
         const endIdx = i + 1 < matches.length ? matches[i + 1].index : characterSection.length;
         const block = characterSection.slice(startIdx, endIdx);
 
-        // 개발자 코멘트: 캐릭터 이름 바로 다음 <p> 태그 (변경사항 <ul> 전)
-        let devComment: string | null = null;
+        // 개발자 코멘트: 캐릭터 이름 바로 다음 <p> 태그들 (변경사항 <ul> 전)
+        const commentParts: string[] = [];
 
         // <ul> 태그 전까지의 <p> 태그들에서 코멘트 찾기
         const ulIndex = block.indexOf('<ul');
-        const beforeUl = ulIndex > 0 ? block.slice(0, ulIndex) : block.slice(0, 500);
+        const beforeUl = ulIndex > 0 ? block.slice(0, ulIndex) : block.slice(0, 1000);
 
-        // 첫 번째 의미 있는 <p> 태그에서 코멘트 추출 (공백만 있는 건 건너뛰기)
+        // 모든 의미 있는 <p> 태그에서 코멘트 추출
         const pTagPattern = /<p[^>]*><span[^>]*>([^]*?)<\/span><\/p>/g;
         let pMatch;
         while ((pMatch = pTagPattern.exec(beforeUl)) !== null) {
@@ -484,10 +484,12 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
 
           // 공백이 아니고, 변경사항(→)이 아니고, 의미 있는 길이인 경우
           if (cleanText && !cleanText.includes('→') && cleanText.length > 5) {
-            devComment = cleanText;
-            break;
+            commentParts.push(cleanText);
           }
         }
+
+        // 여러 줄 코멘트 합치기
+        const devComment = commentParts.length > 0 ? commentParts.join(' ') : null;
 
         // 변경사항 파싱
         const changes: Array<{
@@ -684,30 +686,67 @@ function calculateStreaks(patchHistory: PatchEntry[]): PatchEntry[] {
 }
 
 // ============================================
+// 데이터 파일 경로
+// ============================================
+
+const DATA_DIR = path.join(__dirname, '..', 'data');
+const VALIDATION_PATH = path.join(DATA_DIR, 'validation-results.json');
+const BALANCE_PATH = path.join(DATA_DIR, 'balance-changes.json');
+
+// 기존 밸런스 데이터 로드
+function loadExistingBalanceData(): BalanceData | null {
+  try {
+    if (fs.existsSync(BALANCE_PATH)) {
+      const content = fs.readFileSync(BALANCE_PATH, 'utf-8');
+      return JSON.parse(content) as BalanceData;
+    }
+  } catch {
+    console.log('기존 밸런스 데이터 로드 실패, 전체 파싱 진행');
+  }
+  return null;
+}
+
+// 이미 파싱된 패치 ID 추출
+function getParsedPatchIds(data: BalanceData | null): Set<number> {
+  if (!data) return new Set();
+  const ids = new Set<number>();
+  for (const char of Object.values(data.characters)) {
+    for (const patch of char.patchHistory) {
+      ids.add(patch.patchId);
+    }
+  }
+  return ids;
+}
+
+// ============================================
 // 메인 함수
 // ============================================
 
 async function main(): Promise<void> {
   console.log('밸런스 변경사항 파싱 시작...\n');
 
+  // 기존 데이터 로드
+  const existingData = loadExistingBalanceData();
+  const parsedPatchIds = getParsedPatchIds(existingData);
+
   // validation-results.json 로드
-  const validationPath = path.join(__dirname, '..', 'data', 'validation-results.json');
-  const validationData: ValidationData = JSON.parse(fs.readFileSync(validationPath, 'utf-8'));
+  const validationData: ValidationData = JSON.parse(fs.readFileSync(VALIDATION_PATH, 'utf-8'));
 
   // hasCharacterData가 true인 패치만 필터링
-  const targetPatches = validationData.results
+  const allTargetPatches = validationData.results
     .filter((r) => r.status === 'success' && r.hasCharacterData)
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
-  // 테스트 모드: 명령줄 인수로 제한된 수만 처리
-  const testLimit = process.argv[2] ? parseInt(process.argv[2], 10) : targetPatches.length;
-  const patchesToProcess = targetPatches.slice(0, testLimit);
+  // 신규 패치만 필터링
+  const newPatches = allTargetPatches.filter((p) => !parsedPatchIds.has(p.id));
 
-  console.log(`캐릭터 데이터가 있는 패치: ${targetPatches.length}개`);
-  if (testLimit < targetPatches.length) {
-    console.log(`테스트 모드: ${testLimit}개만 처리합니다.`);
+  if (newPatches.length === 0) {
+    console.log('신규 패치 없음 - 파싱 불필요');
+    return;
   }
-  console.log('');
+
+  console.log(`기존 파싱: ${parsedPatchIds.size}개 패치`);
+  console.log(`신규 파싱 대상: ${newPatches.length}개 패치\n`);
 
   // 브라우저 시작
   const browser: Browser = await puppeteer.launch({
@@ -721,12 +760,17 @@ async function main(): Promise<void> {
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
   );
 
-  // 캐릭터별 데이터 수집
-  const characterMap: Record<string, CharacterData> = {};
+  // 기존 캐릭터 데이터 복사 (신규 데이터와 병합용)
+  const characterMap: Record<string, CharacterData> = existingData
+    ? JSON.parse(JSON.stringify(existingData.characters))
+    : {};
 
-  for (let i = 0; i < patchesToProcess.length; i++) {
-    const patch = patchesToProcess[i];
-    const progress = `[${i + 1}/${patchesToProcess.length}]`;
+  // 변경된 캐릭터 추적 (통계 재계산용)
+  const affectedCharacters = new Set<string>();
+
+  for (let i = 0; i < newPatches.length; i++) {
+    const patch = newPatches[i];
+    const progress = `[${i + 1}/${newPatches.length}]`;
     console.log(`${progress} ${patch.title} 파싱 중...`);
 
     const characters = await parsePatchNote(page, patch.link);
@@ -735,6 +779,7 @@ async function main(): Promise<void> {
 
     for (const char of characters) {
       const key = char.name;
+      affectedCharacters.add(key);
 
       if (!characterMap[key]) {
         characterMap[key] = {
@@ -777,8 +822,10 @@ async function main(): Promise<void> {
 
   await browser.close();
 
-  // 통계 및 연속 계산
-  for (const key of Object.keys(characterMap)) {
+  // 변경된 캐릭터만 통계 재계산
+  console.log(`\n${affectedCharacters.size}명의 캐릭터 통계 재계산 중...`);
+
+  for (const key of affectedCharacters) {
     // 패치 히스토리 날짜순 정렬 (최신순)
     characterMap[key].patchHistory.sort(
       (a, b) => new Date(b.patchDate).getTime() - new Date(a.patchDate).getTime()
@@ -797,8 +844,7 @@ async function main(): Promise<void> {
     characters: characterMap,
   };
 
-  const outputPath = path.join(__dirname, '..', 'data', 'balance-changes.json');
-  fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2), 'utf-8');
+  fs.writeFileSync(BALANCE_PATH, JSON.stringify(outputData, null, 2), 'utf-8');
 
   // 요약 출력
   const characterCount = Object.keys(characterMap).length;
@@ -810,9 +856,11 @@ async function main(): Promise<void> {
   console.log('\n' + '='.repeat(60));
   console.log('파싱 완료 요약');
   console.log('='.repeat(60));
+  console.log(`신규 파싱: ${newPatches.length}개 패치`);
+  console.log(`영향받은 캐릭터: ${affectedCharacters.size}명`);
   console.log(`총 캐릭터: ${characterCount}명`);
   console.log(`총 패치 기록: ${totalChanges}개`);
-  console.log(`저장 위치: ${outputPath}`);
+  console.log(`저장 위치: ${BALANCE_PATH}`);
 
   // 연속 기록 Top 5 출력
   const streakRanking = Object.values(characterMap)
