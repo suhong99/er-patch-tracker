@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { LoginForm } from '@/components/admin/LoginForm';
 
@@ -36,9 +37,9 @@ export default function AdminLoginPage(): React.JSX.Element {
         </div>
 
         <div className="mt-6 text-center">
-          <a href="/" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+          <Link href="/" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
             ← 홈으로 돌아가기
-          </a>
+          </Link>
         </div>
       </div>
     </div>
