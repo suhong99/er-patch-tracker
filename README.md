@@ -70,7 +70,8 @@ npm run crawl
 | chore    | 설정, 빌드 관련 작업 |
 | test     | 테스트 코드 추가     |
 
-## 수집된 데이터
+## 데이터
 
-- 총 **270개** 패치노트 (2023-05-16 ~ 2025-12-16)
+- 패치노트 시작일 (2023-05-16 ~)
 - 포함 정보: 제목, 링크, 작성일, 수정일, 썸네일, 조회수
+- 이미지 출처 : https://drive.google.com/drive/folders/1m__ubKg-KY7TqnqbFqwHi1DVxrdBeTEW

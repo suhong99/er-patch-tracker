@@ -1,8 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Character, ChangeType } from '@/types/patch';
 import { getChangeTypeColor, formatDate } from '@/lib/patch-utils';
+import { getCharacterImagePathByKorean } from '@/lib/character-names';
 
 type Props = {
   character: Character;
@@ -27,10 +30,17 @@ export default function CharacterCard({ character }: Props): React.ReactElement 
   const { name, stats, patchHistory } = character;
   const latestPatch = patchHistory[0];
   const streakType = stats.currentStreak.type;
+  const [imageError, setImageError] = useState(false);
+
+  const imagePath = getCharacterImagePathByKorean(name);
+  const hasImage = imagePath && !imageError;
 
   const buffPercent = calculatePercent(stats.buffCount, stats.totalPatches);
   const nerfPercent = calculatePercent(stats.nerfCount, stats.totalPatches);
   const mixedPercent = calculatePercent(stats.mixedCount, stats.totalPatches);
+
+  // 이름의 첫 글자로 이니셜 생성
+  const initial = name.charAt(0);
 
   return (
     <Link href={`/character/${encodeURIComponent(name)}`}>
@@ -40,13 +50,32 @@ export default function CharacterCard({ character }: Props): React.ReactElement 
 
         {/* 헤더 */}
         <div className="relative mb-4 flex items-start justify-between">
-          <div>
-            <h3 className="text-lg font-bold text-zinc-100 transition-colors group-hover:text-violet-300">
-              {name}
-            </h3>
-            <p className="text-sm text-zinc-500">
-              총 <span className="font-mono text-cyan-400">{stats.totalPatches}</span>회 패치
-            </p>
+          <div className="flex items-center gap-3">
+            {/* 캐릭터 이미지 */}
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-[#2a2d35] bg-[#1a1d24]">
+              {hasImage ? (
+                <Image
+                  src={imagePath}
+                  alt={name}
+                  fill
+                  sizes="48px"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-violet-500/20 to-cyan-500/20">
+                  <span className="text-lg font-bold text-zinc-400">{initial}</span>
+                </div>
+              )}
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-zinc-100 transition-colors group-hover:text-violet-300">
+                {name}
+              </h3>
+              <p className="text-sm text-zinc-500">
+                총 <span className="font-mono text-cyan-400">{stats.totalPatches}</span>회 패치
+              </p>
+            </div>
           </div>
           {streakType && stats.currentStreak.count > 0 && (
             <div
