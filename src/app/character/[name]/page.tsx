@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { loadBalanceData, extractCharacters, findCharacterByName } from '@/lib/patch-data';
 import { getChangeTypeLabel } from '@/lib/patch-utils';
 import PatchCard from '@/components/PatchCard';
+import CharacterImage from '@/components/CharacterImage';
 
 type Props = {
   params: Promise<{ name: string }>;
@@ -103,25 +104,30 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
 
         {/* 헤더 */}
         <header className="mb-10">
-          <div className="flex flex-wrap items-center gap-4">
-            <h1 className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
-              {character.name}
-            </h1>
-            {currentStreak.type && currentStreak.count > 0 && (
-              <span
-                className={`rounded-lg border px-3 py-1.5 text-sm font-bold ${
-                  currentStreak.type === 'buff'
-                    ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
-                    : currentStreak.type === 'nerf'
-                      ? 'border-rose-500/40 bg-rose-500/10 text-rose-400'
-                      : 'border-amber-500/40 bg-amber-500/10 text-amber-400'
-                }`}
-              >
-                {currentStreak.count}연속 {getChangeTypeLabel(currentStreak.type)}
-              </span>
-            )}
+          <div className="flex items-center gap-5">
+            <CharacterImage name={character.name} size="lg" />
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <h1 className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
+                  {character.name}
+                </h1>
+                {currentStreak.type && currentStreak.count > 0 && (
+                  <span
+                    className={`rounded-lg border px-3 py-1.5 text-sm font-bold ${
+                      currentStreak.type === 'buff'
+                        ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
+                        : currentStreak.type === 'nerf'
+                          ? 'border-rose-500/40 bg-rose-500/10 text-rose-400'
+                          : 'border-amber-500/40 bg-amber-500/10 text-amber-400'
+                    }`}
+                  >
+                    {currentStreak.count}연속 {getChangeTypeLabel(currentStreak.type)}
+                  </span>
+                )}
+              </div>
+              <p className="mt-2 text-zinc-500">밸런스 패치 히스토리 및 통계</p>
+            </div>
           </div>
-          <p className="mt-3 text-zinc-500">밸런스 패치 히스토리 및 통계</p>
         </header>
 
         {/* 통계 그리드 */}
