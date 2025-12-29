@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: '', // Google Search Console 인증 코드
+    google: 'vaR8GNOeHhQY5Ce8595RJurGmROZAZDp_KWXv7e5wmI',
     other: {
-      'naver-site-verification': '', // 네이버 웹마스터 인증 코드
+      'naver-site-verification': '151c74c6866aa998716332e723d5ea47a339ac91',
     },
   },
 };
