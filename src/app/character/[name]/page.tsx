@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { loadBalanceData, extractCharacters, findCharacterByName } from '@/lib/patch-data';
@@ -54,11 +55,31 @@ export async function generateStaticParams(): Promise<Array<{ name: string }>> {
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<{ title: string }> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name } = await params;
   const decodedName = decodeURIComponent(name);
+  const data = await loadBalanceData();
+  const characters = extractCharacters(data);
+  const character = findCharacterByName(characters, name);
+
+  const title = `${decodedName} 패치 히스토리`;
+  const description = character
+    ? `이터널 리턴 ${decodedName} 실험체의 밸런스 패치 기록입니다. 총 ${character.stats.totalPatches}회 패치, 상향 ${character.stats.buffCount}회, 하향 ${character.stats.nerfCount}회.`
+    : `이터널 리턴 ${decodedName} 실험체의 밸런스 패치 히스토리`;
+
   return {
-    title: `${decodedName} - 패치 히스토리 | ETERNAL RETURN`,
+    title,
+    description,
+    openGraph: {
+      title: `${title} | 이터널 리턴 패치 트래커`,
+      description,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+    },
   };
 }
 
@@ -78,29 +99,35 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
   return (
     <div className="min-h-screen bg-[#0a0b0f]">
       {/* 배경 효과 */}
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.1),transparent_50%)]" />
+      <div
+        className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.1),transparent_50%)]"
+        aria-hidden="true"
+      />
 
-      <div className="relative mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* 뒤로가기 */}
-        <Link
-          href="/"
-          className="group mb-8 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-violet-400"
-        >
-          <svg
-            className="h-4 w-4 transition-transform group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+      <main className="relative mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* 네비게이션 */}
+        <nav aria-label="뒤로가기" className="mb-8">
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-violet-400"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          목록으로 돌아가기
-        </Link>
+            <svg
+              className="h-4 w-4 transition-transform group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            목록으로 돌아가기
+          </Link>
+        </nav>
 
         {/* 헤더 */}
         <header className="mb-10">
@@ -144,7 +171,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
         </section>
 
         {/* 타임라인 */}
-        <section>
+        <section aria-labelledby="patch-history-heading">
           <div className="mb-6 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10">
               <svg
@@ -152,6 +179,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -162,17 +190,22 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
               </svg>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-zinc-100">패치 히스토리</h2>
+              <h2 id="patch-history-heading" className="text-xl font-bold text-zinc-100">
+                패치 히스토리
+              </h2>
               <p className="text-sm text-zinc-500">{character.patchHistory.length}개의 패치 기록</p>
             </div>
           </div>
 
           <div className="relative space-y-4">
             {/* 타임라인 라인 */}
-            <div className="absolute bottom-0 left-6 top-0 w-px bg-gradient-to-b from-violet-500/50 via-[#2a2d35] to-transparent" />
+            <div
+              className="absolute bottom-0 left-6 top-0 w-px bg-gradient-to-b from-violet-500/50 via-[#2a2d35] to-transparent"
+              aria-hidden="true"
+            />
 
             {character.patchHistory.map((patch, index) => (
-              <div key={patch.patchId} className="relative pl-16">
+              <article key={patch.patchId} className="relative pl-16">
                 {/* 타임라인 도트 */}
                 <div
                   className={`absolute left-4 top-6 h-4 w-4 rounded-full border-2 ${
@@ -180,13 +213,14 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
                       ? 'border-violet-500 bg-violet-500'
                       : 'border-[#2a2d35] bg-[#13151a]'
                   }`}
+                  aria-hidden="true"
                 />
                 <PatchCard patch={patch} />
-              </div>
+              </article>
             ))}
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 }

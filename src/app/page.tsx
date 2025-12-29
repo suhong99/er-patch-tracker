@@ -1,4 +1,10 @@
-import { loadBalanceData, extractCharacters, calculateStatsSummary, getLatestPatchInfo, getDataCoverageInfo } from '@/lib/patch-data';
+import {
+  loadBalanceData,
+  extractCharacters,
+  calculateStatsSummary,
+  getLatestPatchInfo,
+  getDataCoverageInfo,
+} from '@/lib/patch-data';
 import { formatDate } from '@/lib/patch-utils';
 import CharacterList from '@/components/CharacterList';
 
@@ -41,10 +47,16 @@ export default async function Home(): Promise<React.ReactElement> {
   return (
     <div className="min-h-screen bg-[#0a0b0f]">
       {/* 배경 효과 */}
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.1),transparent_50%)]" />
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(34,211,238,0.05),transparent_50%)]" />
+      <div
+        className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.1),transparent_50%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(34,211,238,0.05),transparent_50%)]"
+        aria-hidden="true"
+      />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* 헤더 */}
         <header className="mb-12 text-center">
           <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
@@ -103,10 +115,13 @@ export default async function Home(): Promise<React.ReactElement> {
         </section>
 
         {/* 캐릭터 목록 */}
-        <section>
+        <section aria-labelledby="character-list-heading">
+          <h2 id="character-list-heading" className="sr-only">
+            실험체 목록
+          </h2>
           <CharacterList characters={characters} updatedAt={data.updatedAt} />
         </section>
-      </div>
+      </main>
     </div>
   );
 }
