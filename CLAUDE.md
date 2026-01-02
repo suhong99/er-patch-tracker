@@ -31,7 +31,19 @@ npm run lint     # ESLint
 
 - `src/CLAUDE.md` - 소스 코드 구조, 타입, 컴포넌트
 - `scripts/CLAUDE.md` - 크롤링/관리 스크립트
-- `docs/work-logs/` - 작업 로그 (중단 시 이어서 진행용)
+
+## 작업 로그
+
+작업 시작 전 반드시 `docs/work-logs/`에 로그 파일 생성 후 진행.
+
+| 작업 로그                             | 설명                          |
+| ------------------------------------- | ----------------------------- |
+| `docs/work-logs/README.md`            | 작업 로그 템플릿 및 작성 규칙 |
+| `docs/work-logs/YYYY-MM-DD-작업명.md` | 개별 작업 로그                |
+
+**현재/최근 작업:**
+
+- `docs/work-logs/2026-01-02-시즌별패치구분.md` - 시즌별 패치 구분 기능 (feature/17)
 
 ## Claude 작업 규칙
 

@@ -17,9 +17,9 @@ closes #이슈번호
 
 ## 테스트
 
-- [ ] 로컬에서 `npm run build` 성공
-- [ ] 로컬에서 `npm run lint` 통과
-- [ ] 관련 기능 수동 테스트 완료
+- [x] 로컬에서 `npm run build` 성공
+- [x] 로컬에서 `npm run lint` 통과
+- [x] 관련 기능 수동 테스트 완료
 
 ## 스크린샷 (UI 변경 시)
 

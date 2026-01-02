@@ -3,8 +3,10 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { loadBalanceData, extractCharacters, findCharacterByName } from '@/lib/patch-data';
 import { getChangeTypeLabel } from '@/lib/patch-utils';
+import { groupPatchesBySeason, getSeasonsFromPatches, formatSeasonLabel } from '@/lib/seasons';
 import PatchCard from '@/components/PatchCard';
 import CharacterImage from '@/components/CharacterImage';
+import SeasonNav from '@/components/SeasonNav';
 
 type Props = {
   params: Promise<{ name: string }>;
@@ -197,29 +199,58 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
             </div>
           </div>
 
-          <div className="relative space-y-4">
-            {/* 타임라인 라인 */}
-            <div
-              className="absolute bottom-0 left-6 top-0 w-px bg-gradient-to-b from-violet-500/50 via-[#2a2d35] to-transparent"
-              aria-hidden="true"
-            />
+          {/* 시즌별 그룹핑 */}
+          <div className="space-y-8">
+            {Array.from(groupPatchesBySeason(character.patchHistory).entries()).map(
+              ([season, patches]) => (
+                <div key={season.number} id={`season-${season.number}`} className="scroll-mt-6">
+                  {/* 시즌 헤더 */}
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/20">
+                      <span className="text-sm font-bold text-violet-400">S{season.number}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-zinc-200">
+                        {formatSeasonLabel(season)}
+                      </h3>
+                      <p className="text-xs text-zinc-500">
+                        {patches.length}개 패치 · {season.startDate.slice(0, 7)} ~{' '}
+                        {season.endPatch ? season.startDate.slice(0, 4) : '현재'}
+                      </p>
+                    </div>
+                  </div>
 
-            {character.patchHistory.map((patch, index) => (
-              <article key={patch.patchId} className="relative pl-16">
-                {/* 타임라인 도트 */}
-                <div
-                  className={`absolute left-4 top-6 h-4 w-4 rounded-full border-2 ${
-                    index === 0
-                      ? 'border-violet-500 bg-violet-500'
-                      : 'border-[#2a2d35] bg-[#13151a]'
-                  }`}
-                  aria-hidden="true"
-                />
-                <PatchCard patch={patch} />
-              </article>
-            ))}
+                  {/* 패치 목록 */}
+                  <div className="relative space-y-4">
+                    {/* 타임라인 라인 */}
+                    <div
+                      className="absolute bottom-0 left-6 top-0 w-px bg-gradient-to-b from-violet-500/50 via-[#2a2d35] to-transparent"
+                      aria-hidden="true"
+                    />
+
+                    {patches.map((patch, index) => (
+                      <article key={patch.patchId} className="relative pl-16">
+                        {/* 타임라인 도트 */}
+                        <div
+                          className={`absolute left-4 top-6 h-4 w-4 rounded-full border-2 ${
+                            index === 0
+                              ? 'border-violet-500 bg-violet-500'
+                              : 'border-[#2a2d35] bg-[#13151a]'
+                          }`}
+                          aria-hidden="true"
+                        />
+                        <PatchCard patch={patch} />
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              )
+            )}
           </div>
         </section>
+
+        {/* 시즌 네비게이션 */}
+        <SeasonNav seasons={getSeasonsFromPatches(character.patchHistory)} />
       </main>
     </div>
   );
