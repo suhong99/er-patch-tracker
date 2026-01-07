@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { adminAuth, db } from '@/lib/firebase-admin';
-import { clearBalanceDataCache, clearPatchNotesDataCache } from '@/lib/patch-data';
 import type { PatchEntry, Change, ChangeType } from '@/types/patch';
 
 type ChangeCategory = 'numeric' | 'mechanic' | 'added' | 'removed' | 'unknown';
@@ -242,11 +241,7 @@ export async function PATCH(
       stats: charData.stats,
     });
 
-    // 모듈 레벨 캐시 초기화
-    clearBalanceDataCache();
-    clearPatchNotesDataCache();
-
-    // 태그 기반 캐시 무효화
+    // 태그 기반 캐시 무효화 (unstable_cache 캐시 무효화)
     revalidateTag('balance-data', 'max');
     revalidateTag('patch-notes-data', 'max');
 
