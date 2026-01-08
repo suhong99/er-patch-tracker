@@ -3,7 +3,12 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { loadBalanceData, extractCharacters, findCharacterByName } from '@/lib/patch-data';
 import { getChangeTypeLabel } from '@/lib/patch-utils';
-import { groupPatchesBySeason, getSeasonsFromPatches, formatSeasonLabel } from '@/lib/seasons';
+import {
+  groupPatchesBySeason,
+  getSeasonsFromPatches,
+  formatSeasonLabel,
+  getSeasonEndDate,
+} from '@/lib/seasons';
 import PatchCard from '@/components/PatchCard';
 import CharacterImage from '@/components/CharacterImage';
 import SeasonNav from '@/components/SeasonNav';
@@ -214,8 +219,8 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
                         {formatSeasonLabel(season)}
                       </h3>
                       <p className="text-xs text-zinc-500">
-                        {patches.length}개 패치 · {season.startDate.slice(0, 7)} ~{' '}
-                        {season.endPatch ? season.startDate.slice(0, 4) : '현재'}
+                        {patches.length}개 패치 · {season.startDate} ~{' '}
+                        {getSeasonEndDate(season) ?? '현재'}
                       </p>
                     </div>
                   </div>
