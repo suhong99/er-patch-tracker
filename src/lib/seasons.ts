@@ -109,6 +109,7 @@ function parsePatchVersion(patchVersion: string): number {
 
 /**
  * 패치 버전으로 시즌 찾기
+ * @deprecated patchVersion 형식 불일치 문제로 getSeasonByDate 사용 권장
  */
 export function getSeasonByPatchVersion(patchVersion: string): Season | null {
   const version = parsePatchVersion(patchVersion);
@@ -127,10 +128,45 @@ export function getSeasonByPatchVersion(patchVersion: string): Season | null {
 }
 
 /**
+ * 패치 날짜로 시즌 찾기
+ * @param patchDate YYYY-MM-DD 형식의 날짜 문자열
+ */
+export function getSeasonByDate(patchDate: string): Season | null {
+  // 최신 시즌부터 역순으로 확인
+  for (let i = SEASONS.length - 1; i >= 0; i--) {
+    const season = SEASONS[i];
+    if (patchDate >= season.startDate) {
+      return season;
+    }
+  }
+
+  return null;
+}
+
+/**
  * 시즌 번호로 시즌 찾기
  */
 export function getSeasonByNumber(seasonNumber: number): Season | null {
   return SEASONS.find((s) => s.number === seasonNumber) ?? null;
+}
+
+/**
+ * 시즌 종료일 계산 (다음 시즌 시작일 - 1일)
+ * @returns YYYY-MM-DD 형식 또는 null (현재 시즌)
+ */
+export function getSeasonEndDate(season: Season): string | null {
+  const seasonIndex = SEASONS.findIndex((s) => s.number === season.number);
+  const nextSeason = SEASONS[seasonIndex + 1];
+
+  if (!nextSeason) {
+    return null; // 현재 시즌
+  }
+
+  // 다음 시즌 시작일 - 1일
+  const nextStart = new Date(nextSeason.startDate);
+  nextStart.setDate(nextStart.getDate() - 1);
+
+  return nextStart.toISOString().slice(0, 10);
 }
 
 /**
@@ -157,13 +193,13 @@ export function formatSeasonLabel(season: Season): string {
 /**
  * 패치 목록을 시즌별로 그룹핑
  */
-export function groupPatchesBySeason<T extends { patchVersion: string }>(
+export function groupPatchesBySeason<T extends { patchDate: string }>(
   patches: T[]
 ): Map<Season, T[]> {
   const grouped = new Map<Season, T[]>();
 
   for (const patch of patches) {
-    const season = getSeasonByPatchVersion(patch.patchVersion);
+    const season = getSeasonByDate(patch.patchDate);
     if (season) {
       const existing = grouped.get(season) ?? [];
       grouped.set(season, [...existing, patch]);
@@ -179,11 +215,11 @@ export function groupPatchesBySeason<T extends { patchVersion: string }>(
 /**
  * 패치에 포함된 시즌 목록 추출 (내림차순)
  */
-export function getSeasonsFromPatches<T extends { patchVersion: string }>(patches: T[]): Season[] {
+export function getSeasonsFromPatches<T extends { patchDate: string }>(patches: T[]): Season[] {
   const seasonSet = new Set<number>();
 
   for (const patch of patches) {
-    const season = getSeasonByPatchVersion(patch.patchVersion);
+    const season = getSeasonByDate(patch.patchDate);
     if (season) {
       seasonSet.add(season.number);
     }
