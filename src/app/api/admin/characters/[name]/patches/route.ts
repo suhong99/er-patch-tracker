@@ -58,11 +58,8 @@ async function verifyAdmin(authHeader: string | null): Promise<boolean> {
   }
 }
 
-// 변경된 패치부터 이후 패치들의 streak만 재계산 (최적화)
-function recalculateStreaksFromIndex(
-  patchHistory: ExtendedPatchEntry[],
-  changedPatchId: number
-): ExtendedPatchEntry[] {
+// 전체 streak 재계산
+function recalculateAllStreaks(patchHistory: ExtendedPatchEntry[]): ExtendedPatchEntry[] {
   if (patchHistory.length === 0) return patchHistory;
 
   // 날짜순 정렬 (오래된 것 먼저)
@@ -70,38 +67,10 @@ function recalculateStreaksFromIndex(
     (a, b) => new Date(a.patchDate).getTime() - new Date(b.patchDate).getTime()
   );
 
-  // 변경된 패치의 인덱스 찾기
-  const changedIndex = chronological.findIndex((p) => p.patchId === changedPatchId);
-  if (changedIndex === -1)
-    // 최신순(내림차순)으로 다시 정렬해서 반환
-    return chronological.sort(
-      (a, b) => new Date(b.patchDate).getTime() - new Date(a.patchDate).getTime()
-    );
-
-  // 변경된 패치 이전의 마지막 streak 상태 가져오기
   let currentStreakType: ChangeType | null = null;
   let currentStreakCount = 0;
 
-  if (changedIndex > 0) {
-    // 변경된 패치 직전까지의 streak 상태 계산
-    for (let i = 0; i < changedIndex; i++) {
-      const patch = chronological[i];
-      if (patch.overallChange === 'buff' || patch.overallChange === 'nerf') {
-        if (currentStreakType === patch.overallChange) {
-          currentStreakCount++;
-        } else {
-          currentStreakType = patch.overallChange;
-          currentStreakCount = 1;
-        }
-      } else {
-        currentStreakType = null;
-        currentStreakCount = 0;
-      }
-    }
-  }
-
-  // 변경된 패치부터 이후 패치들만 streak 재계산
-  for (let i = changedIndex; i < chronological.length; i++) {
+  for (let i = 0; i < chronological.length; i++) {
     const patch = chronological[i];
     if (patch.overallChange === 'buff' || patch.overallChange === 'nerf') {
       if (currentStreakType === patch.overallChange) {
@@ -186,9 +155,9 @@ function recalculateStats(patchHistory: ExtendedPatchEntry[]): CharacterData['st
   return stats;
 }
 
-export async function DELETE(
+export async function POST(
   request: Request,
-  { params }: { params: Promise<{ name: string; patchId: string }> }
+  { params }: { params: Promise<{ name: string }> }
 ): Promise<NextResponse> {
   try {
     // 관리자 권한 확인
@@ -199,9 +168,11 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { name, patchId } = await params;
+    const { name } = await params;
     const characterName = decodeURIComponent(name);
-    const patchIdNum = parseInt(patchId);
+
+    // 요청 body 파싱
+    const newPatch = (await request.json()) as ExtendedPatchEntry;
 
     // Firestore에서 캐릭터 데이터 조회
     const docRef = db.collection('characters').doc(characterName);
@@ -213,22 +184,17 @@ export async function DELETE(
 
     const charData = doc.data() as CharacterData;
 
-    // 해당 패치 찾기
-    const patchIndex = charData.patchHistory.findIndex((p) => p.patchId === patchIdNum);
-    if (patchIndex === -1) {
-      return NextResponse.json({ error: 'Patch not found' }, { status: 404 });
+    // 중복 patchId 확인
+    const existingPatch = charData.patchHistory.find((p) => p.patchId === newPatch.patchId);
+    if (existingPatch) {
+      return NextResponse.json({ error: 'Patch with this ID already exists' }, { status: 400 });
     }
 
-    // 패치 삭제
-    charData.patchHistory.splice(patchIndex, 1);
+    // 새 패치 추가
+    charData.patchHistory.push(newPatch);
 
-    // streak 재계산 (전체 재계산)
-    if (charData.patchHistory.length > 0) {
-      charData.patchHistory = recalculateStreaksFromIndex(
-        charData.patchHistory,
-        charData.patchHistory[0].patchId
-      );
-    }
+    // 전체 streak 재계산
+    charData.patchHistory = recalculateAllStreaks(charData.patchHistory);
 
     // 통계 재계산
     charData.stats = recalculateStats(charData.patchHistory);
@@ -251,85 +217,10 @@ export async function DELETE(
 
     return NextResponse.json({
       success: true,
-      message: 'Patch deleted successfully',
+      message: 'Patch added successfully',
     });
   } catch (error) {
-    console.error('Patch delete error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
-  }
-}
-
-export async function PATCH(
-  request: Request,
-  { params }: { params: Promise<{ name: string; patchId: string }> }
-): Promise<NextResponse> {
-  try {
-    // 관리자 권한 확인
-    const authHeader = request.headers.get('Authorization');
-    const isAdmin = await verifyAdmin(authHeader);
-
-    if (!isAdmin) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const { name, patchId } = await params;
-    const characterName = decodeURIComponent(name);
-    const patchIdNum = parseInt(patchId);
-
-    // 요청 body 파싱
-    const updatedPatch = (await request.json()) as ExtendedPatchEntry;
-
-    // Firestore에서 캐릭터 데이터 조회
-    const docRef = db.collection('characters').doc(characterName);
-    const doc = await docRef.get();
-
-    if (!doc.exists) {
-      return NextResponse.json({ error: 'Character not found' }, { status: 404 });
-    }
-
-    const charData = doc.data() as CharacterData;
-
-    // 해당 패치 찾기
-    const patchIndex = charData.patchHistory.findIndex((p) => p.patchId === patchIdNum);
-    if (patchIndex === -1) {
-      return NextResponse.json({ error: 'Patch not found' }, { status: 404 });
-    }
-
-    // 패치 업데이트
-    charData.patchHistory[patchIndex] = {
-      ...charData.patchHistory[patchIndex],
-      ...updatedPatch,
-      patchId: patchIdNum, // patchId는 변경 불가
-    };
-
-    // 변경된 패치부터 이후만 streak 재계산
-    charData.patchHistory = recalculateStreaksFromIndex(charData.patchHistory, patchIdNum);
-
-    // 통계 재계산
-    charData.stats = recalculateStats(charData.patchHistory);
-
-    // Firestore 저장
-    await docRef.update({
-      patchHistory: charData.patchHistory,
-      stats: charData.stats,
-    });
-
-    // 태그 기반 캐시 무효화 (unstable_cache 캐시 무효화)
-    revalidateTag('balance-data', 'max');
-    revalidateTag('patch-notes-data', 'max');
-
-    // 경로 기반 캐시 무효화 (전체 페이지)
-    revalidatePath('/');
-    revalidatePath('/admin');
-    revalidatePath('/character/[name]', 'page');
-    revalidatePath('/admin/character/[name]', 'page');
-
-    return NextResponse.json({
-      success: true,
-      message: 'Patch updated successfully',
-    });
-  } catch (error) {
-    console.error('Patch update error:', error);
+    console.error('Patch add error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
