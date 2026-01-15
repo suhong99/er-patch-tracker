@@ -1,0 +1,633 @@
+{
+  "summary": {
+    "total": 24,
+    "realChanges": 7,
+    "notRealChanges": 17
+  },
+  "realChanges": [
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "라우라",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 라우라...",
+        "[P] 매우 좋은 통계를 보여주고 있는 라우라의 전반적인 위력을 줄입니다. 또한 W - 예고장의 쿨다운이 늘어 추격 능력과 유지력도 감소합니다....",
+        "[LI] 예고장(W)피해량 60/90/120/150/180(+스킬 증폭의 65%) → 60/90/120/150/180(+스킬 증폭의 60%)쿨다운 10/",
+        "[LI] 피해량 60/90/120/150/180(+스킬 증폭의 65%) → 60/90/120/150/180(+스킬 증폭의 60%)",
+        "[LI] 쿨다운 10/9.5/9/8.5/8초 → 11/10.5/10/9.5/9초",
+        "[LI] 황혼의 도둑(R)보호막 흡수량 90/120/150(+스킬 증폭의 20%) → 90/120/150(+스킬 증폭의 15%)1타 피해량 50/100/",
+        "[LI] 보호막 흡수량 90/120/150(+스킬 증폭의 20%) → 90/120/150(+스킬 증폭의 15%)",
+        "[LI] 1타 피해량 50/100/150(+스킬 증폭의 15%) → 50/100/150(+스킬 증폭의 10%)",
+        "[LI] 2타 피해량 200/280/360(+스킬 증폭의 75%) → 170/250/330(+스킬 증폭의 75%)"
+      ]
+    },
+    {
+      "patchId": 1954,
+      "patchTitle": "2024.06.05 - 1.23 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1954",
+      "character": "수아",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 수아...",
+        "[P] 수아가 게임 초반에 특히 약한 모습을 보이고 있어, 기본 체력을 증가 시키고 R - 기억력의 초반 구간 쿨다운을 감소시켜 이를 보완하려고 합니다...",
+        "[LI] 최대 체력 1020 → 1070",
+        "[LI] 기억력(R)쿨다운 46/33/20초 → 40/30/20초",
+        "[LI] 쿨다운 46/33/20초 → 40/30/20초"
+      ]
+    },
+    {
+      "patchId": 2038,
+      "patchTitle": "2024.07.18 - 1.26 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2038",
+      "character": "아비게일",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 아비게일...",
+        "[P] 아비게일이 초중반 단계에서 조금 더 활약할 수 있도록 P - 티어링 블레이드의 쿨다운을 낮추고, Q - 바이너리 스핀의 피해량을 올립니다....",
+        "[LI] 기본 방어력 50 → 52",
+        "[LI] 티어링 블레이드(P)쿨다운 16/11/6초 → 12/9/6초",
+        "[LI] 쿨다운 16/11/6초 → 12/9/6초",
+        "[LI] 바이너리 스핀(Q)1타 피해량 20/35/50/65/80(+스킬 증폭의 25%) → 20/40/60/80/100(+스킬 증폭의 25%)",
+        "[LI] 1타 피해량 20/35/50/65/80(+스킬 증폭의 25%) → 20/40/60/80/100(+스킬 증폭의 25%)"
+      ]
+    },
+    {
+      "patchId": 2102,
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "character": "츠바메",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 츠바메...",
+        "[P] 약한 모습을 보이고 있는 츠바메의 패시브 피해량을 올립니다....",
+        "[LI] 오의 - 생사 각인(P)피해량 10(+추가 공격력의 50%)(+대상 최대 체력의1/3.5/6%(+추가 공격력의 3%)) → 30(+추가 공격력의",
+        "[LI] 피해량 10(+추가 공격력의 50%)(+대상 최대 체력의1/3.5/6%(+추가 공격력의 3%)) → 30(+추가 공격력의 60%)(+대상 최대 "
+      ]
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "아드리아나",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 아드리아나...",
+        "[P] 좋은 통계를 보여주고 있는 아드리아나의 화염 지대의 피해량을 낮추어 전반적인 위력을 감소시킵니다....",
+        "[LI] 불길 쇄도(E)화염 지대 피해량 20/30/40/50/60(+스킬 증폭의 18%) → 20/30/40/50/60(+스킬 증폭의 16%)",
+        "[LI] 화염 지대 피해량 20/30/40/50/60(+스킬 증폭의 18%) → 20/30/40/50/60(+스킬 증폭의 16%)"
+      ]
+    },
+    {
+      "patchId": 2645,
+      "patchTitle": "2025.04.17 - 1.45 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2645",
+      "character": "캐시",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 캐시...",
+        "[P] 사용 빈도가 낮은 단검 캐시의 위력을 향상시킵니다....",
+        "[LI] 단검 무기 숙련도 레벨 당 스킬 증폭 4.2% → 4.4%"
+      ]
+    },
+    {
+      "patchId": 2201,
+      "patchTitle": "2024.09.26 - 1.31 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2201",
+      "character": "알론소",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 알론소...",
+        "[P] 현재 알론소는 최상위권에서 조합을 맞출 때, 가장 먼저 언급되는 탱커라고 볼 수 있을 만큼 매우 든든한 모습을 보여주는 실험체입니다. 후반에 전...",
+        "[LI] 마그네틱 펀치(Q)연결된 적 피해량 (알론소 레벨*10)(+대상 최대 체력의 7/7.5/8/8.5/9%) → (알론소 레벨*10)(+대상 최대 ",
+        "[LI] 연결된 적 피해량 (알론소 레벨*10)(+대상 최대 체력의 7/7.5/8/8.5/9%) → (알론소 레벨*10)(+대상 최대 체력의 6/6.5/",
+        "[LI] 바운딩 실드(W)받는 피해 감소 70% → 60%",
+        "[LI] 받는 피해 감소 70% → 60%"
+      ]
+    }
+  ],
+  "notRealChanges": [
+    {
+      "patchId": 2765,
+      "patchTitle": "[수정] 2025.06.12 - 1.49 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2765",
+      "character": "다르코",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 다르코의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 3242,
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "character": "미르카",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 미르카의 A-Coin 구매 가격 9,900 → 8,020개히스이의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1654,
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "character": "타지아",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 타지아의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이렘의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 5,290...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1812,
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "character": "테오도르",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 바냐의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이안의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 ...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1727,
+      "patchTitle": "2024.02.15 - 1.15 패치노트 Part.1",
+      "patchLink": "https://playeternalreturn.com/posts/news/1727",
+      "character": "테오도르",
+      "hasRealChanges": false,
+      "reason": "변경사항 불명확",
+      "details": [
+        "[요소 텍스트] 아이작의 NP 구매 가격 645 → 285개, A-Coin 구매 가격 2,140 → 620개테오도르의 NP 구매 가격 1075→ 870개, A-Coin 구매 가격 8,020→ 4,...",
+        "[가격 관련 텍스트 발견]",
+        "[LI] 충전형 스킬의 쿨다운과 충전 시간을 별도로 표시합니다."
+      ]
+    },
+    {
+      "patchId": 3242,
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "character": "히스이",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 미르카의 A-Coin 구매 가격 9,900 → 8,020개히스이의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 3085,
+      "patchTitle": "9.0 패치노트 Part.2 - 실험체 및 아이템 (2025.10.16)",
+      "patchLink": "https://playeternalreturn.com/posts/news/3085",
+      "character": "에이든",
+      "hasRealChanges": false,
+      "reason": "UL 변경사항 없음",
+      "details": ["[요소 텍스트] 에이든...", "[P] 전체적인 캐릭터 애니메이션이 개선됩니다...."]
+    },
+    {
+      "patchId": 1900,
+      "patchTitle": "2024.05.09 - 1.21 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1900",
+      "character": "이안",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 바냐의 NP 구매 가격 870→ 645개, A-Coin 구매 가격 4,340→ 2,140개이안의 NP 구매 가격 870→ 645개, A-Coin 구매 가격 4,340→ 2,140개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "레니",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 레니의 NP 구매 가격 650→ 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2102,
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "character": "아르다",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 아르다의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1480,
+      "patchTitle": "2023.10.12 - 1.6 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1480",
+      "character": "헤이즈",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 마르티나의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개헤이즈의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,0...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1812,
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "character": "바냐",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 바냐의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이안의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 ...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1654,
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "character": "아이작",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 타지아의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이렘의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 5,290...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1582,
+      "patchTitle": "2023.11.23 - 1.9 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1582",
+      "character": "아이작",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 헤이즈의 NP 구매 가격 870 → 645개, A-Coin 구매 가격 4,340 → 2,140개아이작의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020→...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1447,
+      "patchTitle": "[추가됨] 2023.09.26 - 1.5 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1447",
+      "character": "얀",
+      "hasRealChanges": false,
+      "reason": "UL 변경사항 없음",
+      "details": [
+        "[요소 텍스트] 얀...",
+        "[P] 글러브 공격력 상향으로 글러브 활용 시 위력이 강해집니다. (글러브 항목 참조)..."
+      ]
+    },
+    {
+      "patchId": 2364,
+      "patchTitle": "1.36 패치노트 Part.2 - 실험체 및 아이템",
+      "patchLink": "https://playeternalreturn.com/posts/news/2364",
+      "character": "알론소",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 알론소의 NP 구매 가격 350→ 200개, A-Coin 구매 가격 4,340 → 2,140개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2237,
+      "patchTitle": "2024.10.10 - 1.32 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2237",
+      "character": "알론소",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 알론소의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    }
+  ],
+  "allResults": [
+    {
+      "patchId": 2765,
+      "patchTitle": "[수정] 2025.06.12 - 1.49 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2765",
+      "character": "다르코",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 다르코의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "라우라",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 라우라...",
+        "[P] 매우 좋은 통계를 보여주고 있는 라우라의 전반적인 위력을 줄입니다. 또한 W - 예고장의 쿨다운이 늘어 추격 능력과 유지력도 감소합니다....",
+        "[LI] 예고장(W)피해량 60/90/120/150/180(+스킬 증폭의 65%) → 60/90/120/150/180(+스킬 증폭의 60%)쿨다운 10/",
+        "[LI] 피해량 60/90/120/150/180(+스킬 증폭의 65%) → 60/90/120/150/180(+스킬 증폭의 60%)",
+        "[LI] 쿨다운 10/9.5/9/8.5/8초 → 11/10.5/10/9.5/9초",
+        "[LI] 황혼의 도둑(R)보호막 흡수량 90/120/150(+스킬 증폭의 20%) → 90/120/150(+스킬 증폭의 15%)1타 피해량 50/100/",
+        "[LI] 보호막 흡수량 90/120/150(+스킬 증폭의 20%) → 90/120/150(+스킬 증폭의 15%)",
+        "[LI] 1타 피해량 50/100/150(+스킬 증폭의 15%) → 50/100/150(+스킬 증폭의 10%)",
+        "[LI] 2타 피해량 200/280/360(+스킬 증폭의 75%) → 170/250/330(+스킬 증폭의 75%)"
+      ]
+    },
+    {
+      "patchId": 3242,
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "character": "미르카",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 미르카의 A-Coin 구매 가격 9,900 → 8,020개히스이의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1954,
+      "patchTitle": "2024.06.05 - 1.23 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1954",
+      "character": "수아",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 수아...",
+        "[P] 수아가 게임 초반에 특히 약한 모습을 보이고 있어, 기본 체력을 증가 시키고 R - 기억력의 초반 구간 쿨다운을 감소시켜 이를 보완하려고 합니다...",
+        "[LI] 최대 체력 1020 → 1070",
+        "[LI] 기억력(R)쿨다운 46/33/20초 → 40/30/20초",
+        "[LI] 쿨다운 46/33/20초 → 40/30/20초"
+      ]
+    },
+    {
+      "patchId": 2038,
+      "patchTitle": "2024.07.18 - 1.26 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2038",
+      "character": "아비게일",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 아비게일...",
+        "[P] 아비게일이 초중반 단계에서 조금 더 활약할 수 있도록 P - 티어링 블레이드의 쿨다운을 낮추고, Q - 바이너리 스핀의 피해량을 올립니다....",
+        "[LI] 기본 방어력 50 → 52",
+        "[LI] 티어링 블레이드(P)쿨다운 16/11/6초 → 12/9/6초",
+        "[LI] 쿨다운 16/11/6초 → 12/9/6초",
+        "[LI] 바이너리 스핀(Q)1타 피해량 20/35/50/65/80(+스킬 증폭의 25%) → 20/40/60/80/100(+스킬 증폭의 25%)",
+        "[LI] 1타 피해량 20/35/50/65/80(+스킬 증폭의 25%) → 20/40/60/80/100(+스킬 증폭의 25%)"
+      ]
+    },
+    {
+      "patchId": 2102,
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "character": "츠바메",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 츠바메...",
+        "[P] 약한 모습을 보이고 있는 츠바메의 패시브 피해량을 올립니다....",
+        "[LI] 오의 - 생사 각인(P)피해량 10(+추가 공격력의 50%)(+대상 최대 체력의1/3.5/6%(+추가 공격력의 3%)) → 30(+추가 공격력의",
+        "[LI] 피해량 10(+추가 공격력의 50%)(+대상 최대 체력의1/3.5/6%(+추가 공격력의 3%)) → 30(+추가 공격력의 60%)(+대상 최대 "
+      ]
+    },
+    {
+      "patchId": 1654,
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "character": "타지아",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 타지아의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이렘의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 5,290...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1812,
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "character": "테오도르",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 바냐의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이안의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 ...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1727,
+      "patchTitle": "2024.02.15 - 1.15 패치노트 Part.1",
+      "patchLink": "https://playeternalreturn.com/posts/news/1727",
+      "character": "테오도르",
+      "hasRealChanges": false,
+      "reason": "변경사항 불명확",
+      "details": [
+        "[요소 텍스트] 아이작의 NP 구매 가격 645 → 285개, A-Coin 구매 가격 2,140 → 620개테오도르의 NP 구매 가격 1075→ 870개, A-Coin 구매 가격 8,020→ 4,...",
+        "[가격 관련 텍스트 발견]",
+        "[LI] 충전형 스킬의 쿨다운과 충전 시간을 별도로 표시합니다."
+      ]
+    },
+    {
+      "patchId": 3242,
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "character": "히스이",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 미르카의 A-Coin 구매 가격 9,900 → 8,020개히스이의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "아드리아나",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 아드리아나...",
+        "[P] 좋은 통계를 보여주고 있는 아드리아나의 화염 지대의 피해량을 낮추어 전반적인 위력을 감소시킵니다....",
+        "[LI] 불길 쇄도(E)화염 지대 피해량 20/30/40/50/60(+스킬 증폭의 18%) → 20/30/40/50/60(+스킬 증폭의 16%)",
+        "[LI] 화염 지대 피해량 20/30/40/50/60(+스킬 증폭의 18%) → 20/30/40/50/60(+스킬 증폭의 16%)"
+      ]
+    },
+    {
+      "patchId": 3085,
+      "patchTitle": "9.0 패치노트 Part.2 - 실험체 및 아이템 (2025.10.16)",
+      "patchLink": "https://playeternalreturn.com/posts/news/3085",
+      "character": "에이든",
+      "hasRealChanges": false,
+      "reason": "UL 변경사항 없음",
+      "details": ["[요소 텍스트] 에이든...", "[P] 전체적인 캐릭터 애니메이션이 개선됩니다...."]
+    },
+    {
+      "patchId": 1900,
+      "patchTitle": "2024.05.09 - 1.21 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1900",
+      "character": "이안",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 바냐의 NP 구매 가격 870→ 645개, A-Coin 구매 가격 4,340→ 2,140개이안의 NP 구매 가격 870→ 645개, A-Coin 구매 가격 4,340→ 2,140개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "레니",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 레니의 NP 구매 가격 650→ 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2102,
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "character": "아르다",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 아르다의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2645,
+      "patchTitle": "2025.04.17 - 1.45 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2645",
+      "character": "캐시",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 캐시...",
+        "[P] 사용 빈도가 낮은 단검 캐시의 위력을 향상시킵니다....",
+        "[LI] 단검 무기 숙련도 레벨 당 스킬 증폭 4.2% → 4.4%"
+      ]
+    },
+    {
+      "patchId": 1480,
+      "patchTitle": "2023.10.12 - 1.6 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1480",
+      "character": "헤이즈",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 마르티나의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개헤이즈의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,0...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1812,
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "character": "바냐",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 바냐의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이안의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 ...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1654,
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "character": "아이작",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 타지아의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020 → 4,340개이렘의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 5,290...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1582,
+      "patchTitle": "2023.11.23 - 1.9 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1582",
+      "character": "아이작",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 헤이즈의 NP 구매 가격 870 → 645개, A-Coin 구매 가격 4,340 → 2,140개아이작의 NP 구매 가격 1,075 → 870개, A-Coin 구매 가격 8,020→...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 1447,
+      "patchTitle": "[추가됨] 2023.09.26 - 1.5 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/1447",
+      "character": "얀",
+      "hasRealChanges": false,
+      "reason": "UL 변경사항 없음",
+      "details": [
+        "[요소 텍스트] 얀...",
+        "[P] 글러브 공격력 상향으로 글러브 활용 시 위력이 강해집니다. (글러브 항목 참조)..."
+      ]
+    },
+    {
+      "patchId": 2364,
+      "patchTitle": "1.36 패치노트 Part.2 - 실험체 및 아이템",
+      "patchLink": "https://playeternalreturn.com/posts/news/2364",
+      "character": "알론소",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 알론소의 NP 구매 가격 350→ 200개, A-Coin 구매 가격 4,340 → 2,140개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2237,
+      "patchTitle": "2024.10.10 - 1.32 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2237",
+      "character": "알론소",
+      "hasRealChanges": false,
+      "reason": "가격 정보만 있음 (변경사항 없음)",
+      "details": [
+        "[요소 텍스트] 알론소의 NP 구매 가격 650 → 350개, A-Coin 구매 가격 8,020 → 4,340개...",
+        "[가격 관련 텍스트 발견]"
+      ]
+    },
+    {
+      "patchId": 2201,
+      "patchTitle": "2024.09.26 - 1.31 패치노트",
+      "patchLink": "https://playeternalreturn.com/posts/news/2201",
+      "character": "알론소",
+      "hasRealChanges": true,
+      "reason": "수치 변경 발견 (→)",
+      "details": [
+        "[요소 텍스트] 알론소...",
+        "[P] 현재 알론소는 최상위권에서 조합을 맞출 때, 가장 먼저 언급되는 탱커라고 볼 수 있을 만큼 매우 든든한 모습을 보여주는 실험체입니다. 후반에 전...",
+        "[LI] 마그네틱 펀치(Q)연결된 적 피해량 (알론소 레벨*10)(+대상 최대 체력의 7/7.5/8/8.5/9%) → (알론소 레벨*10)(+대상 최대 ",
+        "[LI] 연결된 적 피해량 (알론소 레벨*10)(+대상 최대 체력의 7/7.5/8/8.5/9%) → (알론소 레벨*10)(+대상 최대 체력의 6/6.5/",
+        "[LI] 바운딩 실드(W)받는 피해 감소 70% → 60%",
+        "[LI] 받는 피해 감소 70% → 60%"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,770 @@
+{
+  "summary": {
+    "totalMissing": 24,
+    "affectedCharacters": 20,
+    "affectedPatches": 18,
+    "extraInFirebase": 45
+  },
+  "missingByCharacter": {
+    "다르코": [
+      {
+        "patchId": 2765,
+        "patchTitle": "[수정] 2025.06.12 - 1.49 패치노트",
+        "patchDate": "2025-06-11",
+        "patchLink": "https://playeternalreturn.com/posts/news/2765",
+        "character": "다르코"
+      }
+    ],
+    "라우라": [
+      {
+        "patchId": 2331,
+        "patchTitle": "2024.11.21 - 1.35 패치노트",
+        "patchDate": "2024-11-20",
+        "patchLink": "https://playeternalreturn.com/posts/news/2331",
+        "character": "라우라"
+      }
+    ],
+    "미르카": [
+      {
+        "patchId": 3242,
+        "patchTitle": "2025.12.23 - 9.6 패치노트",
+        "patchDate": "2025-12-22",
+        "patchLink": "https://playeternalreturn.com/posts/news/3242",
+        "character": "미르카"
+      }
+    ],
+    "수아": [
+      {
+        "patchId": 1954,
+        "patchTitle": "2024.06.05 - 1.23 패치노트",
+        "patchDate": "2024-06-04",
+        "patchLink": "https://playeternalreturn.com/posts/news/1954",
+        "character": "수아"
+      }
+    ],
+    "아비게일": [
+      {
+        "patchId": 2038,
+        "patchTitle": "2024.07.18 - 1.26 패치노트",
+        "patchDate": "2024-07-17",
+        "patchLink": "https://playeternalreturn.com/posts/news/2038",
+        "character": "아비게일"
+      }
+    ],
+    "츠바메": [
+      {
+        "patchId": 2102,
+        "patchTitle": "2024.08.14 - 1.28 패치노트",
+        "patchDate": "2024-08-13",
+        "patchLink": "https://playeternalreturn.com/posts/news/2102",
+        "character": "츠바메"
+      }
+    ],
+    "타지아": [
+      {
+        "patchId": 1654,
+        "patchTitle": "2024.01.04 - 1.12 패치노트",
+        "patchDate": "2024-01-03",
+        "patchLink": "https://playeternalreturn.com/posts/news/1654",
+        "character": "타지아"
+      }
+    ],
+    "테오도르": [
+      {
+        "patchId": 1812,
+        "patchTitle": "2024.03.28 - 1.18 패치노트",
+        "patchDate": "2024-03-27",
+        "patchLink": "https://playeternalreturn.com/posts/news/1812",
+        "character": "테오도르"
+      },
+      {
+        "patchId": 1727,
+        "patchTitle": "2024.02.15 - 1.15 패치노트 Part.1",
+        "patchDate": "2024-02-14",
+        "patchLink": "https://playeternalreturn.com/posts/news/1727",
+        "character": "테오도르"
+      }
+    ],
+    "히스이": [
+      {
+        "patchId": 3242,
+        "patchTitle": "2025.12.23 - 9.6 패치노트",
+        "patchDate": "2025-12-22",
+        "patchLink": "https://playeternalreturn.com/posts/news/3242",
+        "character": "히스이"
+      }
+    ],
+    "아드리아나": [
+      {
+        "patchId": 2331,
+        "patchTitle": "2024.11.21 - 1.35 패치노트",
+        "patchDate": "2024-11-20",
+        "patchLink": "https://playeternalreturn.com/posts/news/2331",
+        "character": "아드리아나"
+      }
+    ],
+    "에이든": [
+      {
+        "patchId": 3085,
+        "patchTitle": "9.0 패치노트 Part.2 - 실험체 및 아이템 (2025.10.16)",
+        "patchDate": "2025-10-15",
+        "patchLink": "https://playeternalreturn.com/posts/news/3085",
+        "character": "에이든"
+      }
+    ],
+    "이안": [
+      {
+        "patchId": 1900,
+        "patchTitle": "2024.05.09 - 1.21 패치노트",
+        "patchDate": "2024-05-08",
+        "patchLink": "https://playeternalreturn.com/posts/news/1900",
+        "character": "이안"
+      }
+    ],
+    "레니": [
+      {
+        "patchId": 2331,
+        "patchTitle": "2024.11.21 - 1.35 패치노트",
+        "patchDate": "2024-11-20",
+        "patchLink": "https://playeternalreturn.com/posts/news/2331",
+        "character": "레니"
+      }
+    ],
+    "아르다": [
+      {
+        "patchId": 2102,
+        "patchTitle": "2024.08.14 - 1.28 패치노트",
+        "patchDate": "2024-08-13",
+        "patchLink": "https://playeternalreturn.com/posts/news/2102",
+        "character": "아르다"
+      }
+    ],
+    "캐시": [
+      {
+        "patchId": 2645,
+        "patchTitle": "2025.04.17 - 1.45 패치노트",
+        "patchDate": "2025-04-16",
+        "patchLink": "https://playeternalreturn.com/posts/news/2645",
+        "character": "캐시"
+      }
+    ],
+    "헤이즈": [
+      {
+        "patchId": 1480,
+        "patchTitle": "2023.10.12 - 1.6 패치노트",
+        "patchDate": "2023-10-11",
+        "patchLink": "https://playeternalreturn.com/posts/news/1480",
+        "character": "헤이즈"
+      }
+    ],
+    "바냐": [
+      {
+        "patchId": 1812,
+        "patchTitle": "2024.03.28 - 1.18 패치노트",
+        "patchDate": "2024-03-27",
+        "patchLink": "https://playeternalreturn.com/posts/news/1812",
+        "character": "바냐"
+      }
+    ],
+    "아이작": [
+      {
+        "patchId": 1654,
+        "patchTitle": "2024.01.04 - 1.12 패치노트",
+        "patchDate": "2024-01-03",
+        "patchLink": "https://playeternalreturn.com/posts/news/1654",
+        "character": "아이작"
+      },
+      {
+        "patchId": 1582,
+        "patchTitle": "2023.11.23 - 1.9 패치노트",
+        "patchDate": "2023-11-22",
+        "patchLink": "https://playeternalreturn.com/posts/news/1582",
+        "character": "아이작"
+      }
+    ],
+    "얀": [
+      {
+        "patchId": 1447,
+        "patchTitle": "[추가됨] 2023.09.26 - 1.5 패치노트",
+        "patchDate": "2023-09-25",
+        "patchLink": "https://playeternalreturn.com/posts/news/1447",
+        "character": "얀"
+      }
+    ],
+    "알론소": [
+      {
+        "patchId": 2364,
+        "patchTitle": "1.36 패치노트 Part.2 - 실험체 및 아이템",
+        "patchDate": "2024-12-04",
+        "patchLink": "https://playeternalreturn.com/posts/news/2364",
+        "character": "알론소"
+      },
+      {
+        "patchId": 2237,
+        "patchTitle": "2024.10.10 - 1.32 패치노트",
+        "patchDate": "2024-10-09",
+        "patchLink": "https://playeternalreturn.com/posts/news/2237",
+        "character": "알론소"
+      },
+      {
+        "patchId": 2201,
+        "patchTitle": "2024.09.26 - 1.31 패치노트",
+        "patchDate": "2024-09-25",
+        "patchLink": "https://playeternalreturn.com/posts/news/2201",
+        "character": "알론소"
+      }
+    ]
+  },
+  "missingByPatch": {
+    "1447": {
+      "patchTitle": "[추가됨] 2023.09.26 - 1.5 패치노트",
+      "patchDate": "2023-09-25",
+      "patchLink": "https://playeternalreturn.com/posts/news/1447",
+      "characters": ["얀"]
+    },
+    "1480": {
+      "patchTitle": "2023.10.12 - 1.6 패치노트",
+      "patchDate": "2023-10-11",
+      "patchLink": "https://playeternalreturn.com/posts/news/1480",
+      "characters": ["헤이즈"]
+    },
+    "1582": {
+      "patchTitle": "2023.11.23 - 1.9 패치노트",
+      "patchDate": "2023-11-22",
+      "patchLink": "https://playeternalreturn.com/posts/news/1582",
+      "characters": ["아이작"]
+    },
+    "1654": {
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchDate": "2024-01-03",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "characters": ["타지아", "아이작"]
+    },
+    "1727": {
+      "patchTitle": "2024.02.15 - 1.15 패치노트 Part.1",
+      "patchDate": "2024-02-14",
+      "patchLink": "https://playeternalreturn.com/posts/news/1727",
+      "characters": ["테오도르"]
+    },
+    "1812": {
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchDate": "2024-03-27",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "characters": ["테오도르", "바냐"]
+    },
+    "1900": {
+      "patchTitle": "2024.05.09 - 1.21 패치노트",
+      "patchDate": "2024-05-08",
+      "patchLink": "https://playeternalreturn.com/posts/news/1900",
+      "characters": ["이안"]
+    },
+    "1954": {
+      "patchTitle": "2024.06.05 - 1.23 패치노트",
+      "patchDate": "2024-06-04",
+      "patchLink": "https://playeternalreturn.com/posts/news/1954",
+      "characters": ["수아"]
+    },
+    "2038": {
+      "patchTitle": "2024.07.18 - 1.26 패치노트",
+      "patchDate": "2024-07-17",
+      "patchLink": "https://playeternalreturn.com/posts/news/2038",
+      "characters": ["아비게일"]
+    },
+    "2102": {
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchDate": "2024-08-13",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "characters": ["츠바메", "아르다"]
+    },
+    "2201": {
+      "patchTitle": "2024.09.26 - 1.31 패치노트",
+      "patchDate": "2024-09-25",
+      "patchLink": "https://playeternalreturn.com/posts/news/2201",
+      "characters": ["알론소"]
+    },
+    "2237": {
+      "patchTitle": "2024.10.10 - 1.32 패치노트",
+      "patchDate": "2024-10-09",
+      "patchLink": "https://playeternalreturn.com/posts/news/2237",
+      "characters": ["알론소"]
+    },
+    "2331": {
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchDate": "2024-11-20",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "characters": ["라우라", "아드리아나", "레니"]
+    },
+    "2364": {
+      "patchTitle": "1.36 패치노트 Part.2 - 실험체 및 아이템",
+      "patchDate": "2024-12-04",
+      "patchLink": "https://playeternalreturn.com/posts/news/2364",
+      "characters": ["알론소"]
+    },
+    "2645": {
+      "patchTitle": "2025.04.17 - 1.45 패치노트",
+      "patchDate": "2025-04-16",
+      "patchLink": "https://playeternalreturn.com/posts/news/2645",
+      "characters": ["캐시"]
+    },
+    "2765": {
+      "patchTitle": "[수정] 2025.06.12 - 1.49 패치노트",
+      "patchDate": "2025-06-11",
+      "patchLink": "https://playeternalreturn.com/posts/news/2765",
+      "characters": ["다르코"]
+    },
+    "3085": {
+      "patchTitle": "9.0 패치노트 Part.2 - 실험체 및 아이템 (2025.10.16)",
+      "patchDate": "2025-10-15",
+      "patchLink": "https://playeternalreturn.com/posts/news/3085",
+      "characters": ["에이든"]
+    },
+    "3242": {
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchDate": "2025-12-22",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "characters": ["미르카", "히스이"]
+    }
+  },
+  "missingPatches": [
+    {
+      "patchId": 2765,
+      "patchTitle": "[수정] 2025.06.12 - 1.49 패치노트",
+      "patchDate": "2025-06-11",
+      "patchLink": "https://playeternalreturn.com/posts/news/2765",
+      "character": "다르코"
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchDate": "2024-11-20",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "라우라"
+    },
+    {
+      "patchId": 3242,
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchDate": "2025-12-22",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "character": "미르카"
+    },
+    {
+      "patchId": 1954,
+      "patchTitle": "2024.06.05 - 1.23 패치노트",
+      "patchDate": "2024-06-04",
+      "patchLink": "https://playeternalreturn.com/posts/news/1954",
+      "character": "수아"
+    },
+    {
+      "patchId": 2038,
+      "patchTitle": "2024.07.18 - 1.26 패치노트",
+      "patchDate": "2024-07-17",
+      "patchLink": "https://playeternalreturn.com/posts/news/2038",
+      "character": "아비게일"
+    },
+    {
+      "patchId": 2102,
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchDate": "2024-08-13",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "character": "츠바메"
+    },
+    {
+      "patchId": 1654,
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchDate": "2024-01-03",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "character": "타지아"
+    },
+    {
+      "patchId": 1812,
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchDate": "2024-03-27",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "character": "테오도르"
+    },
+    {
+      "patchId": 1727,
+      "patchTitle": "2024.02.15 - 1.15 패치노트 Part.1",
+      "patchDate": "2024-02-14",
+      "patchLink": "https://playeternalreturn.com/posts/news/1727",
+      "character": "테오도르"
+    },
+    {
+      "patchId": 3242,
+      "patchTitle": "2025.12.23 - 9.6 패치노트",
+      "patchDate": "2025-12-22",
+      "patchLink": "https://playeternalreturn.com/posts/news/3242",
+      "character": "히스이"
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchDate": "2024-11-20",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "아드리아나"
+    },
+    {
+      "patchId": 3085,
+      "patchTitle": "9.0 패치노트 Part.2 - 실험체 및 아이템 (2025.10.16)",
+      "patchDate": "2025-10-15",
+      "patchLink": "https://playeternalreturn.com/posts/news/3085",
+      "character": "에이든"
+    },
+    {
+      "patchId": 1900,
+      "patchTitle": "2024.05.09 - 1.21 패치노트",
+      "patchDate": "2024-05-08",
+      "patchLink": "https://playeternalreturn.com/posts/news/1900",
+      "character": "이안"
+    },
+    {
+      "patchId": 2331,
+      "patchTitle": "2024.11.21 - 1.35 패치노트",
+      "patchDate": "2024-11-20",
+      "patchLink": "https://playeternalreturn.com/posts/news/2331",
+      "character": "레니"
+    },
+    {
+      "patchId": 2102,
+      "patchTitle": "2024.08.14 - 1.28 패치노트",
+      "patchDate": "2024-08-13",
+      "patchLink": "https://playeternalreturn.com/posts/news/2102",
+      "character": "아르다"
+    },
+    {
+      "patchId": 2645,
+      "patchTitle": "2025.04.17 - 1.45 패치노트",
+      "patchDate": "2025-04-16",
+      "patchLink": "https://playeternalreturn.com/posts/news/2645",
+      "character": "캐시"
+    },
+    {
+      "patchId": 1480,
+      "patchTitle": "2023.10.12 - 1.6 패치노트",
+      "patchDate": "2023-10-11",
+      "patchLink": "https://playeternalreturn.com/posts/news/1480",
+      "character": "헤이즈"
+    },
+    {
+      "patchId": 1812,
+      "patchTitle": "2024.03.28 - 1.18 패치노트",
+      "patchDate": "2024-03-27",
+      "patchLink": "https://playeternalreturn.com/posts/news/1812",
+      "character": "바냐"
+    },
+    {
+      "patchId": 1654,
+      "patchTitle": "2024.01.04 - 1.12 패치노트",
+      "patchDate": "2024-01-03",
+      "patchLink": "https://playeternalreturn.com/posts/news/1654",
+      "character": "아이작"
+    },
+    {
+      "patchId": 1582,
+      "patchTitle": "2023.11.23 - 1.9 패치노트",
+      "patchDate": "2023-11-22",
+      "patchLink": "https://playeternalreturn.com/posts/news/1582",
+      "character": "아이작"
+    },
+    {
+      "patchId": 1447,
+      "patchTitle": "[추가됨] 2023.09.26 - 1.5 패치노트",
+      "patchDate": "2023-09-25",
+      "patchLink": "https://playeternalreturn.com/posts/news/1447",
+      "character": "얀"
+    },
+    {
+      "patchId": 2364,
+      "patchTitle": "1.36 패치노트 Part.2 - 실험체 및 아이템",
+      "patchDate": "2024-12-04",
+      "patchLink": "https://playeternalreturn.com/posts/news/2364",
+      "character": "알론소"
+    },
+    {
+      "patchId": 2237,
+      "patchTitle": "2024.10.10 - 1.32 패치노트",
+      "patchDate": "2024-10-09",
+      "patchLink": "https://playeternalreturn.com/posts/news/2237",
+      "character": "알론소"
+    },
+    {
+      "patchId": 2201,
+      "patchTitle": "2024.09.26 - 1.31 패치노트",
+      "patchDate": "2024-09-25",
+      "patchLink": "https://playeternalreturn.com/posts/news/2201",
+      "character": "알론소"
+    }
+  ],
+  "extraPatches": [
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "나딘"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "나타폰"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "나타폰"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "다니엘"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "데비&마를렌"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "로지"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "리오"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "매그너스"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "버니스"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "비앙카"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "셀린"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "쇼우"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "쇼이치"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "수아"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "시셀라"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "아드리아나"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "아비게일"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "아야"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "아이솔"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "아이작"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "얀"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "에스텔"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "에이든"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "윌리엄"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "유키"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "이렘"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "이바"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "이안"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "일레븐"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "자히르"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "재키"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "카밀로"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "클로에"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "클로에"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "키아라"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "타지아"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "펠릭스"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "프리야"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "피올로"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "하트"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "하트"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "헤이즈"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "현우"
+    },
+    {
+      "patchId": 3098,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "혜진"
+    },
+    {
+      "patchId": 1515,
+      "patchVersion": "",
+      "patchDate": "",
+      "character": "혜진"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "timestamp": "2026-01-10T13:35:43.321Z",
+  "summary": {
+    "totalCharacters": 85,
+    "perfectMatch": 38,
+    "withDiscrepancy": 47
+  },
+  "discrepancies": [
+    {
+      "character": "나딘",
+      "firebaseCount": 41,
+      "webCount": 42,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "니아",
+      "firebaseCount": 12,
+      "webCount": 13,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "니키",
+      "firebaseCount": 38,
+      "webCount": 39,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "다니엘",
+      "firebaseCount": 33,
+      "webCount": 34,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "다르코",
+      "firebaseCount": 22,
+      "webCount": 24,
+      "missing": [2765, 1973],
+      "excess": []
+    },
+    {
+      "character": "레니",
+      "firebaseCount": 22,
+      "webCount": 23,
+      "missing": [2331],
+      "excess": []
+    },
+    {
+      "character": "레온",
+      "firebaseCount": 44,
+      "webCount": 43,
+      "missing": [],
+      "excess": [1954]
+    },
+    {
+      "character": "르노어",
+      "firebaseCount": 25,
+      "webCount": 26,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "리 다이린",
+      "firebaseCount": 36,
+      "webCount": 38,
+      "missing": [3098, 3055],
+      "excess": []
+    },
+    {
+      "character": "리오",
+      "firebaseCount": 43,
+      "webCount": 44,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "매그너스",
+      "firebaseCount": 35,
+      "webCount": 36,
+      "missing": [1931],
+      "excess": []
+    },
+    {
+      "character": "미르카",
+      "firebaseCount": 3,
+      "webCount": 4,
+      "missing": [3242],
+      "excess": []
+    },
+    {
+      "character": "바냐",
+      "firebaseCount": 27,
+      "webCount": 28,
+      "missing": [1812],
+      "excess": []
+    },
+    {
+      "character": "버니스",
+      "firebaseCount": 41,
+      "webCount": 44,
+      "missing": [3055, 2592, 1376],
+      "excess": []
+    },
+    {
+      "character": "샬럿",
+      "firebaseCount": 20,
+      "webCount": 21,
+      "missing": [2114],
+      "excess": []
+    },
+    {
+      "character": "쇼이치",
+      "firebaseCount": 30,
+      "webCount": 31,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "시셀라",
+      "firebaseCount": 30,
+      "webCount": 32,
+      "missing": [3055, 1727],
+      "excess": []
+    },
+    {
+      "character": "아드리아나",
+      "firebaseCount": 37,
+      "webCount": 38,
+      "missing": [2220],
+      "excess": []
+    },
+    {
+      "character": "아디나",
+      "firebaseCount": 25,
+      "webCount": 26,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "아르다",
+      "firebaseCount": 34,
+      "webCount": 36,
+      "missing": [2102, 1931],
+      "excess": []
+    },
+    {
+      "character": "아이솔",
+      "firebaseCount": 40,
+      "webCount": 41,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "아이작",
+      "firebaseCount": 30,
+      "webCount": 33,
+      "missing": [1727, 1654, 1582],
+      "excess": []
+    },
+    {
+      "character": "알론소",
+      "firebaseCount": 33,
+      "webCount": 36,
+      "missing": [3055, 2364, 2237],
+      "excess": []
+    },
+    {
+      "character": "얀",
+      "firebaseCount": 36,
+      "webCount": 39,
+      "missing": [3055, 1931, 1447],
+      "excess": []
+    },
+    {
+      "character": "에스텔",
+      "firebaseCount": 25,
+      "webCount": 26,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "에이든",
+      "firebaseCount": 26,
+      "webCount": 28,
+      "missing": [3085, 1931],
+      "excess": []
+    },
+    {
+      "character": "에키온",
+      "firebaseCount": 36,
+      "webCount": 38,
+      "missing": [3055, 2592],
+      "excess": []
+    },
+    {
+      "character": "엘레나",
+      "firebaseCount": 27,
+      "webCount": 29,
+      "missing": [3055, 1931],
+      "excess": []
+    },
+    {
+      "character": "요한",
+      "firebaseCount": 26,
+      "webCount": 28,
+      "missing": [3098, 3055],
+      "excess": []
+    },
+    {
+      "character": "윌리엄",
+      "firebaseCount": 24,
+      "webCount": 25,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "유민",
+      "firebaseCount": 18,
+      "webCount": 19,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "유스티나",
+      "firebaseCount": 13,
+      "webCount": 14,
+      "missing": [2524],
+      "excess": []
+    },
+    {
+      "character": "유키",
+      "firebaseCount": 40,
+      "webCount": 41,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "이바",
+      "firebaseCount": 25,
+      "webCount": 26,
+      "missing": [1931],
+      "excess": []
+    },
+    {
+      "character": "이안",
+      "firebaseCount": 32,
+      "webCount": 33,
+      "missing": [1900],
+      "excess": []
+    },
+    {
+      "character": "재키",
+      "firebaseCount": 42,
+      "webCount": 44,
+      "missing": [3055, 1468],
+      "excess": []
+    },
+    {
+      "character": "츠바메",
+      "firebaseCount": 36,
+      "webCount": 37,
+      "missing": [1931],
+      "excess": []
+    },
+    {
+      "character": "카티야",
+      "firebaseCount": 33,
+      "webCount": 34,
+      "missing": [1931],
+      "excess": []
+    },
+    {
+      "character": "캐시",
+      "firebaseCount": 31,
+      "webCount": 33,
+      "missing": [3055, 1931],
+      "excess": []
+    },
+    {
+      "character": "케네스",
+      "firebaseCount": 26,
+      "webCount": 27,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "클로에",
+      "firebaseCount": 31,
+      "webCount": 32,
+      "missing": [2188],
+      "excess": []
+    },
+    {
+      "character": "타지아",
+      "firebaseCount": 26,
+      "webCount": 28,
+      "missing": [1654, 1586],
+      "excess": []
+    },
+    {
+      "character": "테오도르",
+      "firebaseCount": 32,
+      "webCount": 35,
+      "missing": [3149, 1812, 1727],
+      "excess": []
+    },
+    {
+      "character": "피오라",
+      "firebaseCount": 40,
+      "webCount": 41,
+      "missing": [3098],
+      "excess": []
+    },
+    {
+      "character": "헤이즈",
+      "firebaseCount": 35,
+      "webCount": 37,
+      "missing": [3055, 1480],
+      "excess": []
+    },
+    {
+      "character": "헨리",
+      "firebaseCount": 6,
+      "webCount": 7,
+      "missing": [3055],
+      "excess": []
+    },
+    {
+      "character": "히스이",
+      "firebaseCount": 14,
+      "webCount": 16,
+      "missing": [3242, 2524],
+      "excess": []
+    }
+  ]
+}
