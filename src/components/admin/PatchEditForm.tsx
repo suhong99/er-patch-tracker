@@ -7,7 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
 
 type PatchEditFormProps = {
   characterName: string;
-  patch: PatchEntry;
+  patch: PatchEntry | null;
   onSave: (updatedPatch: PatchEntry) => void;
   onCancel: () => void;
 };
@@ -18,13 +18,24 @@ const CHANGE_TYPES: { value: ChangeType; label: string }[] = [
   { value: 'mixed', label: '조정' },
 ];
 
+const createEmptyPatch = (): PatchEntry => ({
+  patchId: 0,
+  patchVersion: '',
+  patchDate: new Date().toISOString().split('T')[0],
+  overallChange: 'mixed',
+  streak: 1,
+  devComment: null,
+  changes: [],
+});
+
 export function PatchEditForm({
   characterName,
   patch,
   onSave,
   onCancel,
 }: PatchEditFormProps): React.JSX.Element {
-  const [editedPatch, setEditedPatch] = useState<PatchEntry>(patch);
+  const isAddMode = patch === null;
+  const [editedPatch, setEditedPatch] = useState<PatchEntry>(patch ?? createEmptyPatch());
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const { getIdToken } = useAuth();
@@ -55,6 +66,23 @@ export function PatchEditForm({
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     setError('');
+
+    // 추가 모드 유효성 검사
+    if (isAddMode) {
+      if (!editedPatch.patchId || editedPatch.patchId <= 0) {
+        setError('패치 ID를 입력해주세요.');
+        return;
+      }
+      if (!editedPatch.patchVersion.trim()) {
+        setError('패치 버전을 입력해주세요.');
+        return;
+      }
+      if (!editedPatch.patchDate) {
+        setError('패치 날짜를 입력해주세요.');
+        return;
+      }
+    }
+
     setSaving(true);
 
     try {
@@ -63,17 +91,18 @@ export function PatchEditForm({
         throw new Error('인증 토큰을 가져올 수 없습니다.');
       }
 
-      const response = await fetch(
-        `/api/admin/characters/${encodeURIComponent(characterName)}/patches/${patch.patchId}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${idToken}`,
-          },
-          body: JSON.stringify(editedPatch),
-        }
-      );
+      const url = isAddMode
+        ? `/api/admin/characters/${encodeURIComponent(characterName)}/patches`
+        : `/api/admin/characters/${encodeURIComponent(characterName)}/patches/${patch!.patchId}`;
+
+      const response = await fetch(url, {
+        method: isAddMode ? 'POST' : 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify(editedPatch),
+      });
 
       if (!response.ok) {
         const data = await response.json();
@@ -93,12 +122,54 @@ export function PatchEditForm({
       <div className="bg-[var(--er-surface)] border border-[var(--er-border)] rounded-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
         <div className="p-4 border-b border-[var(--er-border)]">
           <h2 className="text-lg font-bold text-white">
-            패치 수정 - {patch.patchVersion} ({patch.patchDate})
+            {isAddMode
+              ? '새 패치 추가'
+              : `패치 수정 - ${patch!.patchVersion} (${patch!.patchDate})`}
           </h2>
           <p className="text-sm text-gray-400">{characterName}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-4">
+          {isAddMode && (
+            <>
+              <div className="grid grid-cols-3 gap-3">
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">패치 ID *</label>
+                  <input
+                    type="number"
+                    value={editedPatch.patchId || ''}
+                    onChange={(e) =>
+                      setEditedPatch({ ...editedPatch, patchId: parseInt(e.target.value) || 0 })
+                    }
+                    className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+                    placeholder="예: 125"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">패치 버전 *</label>
+                  <input
+                    type="text"
+                    value={editedPatch.patchVersion}
+                    onChange={(e) =>
+                      setEditedPatch({ ...editedPatch, patchVersion: e.target.value })
+                    }
+                    className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+                    placeholder="예: 1.30.0b"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">패치 날짜 *</label>
+                  <input
+                    type="date"
+                    value={editedPatch.patchDate}
+                    onChange={(e) => setEditedPatch({ ...editedPatch, patchDate: e.target.value })}
+                    className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
           <div>
             <label className="block text-sm text-gray-400 mb-1">전체 변경 타입</label>
             <select
@@ -177,7 +248,7 @@ export function PatchEditForm({
             disabled={saving}
             className="px-4 py-2 bg-violet-600 hover:bg-violet-700 disabled:bg-violet-800 text-white rounded-lg transition-colors"
           >
-            {saving ? '저장 중...' : '저장'}
+            {saving ? '저장 중...' : isAddMode ? '추가' : '저장'}
           </button>
         </div>
       </div>
