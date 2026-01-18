@@ -1,0 +1,1606 @@
+{
+  "timestamp": "2026-01-18T07:16:58.026Z",
+  "summary": {
+    "totalPatches": 89,
+    "matchCount": 61,
+    "mismatchCount": 4,
+    "notFoundCount": 24,
+    "charactersChecked": 3
+  },
+  "mismatches": [
+    {
+      "character": "나딘",
+      "patchId": 2364,
+      "patchVersion": "1.36",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [
+        {
+          "target": "황소의 눈(Q)",
+          "description": "이젠 황소의 눈 사거리가 기본 공격 사거리에 변동되지 않고 고정된 사거리를 갖게 됩니다."
+        }
+      ],
+      "extra": [
+        {
+          "changeCategory": "mechanic",
+          "target": "황소의 눈(Q)",
+          "description": "이젠 황소의 눈 사거리가 기본 공격 사거리에 변동되지 않고 고정된 사거리를 갖게 됩니다. (최소 사거리 6m, 최대사거리 12m)",
+          "changeType": "mixed"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2193,
+      "patchVersion": "1.30d",
+      "dbCount": 6,
+      "webCount": 4,
+      "missing": [],
+      "extra": [
+        {
+          "target": "그릇된 집착(E)",
+          "description": "아시아 서버의 메테오라이트 이상 최상위 매칭 구간을 세분화 합니다.",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        },
+        {
+          "target": "그릇된 집착(E)",
+          "description": "단, 최장 대기자가 매우 오랜 시간 기다릴 경우, 여전히 매칭 구간이 다이아몬드 상위 티어 까지 확대될 수 있습니다.",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2190,
+      "patchVersion": "1.30c",
+      "dbCount": 4,
+      "webCount": 2,
+      "missing": [],
+      "extra": [
+        {
+          "description": "이제 랭크 대전에서 사용할 수 있습니다.",
+          "changeCategory": "mechanic",
+          "changeType": "mixed",
+          "target": "기본 스탯"
+        },
+        {
+          "target": "억누른 고통(W)",
+          "stat": "쿨다운",
+          "before": "13/12/11/10/9초",
+          "after": "14/13/12/11/10초",
+          "changeType": "nerf",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1920,
+      "patchVersion": "1.22",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [
+        {
+          "target": "슬로우 셔터(P)",
+          "stat": "나타폰이",
+          "before": "입히는 피해량 증폭",
+          "after": "나타폰이 입히는 기본 스킬 및 무기 스킬의 피해량 증폭"
+        }
+      ],
+      "extra": [
+        {
+          "target": "슬로우 셔터(P)",
+          "description": "나타폰이 입히는 피해량 증폭 → 나타폰이 입히는 기본 스킬 및 무기 스킬의 피해량 증폭",
+          "changeType": "nerf",
+          "changeCategory": "mechanic"
+        }
+      ],
+      "status": "mismatch"
+    }
+  ],
+  "notFoundCases": [
+    {
+      "character": "나타폰",
+      "patchId": 3127,
+      "patchVersion": "9.2",
+      "dbCount": 2
+    },
+    {
+      "character": "나타폰",
+      "patchId": 3098,
+      "patchVersion": "9.0a",
+      "dbCount": 4
+    },
+    {
+      "character": "나딘",
+      "patchId": 3000,
+      "patchVersion": "8.5",
+      "dbCount": 2
+    },
+    {
+      "character": "나타폰",
+      "patchId": 3000,
+      "patchVersion": "8.5",
+      "dbCount": 1
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2885,
+      "patchVersion": "8.2",
+      "dbCount": 1
+    },
+    {
+      "character": "가넷",
+      "patchId": 2623,
+      "patchVersion": "1.44",
+      "dbCount": 1
+    },
+    {
+      "character": "나딘",
+      "patchId": 2623,
+      "patchVersion": "1.44",
+      "dbCount": 2
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2401,
+      "patchVersion": "1.37",
+      "dbCount": 1
+    },
+    {
+      "character": "가넷",
+      "patchId": 2277,
+      "patchVersion": "1.33",
+      "dbCount": 1
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2277,
+      "patchVersion": "1.33",
+      "dbCount": 1
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2179,
+      "patchVersion": "1.30",
+      "dbCount": 3
+    },
+    {
+      "character": "나딘",
+      "patchId": 2038,
+      "patchVersion": "1.26",
+      "dbCount": 2
+    },
+    {
+      "character": "나딘",
+      "patchId": 1954,
+      "patchVersion": "1.23",
+      "dbCount": 1
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1954,
+      "patchVersion": "1.23",
+      "dbCount": 1
+    },
+    {
+      "character": "나딘",
+      "patchId": 1843,
+      "patchVersion": "1.19",
+      "dbCount": 1
+    },
+    {
+      "character": "나딘",
+      "patchId": 1673,
+      "patchVersion": "1.13",
+      "dbCount": 8
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1673,
+      "patchVersion": "1.13",
+      "dbCount": 1
+    },
+    {
+      "character": "나딘",
+      "patchId": 1612,
+      "patchVersion": "1.10",
+      "dbCount": 2
+    },
+    {
+      "character": "나딘",
+      "patchId": 1545,
+      "patchVersion": "1.8",
+      "dbCount": 4
+    },
+    {
+      "character": "나딘",
+      "patchId": 1515,
+      "patchVersion": "1.7",
+      "dbCount": 2
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1515,
+      "patchVersion": "1.7",
+      "dbCount": 2
+    },
+    {
+      "character": "나딘",
+      "patchId": 1480,
+      "patchVersion": "1.6",
+      "dbCount": 1
+    },
+    {
+      "character": "나딘",
+      "patchId": 1354,
+      "patchVersion": "1.2",
+      "dbCount": 4
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1354,
+      "patchVersion": "1.2",
+      "dbCount": 2
+    }
+  ],
+  "allResults": [
+    {
+      "character": "나딘",
+      "patchId": 3242,
+      "patchVersion": "9.6",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 3182,
+      "patchVersion": "9.4",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 3182,
+      "patchVersion": "9.4",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 3163,
+      "patchVersion": "9.3",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 3127,
+      "patchVersion": "9.2",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeCategory": "numeric",
+          "after": "4.3%",
+          "target": "기본 스탯",
+          "changeType": "buff",
+          "before": "4.2%",
+          "stat": "카메라 무기 숙련도 레벨 당 스킬 증폭"
+        },
+        {
+          "after": "30/50/70/90/110(+스킬 증폭의 40%)",
+          "changeCategory": "numeric",
+          "before": "30/50/70/90/110(+스킬 증폭의 35%)",
+          "stat": "추가 피해량",
+          "target": "인스턴트 포토(E)",
+          "changeType": "buff"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 3098,
+      "patchVersion": "9.0a",
+      "dbCount": 4,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "리 다이린의 호연각(Q)",
+          "description": "쿨다운의 시작 시점은 기존과 동일하지만, 쿨다운 시작 전 마지막 대기한 시간을 쿨다운에서 차감합니다.",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        },
+        {
+          "target": "리 다이린의 호연각(Q)",
+          "description": "예 1: Q1 사용 후 4초 이내 Q2를 사용하지 않음: 4초가 줄어든 쿨다운 시작",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        },
+        {
+          "target": "리 다이린의 호연각(Q)",
+          "description": "예 2: Q2 사용 후, 4초 후에 Q3을 사용: 4초가 줄어든 쿨다운 시작",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        },
+        {
+          "target": "리 다이린의 호연각(Q)",
+          "description": "예 3: Q2 사용 후, 곧바로 Q3을 사용: 정상적인 쿨다운 시작",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "가넷",
+      "patchId": 3085,
+      "patchVersion": "9.0",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 3085,
+      "patchVersion": "9.0",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 3055,
+      "patchVersion": "8.7",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 3042,
+      "patchVersion": "8.6a",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 3030,
+      "patchVersion": "8.6",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 3000,
+      "patchVersion": "8.5",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "before": "880",
+          "after": "930",
+          "target": "기본 스탯",
+          "stat": "기본 체력",
+          "changeType": "buff",
+          "changeCategory": "numeric"
+        },
+        {
+          "stat": "피해량",
+          "changeType": "buff",
+          "before": "80/120/160/200/240(+추가 공격력의 100%)(+스킬 증폭의 75%)",
+          "changeCategory": "numeric",
+          "target": "다람쥐 덫(W)",
+          "after": "80/120/160/200/240(+추가 공격력의 100%)(+스킬 증폭의 80%)"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 3000,
+      "patchVersion": "8.5",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "슬로우 셔터(P)",
+          "changeCategory": "numeric",
+          "before": "4/7/10%",
+          "stat": "피사체 중첩 당 받는 피해량 증가",
+          "changeType": "nerf",
+          "after": "3/6/9%"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2986,
+      "patchVersion": "8.4d",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2952,
+      "patchVersion": "8.4",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2885,
+      "patchVersion": "8.2",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "stat": "사거리",
+          "before": "8m",
+          "changeCategory": "numeric",
+          "target": "스냅샷(Q)",
+          "changeType": "buff",
+          "after": "8.5m"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2852,
+      "patchVersion": "8.1",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2828,
+      "patchVersion": "8.0",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2828,
+      "patchVersion": "8.0",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2790,
+      "patchVersion": "1.50",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2765,
+      "patchVersion": "1.49",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2736,
+      "patchVersion": "1.48",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2736,
+      "patchVersion": "1.48",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2736,
+      "patchVersion": "1.48",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2673,
+      "patchVersion": "1.46",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2673,
+      "patchVersion": "1.46",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2673,
+      "patchVersion": "1.46",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2645,
+      "patchVersion": "1.45",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2623,
+      "patchVersion": "1.44",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "before": "0.8초",
+          "changeCategory": "numeric",
+          "changeType": "buff",
+          "after": "0.9초",
+          "stat": "최대 중첩 시 속박 지속 시간",
+          "target": "억누른 고통(W)"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2623,
+      "patchVersion": "1.44",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "after": "1.4%",
+          "changeCategory": "numeric",
+          "stat": "석궁 무기 숙련도 레벨 당 기본 공격 증폭",
+          "target": "기본 스탯",
+          "before": "1.3%",
+          "changeType": "buff"
+        },
+        {
+          "changeType": "nerf",
+          "stat": "피해량",
+          "before": "100/150/200(+추가 공격력의 90%)(+스킬 증폭의 85%)(+야성 중첩 피해)",
+          "changeCategory": "numeric",
+          "after": "100/150/200(+추가 공격력의 90%)(+스킬 증폭의 80%)(+야성 중첩 피해)",
+          "target": "늑대 맹습(R)"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2585,
+      "patchVersion": "1.43",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2585,
+      "patchVersion": "1.43",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2536,
+      "patchVersion": "1.41",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2536,
+      "patchVersion": "1.41",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2450,
+      "patchVersion": "1.39",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2450,
+      "patchVersion": "1.39",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2450,
+      "patchVersion": "1.39",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2401,
+      "patchVersion": "1.37",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeCategory": "numeric",
+          "after": "4.2%",
+          "stat": "카메라 무기 숙련도 레벨 당 스킬 증폭",
+          "target": "기본 스탯",
+          "changeType": "nerf",
+          "before": "4.4%"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2381,
+      "patchVersion": "2024.12.12 - 1.36.1 패치노트",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2381,
+      "patchVersion": "2024.12.12 - 1.36.1 패치노트",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2364,
+      "patchVersion": "1.36",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [
+        {
+          "target": "황소의 눈(Q)",
+          "description": "이젠 황소의 눈 사거리가 기본 공격 사거리에 변동되지 않고 고정된 사거리를 갖게 됩니다."
+        }
+      ],
+      "extra": [
+        {
+          "changeCategory": "mechanic",
+          "target": "황소의 눈(Q)",
+          "description": "이젠 황소의 눈 사거리가 기본 공격 사거리에 변동되지 않고 고정된 사거리를 갖게 됩니다. (최소 사거리 6m, 최대사거리 12m)",
+          "changeType": "mixed"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2331,
+      "patchVersion": "1.35",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2331,
+      "patchVersion": "1.35",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2304,
+      "patchVersion": "1.34",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2277,
+      "patchVersion": "1.33",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "before": "40/60/80/100/120(+스킬 증폭의 45%)(+최대 체력의 5%)",
+          "changeCategory": "numeric",
+          "target": "짓뭉개기&꿰뚫기(Q)",
+          "stat": "짓뭉개기(Q1) 피해량",
+          "after": "40/60/80/100/120(+스킬 증폭의 50%)(+최대 체력의 5%)",
+          "changeType": "buff"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2277,
+      "patchVersion": "1.33",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "before": "50/85/120/155/190(+스킬 증폭의 70%)",
+          "target": "스냅샷(Q)",
+          "changeCategory": "numeric",
+          "after": "50/85/120/155/190(+스킬 증폭의 75%)",
+          "changeType": "buff",
+          "stat": "피해량"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2237,
+      "patchVersion": "1.32",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2201,
+      "patchVersion": "1.31",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2201,
+      "patchVersion": "1.31",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2193,
+      "patchVersion": "1.30d",
+      "dbCount": 6,
+      "webCount": 4,
+      "missing": [],
+      "extra": [
+        {
+          "target": "그릇된 집착(E)",
+          "description": "아시아 서버의 메테오라이트 이상 최상위 매칭 구간을 세분화 합니다.",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        },
+        {
+          "target": "그릇된 집착(E)",
+          "description": "단, 최장 대기자가 매우 오랜 시간 기다릴 경우, 여전히 매칭 구간이 다이아몬드 상위 티어 까지 확대될 수 있습니다.",
+          "changeType": "mixed",
+          "changeCategory": "mechanic"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2190,
+      "patchVersion": "1.30c",
+      "dbCount": 4,
+      "webCount": 2,
+      "missing": [],
+      "extra": [
+        {
+          "description": "이제 랭크 대전에서 사용할 수 있습니다.",
+          "changeCategory": "mechanic",
+          "changeType": "mixed",
+          "target": "기본 스탯"
+        },
+        {
+          "target": "억누른 고통(W)",
+          "stat": "쿨다운",
+          "before": "13/12/11/10/9초",
+          "after": "14/13/12/11/10초",
+          "changeType": "nerf",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "가넷",
+      "patchId": 2188,
+      "patchVersion": "1.30b",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2179,
+      "patchVersion": "1.30",
+      "dbCount": 3,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeCategory": "numeric",
+          "changeType": "buff",
+          "stat": "지속 피해량",
+          "target": "타임 랩스(W)",
+          "before": "20/40/60/80/100(+스킬 증폭의 25%)",
+          "after": "40/60/80/100/120(+스킬 증폭의 25%)"
+        },
+        {
+          "after": "30/50/70/90/110(+스킬 증폭의 35%)",
+          "changeType": "buff",
+          "stat": "피해량",
+          "target": "인스턴트 포토(E)",
+          "before": "20/40/60/80/100(+스킬 증폭의 35%)",
+          "changeCategory": "numeric"
+        },
+        {
+          "changeType": "buff",
+          "after": "30/50/70/90/110(+스킬 증폭의 35%)",
+          "stat": "추가 피해량",
+          "changeCategory": "numeric",
+          "before": "20/40/60/80/100(+스킬 증폭의 35%)",
+          "target": "인스턴트 포토(E)"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 2102,
+      "patchVersion": "1.28",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2072,
+      "patchVersion": "1.27",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2038,
+      "patchVersion": "1.26",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeType": "buff",
+          "before": "3.8%",
+          "target": "기본 스탯",
+          "after": "4%",
+          "changeCategory": "numeric",
+          "stat": "활 무기 숙련도 레벨 당 공격 속도"
+        },
+        {
+          "changeType": "buff",
+          "before": "3초",
+          "after": "4초",
+          "target": "원숭이 와이어(E)",
+          "stat": "재사용 후 공격 속도 증가 지속 시간",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 2014,
+      "patchVersion": "1.25",
+      "dbCount": 4,
+      "webCount": 4,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1983,
+      "patchVersion": "1.24",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1983,
+      "patchVersion": "1.24",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1954,
+      "patchVersion": "1.23",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "늑대 맹습(R)",
+          "stat": "피해량",
+          "after": "100/150/200(+추가 공격력의 100%)(+스킬 증폭의 85%)(+야성 중첩 피해)",
+          "changeCategory": "numeric",
+          "changeType": "buff",
+          "before": "90/140/190(+추가 공격력의 90%)(+스킬 증폭의 80%)(+야성 중첩 피해)"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1954,
+      "patchVersion": "1.23",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeType": "buff",
+          "after": "20/50/80(+공격 속도의 20%)(+스킬 증폭의 60%)",
+          "before": "10/40/70(+공격 속도의 20%)(+스킬 증폭의 55%)",
+          "target": "슬로우 셔터(P)",
+          "stat": "피해량",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1942,
+      "patchVersion": "2024.05.30 - 1.22.1 패치노트",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1920,
+      "patchVersion": "1.22",
+      "dbCount": 9,
+      "webCount": 9,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1920,
+      "patchVersion": "1.22",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [
+        {
+          "target": "슬로우 셔터(P)",
+          "stat": "나타폰이",
+          "before": "입히는 피해량 증폭",
+          "after": "나타폰이 입히는 기본 스킬 및 무기 스킬의 피해량 증폭"
+        }
+      ],
+      "extra": [
+        {
+          "target": "슬로우 셔터(P)",
+          "description": "나타폰이 입히는 피해량 증폭 → 나타폰이 입히는 기본 스킬 및 무기 스킬의 피해량 증폭",
+          "changeType": "nerf",
+          "changeCategory": "mechanic"
+        }
+      ],
+      "status": "mismatch"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1900,
+      "patchVersion": "1.21",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1843,
+      "patchVersion": "1.19",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "늑대 맹습(R)",
+          "stat": "피해량",
+          "after": "90/140/190(+추가 공격력의 90%)(+스킬 증폭의 80%)(야성 중첩 피해)",
+          "changeType": "buff",
+          "before": "90/140/190(+추가 공격력의 90%)(+스킬 증폭의 75%)(야성 중첩 피해)",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1792,
+      "patchVersion": "1.17",
+      "dbCount": 3,
+      "webCount": 3,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1727,
+      "patchVersion": "1.15",
+      "dbCount": 4,
+      "webCount": 4,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1673,
+      "patchVersion": "1.13",
+      "dbCount": 8,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeCategory": "numeric",
+          "stat": "닭 처치 시 야성 중첩 획득량",
+          "before": "",
+          "after": "1/1/2",
+          "changeType": "mixed",
+          "target": "야성(P)"
+        },
+        {
+          "after": "6/8/10",
+          "changeType": "nerf",
+          "before": "8/10/12",
+          "stat": "실험체 처치 시 야성 중첩 획득량",
+          "changeCategory": "numeric",
+          "target": "야성(P)"
+        },
+        {
+          "after": "60/90/120/150/180(+추가 공격력의 100%)(+스킬 증폭의 60%)(+야성 중첩 피해)",
+          "target": "황소의 눈(Q)",
+          "changeType": "buff",
+          "before": "30/60/90/120/150(+추가 공격력의 100%)(+스킬 증폭의 60%)(+야성 중첩 피해)",
+          "changeCategory": "numeric",
+          "stat": "최소 피해량"
+        },
+        {
+          "target": "황소의 눈(Q)",
+          "after": "120/180/240/300/360(+추가 공격력의 200%)(+스킬 증폭의 120%)(+야성 중첩 피해)",
+          "changeCategory": "numeric",
+          "stat": "최대 피해량",
+          "changeType": "buff",
+          "before": "60/120/180/240/300(+추가 공격력의 200%)(+스킬 증폭의 120%)(+야성 중첩 피해)"
+        },
+        {
+          "changeCategory": "numeric",
+          "before": "40/85/130(+추가 공격력의 90%)(+스킬 증폭의 80%)(+야성 중첩 피해)",
+          "changeType": "buff",
+          "after": "60/125/190(+추가 공격력의 90%)(+스킬 증폭의 80%)(+야성 중첩 피해)",
+          "target": "늑대 맹습(R)",
+          "stat": "피해량"
+        },
+        {
+          "target": "야성(P)",
+          "changeCategory": "numeric",
+          "changeType": "nerf",
+          "stat": "박쥐, 멧돼지 처치 시 야성 중첩 획득량",
+          "after": "2/3/4",
+          "before": "3/4/5"
+        },
+        {
+          "changeCategory": "numeric",
+          "after": "2/2/3",
+          "stat": "들개, 늑대 처치 시 야성 중첩 획득량",
+          "changeType": "nerf",
+          "before": " 2/3/4",
+          "target": "야성(P)"
+        },
+        {
+          "stat": " 곰 처치 시 야성 중첩 획득량",
+          "changeType": "nerf",
+          "after": "4/6/8",
+          "target": "야성(P)",
+          "before": "6/8/10",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1673,
+      "patchVersion": "1.13",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeType": "nerf",
+          "target": "스냅샷(Q)",
+          "after": "50/85/120/155/190(+스킬 증폭의 70%)",
+          "changeCategory": "numeric",
+          "before": "75%)",
+          "stat": "50/85/120/155/190(+스킬 증폭의"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1654,
+      "patchVersion": "1.12",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1633,
+      "patchVersion": "1.11",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1633,
+      "patchVersion": "1.11",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1612,
+      "patchVersion": "1.10",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "기본 스탯",
+          "changeCategory": "numeric",
+          "after": "32",
+          "changeType": "buff",
+          "stat": "기본 공격력",
+          "before": "29"
+        },
+        {
+          "target": "기본 스탯",
+          "stat": "기본 공격 속도",
+          "after": "0.13",
+          "before": "0.11",
+          "changeType": "buff",
+          "changeCategory": "numeric"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1586,
+      "patchVersion": "1.9a",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1582,
+      "patchVersion": "1.9",
+      "dbCount": 6,
+      "webCount": 6,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1582,
+      "patchVersion": "1.9",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1545,
+      "patchVersion": "1.8",
+      "dbCount": 4,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "야성(P)",
+          "stat": "실험체 처치 관여 시 야성 스택 획득량",
+          "changeType": "buff",
+          "changeCategory": "numeric",
+          "before": "6/8/10",
+          "after": "8/10/12"
+        },
+        {
+          "before": "30/60/90/120/150(+추가 공격력의 100%)(+스킬 증폭의 60%)(+야성 중첩 피해)",
+          "after": "20/50/80/110/140(+추가 공격력의 100%)(+스킬 증폭의 60%)(+야성 중첩 피해)",
+          "target": "황소의 눈(Q)",
+          "stat": "최소 피해량",
+          "changeCategory": "numeric",
+          "changeType": "nerf"
+        },
+        {
+          "target": "황소의 눈(Q)",
+          "changeCategory": "numeric",
+          "before": "60/120/180/240/300(+추가 공격력의 200%)(+스킬 증폭의 120%)(+야성 중첩 피해)",
+          "changeType": "nerf",
+          "after": "40/100/160/220/280(+추가 공격력의 200%)(+스킬 증폭의 120%)(+야성 중첩 피해)",
+          "stat": "최대 피해량"
+        },
+        {
+          "description": "늑대가 설치물에 적중 시 2의 피해를 주도록 변경 (신규)",
+          "target": "늑대 맹습(R)",
+          "changeType": "mixed",
+          "changeCategory": "added"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1515,
+      "patchVersion": "1.7",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "changeCategory": "numeric",
+          "target": "기본 스탯",
+          "after": "4.0",
+          "stat": "레벨 당 공격력",
+          "before": "4.4",
+          "changeType": "nerf"
+        },
+        {
+          "changeType": "mixed",
+          "description": "실험체 처치 시 야성 스택 3/4/5 획득 (신규)",
+          "changeCategory": "added",
+          "target": "야성(P)"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1515,
+      "patchVersion": "1.7",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "target": "슬로우 셔터(P)",
+          "description": "피사체 스택 당 피해 증가량 3/5/7% (신규)",
+          "changeType": "mixed",
+          "changeCategory": "added"
+        },
+        {
+          "target": "스냅샷(Q)",
+          "description": "피사체 스택 당 피해 증가량 3/4/5/6/7% (삭제)",
+          "changeType": "mixed",
+          "changeCategory": "removed"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1480,
+      "patchVersion": "1.6",
+      "dbCount": 1,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "before": "30/70/110(+추가 공격력의 90%)(+스킬 증폭의 70%)(+야성 중첩 피해)",
+          "changeType": "buff",
+          "after": "30/70/110(+추가 공격력의 90%)(+스킬 증폭의 80%)(+야성 중첩 피해)",
+          "changeCategory": "numeric",
+          "target": "늑대 맹습(R)",
+          "stat": "피해량"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1447,
+      "patchVersion": "1.5",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1447,
+      "patchVersion": "1.5",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1424,
+      "patchVersion": "1.4",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1424,
+      "patchVersion": "1.4",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1354,
+      "patchVersion": "1.2",
+      "dbCount": 4,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "after": "30/70/110(+추가 공격력의 90%)(+스킬 증폭의 60%)(+야성 중첩 피해)",
+          "changeType": "buff",
+          "changeCategory": "numeric",
+          "target": "늑대 맹습(R)",
+          "stat": "늑대 피해량",
+          "before": "15/60/105(+추가 공격력의 90%)(+스킬 증폭의 55%)(+야성 중첩 피해)"
+        },
+        {
+          "before": "15/20/25%",
+          "stat": "이동 속도 감소",
+          "changeCategory": "numeric",
+          "after": "20/25/30%",
+          "changeType": "buff",
+          "target": "늑대 맹습(R)"
+        },
+        {
+          "changeType": "buff",
+          "after": "3/4/5",
+          "changeCategory": "numeric",
+          "before": "2/3/4",
+          "target": "야성(P)",
+          "stat": "박쥐, 멧돼지 스택 획득"
+        },
+        {
+          "after": "2/3/4",
+          "target": "야성(P)",
+          "before": "2/3/3",
+          "stat": "들개, 늑대  스택 획득",
+          "changeCategory": "numeric",
+          "changeType": "mixed"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1354,
+      "patchVersion": "1.2",
+      "dbCount": 2,
+      "webCount": 0,
+      "missing": [],
+      "extra": [
+        {
+          "stat": "위장 카메라 잠입 상태 탐지 범위",
+          "before": "3m",
+          "target": "기본 스탯",
+          "changeType": "buff",
+          "changeCategory": "numeric",
+          "after": "2.5m"
+        },
+        {
+          "changeType": "buff",
+          "after": "10/40/70(+추가 공격 속도 1%당 0.2)(+스킬 증폭의 55%)",
+          "before": "10/30/50(+추가 공격 속도 1%당 0.2)(+스킬 증폭의 50%)",
+          "target": "슬로우 셔터(P)",
+          "changeCategory": "numeric",
+          "stat": "기본 공격 추가 피해량"
+        }
+      ],
+      "status": "not_found"
+    },
+    {
+      "character": "나딘",
+      "patchId": 1328,
+      "patchVersion": "1.1",
+      "dbCount": 2,
+      "webCount": 2,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    },
+    {
+      "character": "나타폰",
+      "patchId": 1256,
+      "patchVersion": "2023.07.06 정기 점검 사전 안내 (0.88.0 패치노트)",
+      "dbCount": 1,
+      "webCount": 1,
+      "missing": [],
+      "extra": [],
+      "status": "match"
+    }
+  ]
+}
