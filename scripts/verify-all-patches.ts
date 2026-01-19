@@ -115,7 +115,7 @@ async function parseCharacterFromPatch(
   patchId: number,
   characterName: string
 ): Promise<{ changes: ParsedChange[]; found: boolean; sectionFound: boolean }> {
-  const url = `https://playeternalreturn.com/posts/news/${patchId}`;
+  const url = `https://playeternalreturn.com/posts/news/${patchId}?hl=ko-KR`;
 
   try {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
@@ -139,24 +139,20 @@ async function parseCharacterFromPatch(
 
       // h5 요소들 수집
       const h5Elements = content.querySelectorAll('h5');
-      let characterSectionStart: Element | null = null;
-      let characterSectionEnd: Element | null = null;
-      let sectionFound = false;
 
-      // "실험체" 포함된 h5 찾기
+      // "실험체" 포함된 모든 h5 섹션 찾기
+      const characterSections: Array<{ start: Element; end: Element | null }> = [];
       for (let i = 0; i < h5Elements.length; i++) {
         const text = h5Elements[i].textContent?.trim() || '';
         if (text.includes('실험체') || text.includes('Character')) {
-          sectionFound = true;
-          characterSectionStart = h5Elements[i];
-          if (i + 1 < h5Elements.length) {
-            characterSectionEnd = h5Elements[i + 1];
-          }
-          break;
+          characterSections.push({
+            start: h5Elements[i],
+            end: i + 1 < h5Elements.length ? h5Elements[i + 1] : null,
+          });
         }
       }
 
-      if (!characterSectionStart) {
+      if (characterSections.length === 0) {
         return {
           changes: [] as Array<{
             target: string;
@@ -170,223 +166,286 @@ async function parseCharacterFromPatch(
         };
       }
 
-      // 실험체 섹션 내의 요소만 수집
       const allElements = Array.from(content.children);
-      const sectionElements: Element[] = [];
-      let inSection = false;
-
-      for (const el of allElements) {
-        if (el === characterSectionStart) {
-          inSection = true;
-          continue;
-        }
-        if (characterSectionEnd && el === characterSectionEnd) {
-          break;
-        }
-        if (inSection) {
-          sectionElements.push(el);
-        }
-      }
-
-      // 캐릭터 변경사항 파싱
-      type RawChange = {
-        target: string;
-        stat?: string;
-        before?: string;
-        after?: string;
-        description?: string;
-      };
-      const charChanges: RawChange[] = [];
-      let currentTarget = '기본 스탯';
-      let isCollecting = false;
-      let characterFound = false;
-
       const numericPattern = /^(.+?)\s+([^\s→]+(?:\([^)]*\))?(?:[^→]*?))\s*→\s*(.+)$/;
 
-      for (const el of sectionElements) {
-        // P 태그에서 캐릭터 이름 찾기
-        if (el.tagName === 'P') {
-          const strong = el.querySelector('span > strong');
-          if (strong) {
-            const strongText = strong.textContent?.trim() || '';
-            const span = el.querySelector('span');
-            const spanText = span?.textContent?.trim() || '';
+      // 각 실험체 섹션을 순회하며 캐릭터 찾기
+      for (const section of characterSections) {
+        // 이 섹션의 요소만 수집
+        const sectionElements: Element[] = [];
+        let inSection = false;
 
-            if (spanText === strongText && /^[가-힣&\s]+$/.test(strongText)) {
-              if (isCollecting) break;
-              if (strongText === charName) {
-                characterFound = true;
-                isCollecting = true;
-                currentTarget = '기본 스탯';
+        for (const el of allElements) {
+          if (el === section.start) {
+            inSection = true;
+            continue;
+          }
+          if (section.end && el === section.end) {
+            break;
+          }
+          if (inSection) {
+            sectionElements.push(el);
+          }
+        }
+
+        // 이 섹션에서 캐릭터 이름 존재 여부 확인
+        let hasCharacter = false;
+        for (const el of sectionElements) {
+          if (el.tagName === 'P') {
+            const strong = el.querySelector('span > strong');
+            if (strong) {
+              const strongText = strong.textContent?.trim() || '';
+              const span = el.querySelector('span');
+              const spanText = span?.textContent?.trim() || '';
+
+              // 조건1: span 전체가 strong과 같음
+              // 조건2: strong 뒤가 <br> 또는 끝
+              const nextSibling = strong.nextSibling;
+              const isFollowedByBrOrEnd =
+                !nextSibling ||
+                (nextSibling.nodeType === 1 && (nextSibling as Element).tagName === 'BR') ||
+                (nextSibling.nodeType === 3 && nextSibling.textContent?.trim() === '');
+
+              const isCharacterName =
+                /^[가-힣&\s]+$/.test(strongText) &&
+                (spanText === strongText || isFollowedByBrOrEnd);
+
+              if (isCharacterName && strongText === charName) {
+                hasCharacter = true;
+                break;
               }
             }
           }
         }
 
-        // UL 태그 처리
-        if (el.tagName === 'UL' && isCollecting) {
-          const topLevelLis = el.querySelectorAll(':scope > li');
+        if (!hasCharacter) {
+          continue; // 다음 섹션 검사
+        }
 
-          for (const topLi of Array.from(topLevelLis)) {
-            const firstP = topLi.querySelector(':scope > p');
+        // 캐릭터 변경사항 파싱
+        type RawChange = {
+          target: string;
+          stat?: string;
+          before?: string;
+          after?: string;
+          description?: string;
+        };
+        const charChanges: RawChange[] = [];
+        let currentTarget = '기본 스탯';
+        let isCollecting = false;
 
-            // 핫픽스 구조 체크
-            if (firstP) {
-              const strong = firstP.querySelector('span > strong');
-              if (strong) {
-                const strongText = strong.textContent?.trim() || '';
-                const span = firstP.querySelector('span');
-                const spanText = span?.textContent?.trim() || '';
+        for (const el of sectionElements) {
+          // P 태그에서 캐릭터 이름 찾기
+          if (el.tagName === 'P') {
+            const strong = el.querySelector('span > strong');
+            if (strong) {
+              const strongText = strong.textContent?.trim() || '';
+              const span = el.querySelector('span');
+              const spanText = span?.textContent?.trim() || '';
 
-                if (spanText === strongText && /^[가-힣&\s]+$/.test(strongText)) {
-                  if (strongText !== charName) {
-                    if (isCollecting && charChanges.length > 0) break;
-                    continue;
-                  }
-                  if (!isCollecting) {
-                    characterFound = true;
-                    isCollecting = true;
-                    currentTarget = '기본 스탯';
-                  }
+              // 조건1: span 전체가 strong과 같음
+              // 조건2: strong 뒤가 <br> 또는 끝
+              const nextSibling = strong.nextSibling;
+              const isFollowedByBrOrEnd =
+                !nextSibling ||
+                (nextSibling.nodeType === 1 && (nextSibling as Element).tagName === 'BR') ||
+                (nextSibling.nodeType === 3 && nextSibling.textContent?.trim() === '');
 
-                  const nestedUl = topLi.querySelector(':scope > ul');
-                  if (nestedUl) {
-                    const nestedLis = nestedUl.querySelectorAll(':scope > li');
-                    for (const nestedLi of Array.from(nestedLis)) {
-                      const nestedP = nestedLi.querySelector(':scope > p');
-                      if (nestedP) {
-                        const nestedSpan = nestedP.querySelector('span');
-                        if (nestedSpan) {
-                          const text = nestedSpan.textContent?.replace(/\s+/g, ' ').trim() || '';
-                          if (text && text.includes('→')) {
-                            const match = text.match(numericPattern);
-                            if (match) {
-                              charChanges.push({
-                                target: currentTarget,
-                                stat: match[1].trim(),
-                                before: match[2].trim(),
-                                after: match[3].trim(),
-                              });
+              const isCharacterName =
+                /^[가-힣&\s]+$/.test(strongText) &&
+                (spanText === strongText || isFollowedByBrOrEnd);
+
+              if (isCharacterName) {
+                if (isCollecting) break;
+                if (strongText === charName) {
+                  isCollecting = true;
+                  currentTarget = '기본 스탯';
+                }
+              }
+            }
+          }
+
+          // UL 태그 처리
+          if (el.tagName === 'UL' && isCollecting) {
+            const topLevelLis = el.querySelectorAll(':scope > li');
+
+            for (const topLi of Array.from(topLevelLis)) {
+              const firstP = topLi.querySelector(':scope > p');
+
+              // 핫픽스 구조 체크
+              if (firstP) {
+                const strong = firstP.querySelector('span > strong');
+                if (strong) {
+                  const strongText = strong.textContent?.trim() || '';
+                  const span = firstP.querySelector('span');
+                  const spanText = span?.textContent?.trim() || '';
+
+                  if (spanText === strongText && /^[가-힣&\s]+$/.test(strongText)) {
+                    if (strongText !== charName) {
+                      if (isCollecting && charChanges.length > 0) break;
+                      continue;
+                    }
+                    if (!isCollecting) {
+                      isCollecting = true;
+                      currentTarget = '기본 스탯';
+                    }
+
+                    const nestedUl = topLi.querySelector(':scope > ul');
+                    if (nestedUl) {
+                      const nestedLis = nestedUl.querySelectorAll(':scope > li');
+                      for (const nestedLi of Array.from(nestedLis)) {
+                        const nestedP = nestedLi.querySelector(':scope > p');
+                        if (nestedP) {
+                          const nestedSpan = nestedP.querySelector('span');
+                          if (nestedSpan) {
+                            const text = nestedSpan.textContent?.replace(/\s+/g, ' ').trim() || '';
+                            if (text && text.includes('→')) {
+                              const match = text.match(numericPattern);
+                              if (match) {
+                                charChanges.push({
+                                  target: currentTarget,
+                                  stat: match[1].trim(),
+                                  before: match[2].trim(),
+                                  after: match[3].trim(),
+                                });
+                              }
                             }
                           }
                         }
                       }
                     }
+                    continue;
                   }
-                  continue;
                 }
               }
-            }
 
-            // 스킬 헤더 확인
-            let headerText = '';
-            if (firstP) {
-              const span = firstP.querySelector('span');
-              if (span) {
-                headerText = span.textContent?.replace(/\s+/g, ' ').trim() || '';
-              }
-            }
-
-            const skillMatch = headerText.match(
-              /^([^→]+\((?:[가-힣A-Za-z\s-]*)?[QWERP패시브]\d?\)(?:\s*-\s*[^→]+\([QWERP]\d?\))?)/
-            );
-
-            if (skillMatch && !headerText.includes('→')) {
-              currentTarget = skillMatch[0].trim();
-            } else if (headerText) {
-              const isSkillHeader =
-                /^[^(→]+\([QWERP]\)$/.test(headerText) ||
-                /^[^(→]+\([가-힣A-Za-z\s-]+[QWERP]\d?\)$/.test(headerText) ||
-                /^[^(→]+\(패시브\)$/.test(headerText);
-
-              if (!isSkillHeader && headerText.includes('→')) {
-                const match = headerText.match(numericPattern);
-                if (match) {
-                  charChanges.push({
-                    target: currentTarget,
-                    stat: match[1].trim(),
-                    before: match[2].trim(),
-                    after: match[3].trim(),
-                  });
+              // 스킬 헤더 확인
+              let headerText = '';
+              if (firstP) {
+                const span = firstP.querySelector('span');
+                if (span) {
+                  headerText = span.textContent?.replace(/\s+/g, ' ').trim() || '';
                 }
               }
-            }
 
-            // 하위 li 처리
-            const descendantLis = topLi.querySelectorAll('li');
-            for (const descLi of Array.from(descendantLis)) {
-              const descP = descLi.querySelector(':scope > p');
-              let descSpan: Element | null = null;
+              const skillMatch = headerText.match(
+                /^([^→]+\((?:[가-힣A-Za-z\s-]*)?[QWERP패시브]\d?\)(?:\s*-\s*[^→]+\([QWERP]\d?\))?)/
+              );
 
-              if (descP) {
-                descSpan = descP.querySelector('span');
-              } else {
-                descSpan = descLi.querySelector(':scope > span');
-              }
+              if (skillMatch && !headerText.includes('→')) {
+                currentTarget = skillMatch[0].trim();
+              } else if (headerText) {
+                const isSkillHeader =
+                  /^[^(→]+\([QWERP]\)$/.test(headerText) ||
+                  /^[^(→]+\([가-힣A-Za-z\s-]+[QWERP]\d?\)$/.test(headerText) ||
+                  /^[^(→]+\(패시브\)$/.test(headerText);
 
-              if (descSpan) {
-                const descText = descSpan.textContent?.replace(/\s+/g, ' ').trim() || '';
-                if (!descText || descText.length < 3) continue;
-
-                const subSkillMatch = descText.match(
-                  /^([^→]+\((?:[가-힣A-Za-z\s-]*)?[QWERP패시브]\d?\)(?:\s*-\s*[^→]+\([QWERP]\d?\))?)/
-                );
-                if (
-                  subSkillMatch &&
-                  !descText.includes('→') &&
-                  descText === subSkillMatch[0].trim()
-                ) {
-                  currentTarget = subSkillMatch[0].trim();
-                  continue;
-                }
-
-                const isDescSkillHeader =
-                  /^[^(→]+\([QWERP]\)$/.test(descText) ||
-                  /^[^(→]+\([가-힣A-Za-z\s-]+[QWERP]\d?\)$/.test(descText) ||
-                  /^[^(→]+\(패시브\)$/.test(descText);
-
-                if (!isDescSkillHeader) {
-                  if (descText.includes('→')) {
-                    const match = descText.match(numericPattern);
-                    if (match) {
-                      charChanges.push({
-                        target: currentTarget,
-                        stat: match[1].trim(),
-                        before: match[2].trim(),
-                        after: match[3].trim(),
-                      });
-                    }
-                  } else if (descText.length > 10 && !descText.match(/^[^(→]+\([QWERP패시브]\)/)) {
+                if (!isSkillHeader && headerText.includes('→')) {
+                  const match = headerText.match(numericPattern);
+                  if (match) {
                     charChanges.push({
                       target: currentTarget,
-                      description: descText,
+                      stat: match[1].trim(),
+                      before: match[2].trim(),
+                      after: match[3].trim(),
                     });
                   }
                 }
               }
+
+              // 하위 li 처리
+              const descendantLis = topLi.querySelectorAll('li');
+              for (const descLi of Array.from(descendantLis)) {
+                const descP = descLi.querySelector(':scope > p');
+                let descSpan: Element | null = null;
+
+                if (descP) {
+                  descSpan = descP.querySelector('span');
+                } else {
+                  descSpan = descLi.querySelector(':scope > span');
+                }
+
+                if (descSpan) {
+                  const descText = descSpan.textContent?.replace(/\s+/g, ' ').trim() || '';
+                  if (!descText || descText.length < 3) continue;
+
+                  const subSkillMatch = descText.match(
+                    /^([^→]+\((?:[가-힣A-Za-z\s-]*)?[QWERP패시브]\d?\)(?:\s*-\s*[^→]+\([QWERP]\d?\))?)/
+                  );
+                  if (
+                    subSkillMatch &&
+                    !descText.includes('→') &&
+                    descText === subSkillMatch[0].trim()
+                  ) {
+                    currentTarget = subSkillMatch[0].trim();
+                    continue;
+                  }
+
+                  const isDescSkillHeader =
+                    /^[^(→]+\([QWERP]\)$/.test(descText) ||
+                    /^[^(→]+\([가-힣A-Za-z\s-]+[QWERP]\d?\)$/.test(descText) ||
+                    /^[^(→]+\(패시브\)$/.test(descText);
+
+                  if (!isDescSkillHeader) {
+                    if (descText.includes('→')) {
+                      const match = descText.match(numericPattern);
+                      if (match) {
+                        charChanges.push({
+                          target: currentTarget,
+                          stat: match[1].trim(),
+                          before: match[2].trim(),
+                          after: match[3].trim(),
+                        });
+                      }
+                    } else if (
+                      descText.length > 10 &&
+                      !descText.match(/^[^(→]+\([QWERP패시브]\)/)
+                    ) {
+                      charChanges.push({
+                        target: currentTarget,
+                        description: descText,
+                      });
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // 다음 캐릭터 나오면 중단
+          if (el.tagName === 'P' && isCollecting && charChanges.length > 0) {
+            const strong = el.querySelector('span > strong');
+            if (strong) {
+              const strongText = strong.textContent?.trim() || '';
+              const span = el.querySelector('span');
+              const spanText = span?.textContent?.trim() || '';
+              if (
+                spanText === strongText &&
+                /^[가-힣&\s]+$/.test(strongText) &&
+                strongText !== charName
+              ) {
+                break;
+              }
             }
           }
         }
 
-        // 다음 캐릭터 나오면 중단
-        if (el.tagName === 'P' && isCollecting && charChanges.length > 0) {
-          const strong = el.querySelector('span > strong');
-          if (strong) {
-            const strongText = strong.textContent?.trim() || '';
-            const span = el.querySelector('span');
-            const spanText = span?.textContent?.trim() || '';
-            if (
-              spanText === strongText &&
-              /^[가-힣&\s]+$/.test(strongText) &&
-              strongText !== charName
-            ) {
-              break;
-            }
-          }
-        }
+        // 캐릭터를 찾았으면 반환
+        return { changes: charChanges, found: true, sectionFound: true };
       }
 
-      return { changes: charChanges, found: characterFound, sectionFound };
+      // 모든 섹션 검사 후에도 못 찾음
+      return {
+        changes: [] as Array<{
+          target: string;
+          stat?: string;
+          before?: string;
+          after?: string;
+          description?: string;
+        }>,
+        found: false,
+        sectionFound: true,
+      };
     }, characterName);
 
     return result;
