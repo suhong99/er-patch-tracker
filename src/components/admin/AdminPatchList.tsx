@@ -175,6 +175,7 @@ export function AdminPatchList({
                 {getChangeTypeLabel(patch.overallChange)}
               </span>
               <span className="text-white font-medium">{patch.patchVersion}</span>
+              <span className="text-gray-500 text-xs">(ID: {patch.patchId})</span>
               <span className="text-gray-400 text-sm">{formatDate(patch.patchDate)}</span>
             </div>
             <div className="flex items-center gap-2">
