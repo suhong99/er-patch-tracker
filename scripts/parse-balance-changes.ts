@@ -1035,12 +1035,13 @@ async function saveCharacters(characters: Record<string, CharacterData>): Promis
   }
 }
 
-// 패치노트 isParsed 업데이트
-async function markPatchAsParsed(patchId: number): Promise<void> {
+// 패치노트 isParsed 업데이트 + characterNames 저장
+async function markPatchAsParsed(patchId: number, characterNames: string[]): Promise<void> {
   const db = initFirebaseAdmin();
   await db.collection('patchNotes').doc(patchId.toString()).update({
     isParsed: true,
     parsedAt: new Date().toISOString(),
+    characterNames: characterNames.sort(),
   });
 }
 
@@ -1215,8 +1216,9 @@ async function main(): Promise<void> {
       );
     }
 
-    // 패치를 파싱 완료로 표시
-    await markPatchAsParsed(patch.id);
+    // 패치를 파싱 완료로 표시 (해당 패치의 캐릭터 이름들도 함께 저장)
+    const patchCharacterNames = characters.map((c) => c.name);
+    await markPatchAsParsed(patch.id, patchCharacterNames);
 
     await new Promise((resolve) => setTimeout(resolve, 500));
   }

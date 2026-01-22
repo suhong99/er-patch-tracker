@@ -85,6 +85,10 @@ export type PatchNote = {
   updatedAt: string;
   thumbnailUrl: string;
   viewCount: number;
+  isParsed?: boolean;
+  parsedAt?: string;
+  hasCharacterData?: boolean;
+  characterNames?: string[];
 };
 
 export type PatchNotesData = {
