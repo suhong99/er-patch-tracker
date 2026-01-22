@@ -1,11 +1,7 @@
 import { NextResponse } from 'next/server';
-import { revalidatePath, revalidateTag } from 'next/cache';
-import { adminAuth, db } from '@/lib/firebase-admin';
+import { db } from '@/lib/firebase-admin';
+import { verifyAdmin, invalidateBalanceCache, invalidateCharacterCache } from '@/lib/admin-utils';
 import type { ChangeType } from '@/types/patch';
-
-type AdminsDoc = {
-  emails: string[];
-};
 
 type PatchEntryData = {
   patchId: number;
@@ -34,29 +30,6 @@ type CharacterData = {
   };
   patchHistory: PatchEntryData[];
 };
-
-async function verifyAdmin(authHeader: string | null): Promise<boolean> {
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return false;
-  }
-
-  const idToken = authHeader.split('Bearer ')[1];
-
-  try {
-    const decodedToken = await adminAuth.verifyIdToken(idToken);
-    const email = decodedToken.email;
-
-    if (!email) return false;
-
-    const adminDoc = await db.collection('metadata').doc('admins').get();
-    if (!adminDoc.exists) return false;
-
-    const adminData = adminDoc.data() as AdminsDoc;
-    return adminData.emails?.includes(email) ?? false;
-  } catch {
-    return false;
-  }
-}
 
 // 전체 패치 히스토리의 streak 재계산
 function recalculateAllStreaks(patchHistory: PatchEntryData[]): PatchEntryData[] {
@@ -194,12 +167,8 @@ export async function POST(
     });
 
     // 캐시 무효화
-    revalidateTag('balance-data', 'max');
-    revalidateTag('patch-notes-data', 'max');
-    revalidatePath('/');
-    revalidatePath('/admin');
-    revalidatePath(`/character/${encodeURIComponent(characterName)}`, 'page');
-    revalidatePath(`/admin/character/${encodeURIComponent(characterName)}`, 'page');
+    invalidateBalanceCache({ includeCharacterPages: false });
+    invalidateCharacterCache(characterName);
 
     return NextResponse.json({
       success: true,
