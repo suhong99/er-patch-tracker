@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { revalidatePath, revalidateTag } from 'next/cache';
-import { adminAuth, db } from '@/lib/firebase-admin';
+import { db } from '@/lib/firebase-admin';
+import { verifyAdmin, invalidateBalanceCache } from '@/lib/admin-utils';
 import type { PatchEntry, Change, ChangeType } from '@/types/patch';
 
 type ChangeCategory = 'numeric' | 'mechanic' | 'added' | 'removed' | 'unknown';
@@ -30,33 +30,6 @@ type CharacterData = {
   };
   patchHistory: ExtendedPatchEntry[];
 };
-
-type AdminsDoc = {
-  emails: string[];
-};
-
-async function verifyAdmin(authHeader: string | null): Promise<boolean> {
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return false;
-  }
-
-  const idToken = authHeader.split('Bearer ')[1];
-
-  try {
-    const decodedToken = await adminAuth.verifyIdToken(idToken);
-    const email = decodedToken.email;
-
-    if (!email) return false;
-
-    const adminDoc = await db.collection('metadata').doc('admins').get();
-    if (!adminDoc.exists) return false;
-
-    const adminData = adminDoc.data() as AdminsDoc;
-    return adminData.emails?.includes(email) ?? false;
-  } catch {
-    return false;
-  }
-}
 
 // 변경된 패치부터 이후 패치들의 streak만 재계산 (최적화)
 function recalculateStreaksFromIndex(
@@ -239,15 +212,8 @@ export async function DELETE(
       stats: charData.stats,
     });
 
-    // 태그 기반 캐시 무효화
-    revalidateTag('balance-data', 'max');
-    revalidateTag('patch-notes-data', 'max');
-
-    // 경로 기반 캐시 무효화
-    revalidatePath('/');
-    revalidatePath('/admin');
-    revalidatePath('/character/[name]', 'page');
-    revalidatePath('/admin/character/[name]', 'page');
+    // 캐시 무효화
+    invalidateBalanceCache();
 
     return NextResponse.json({
       success: true,
@@ -314,15 +280,8 @@ export async function PATCH(
       stats: charData.stats,
     });
 
-    // 태그 기반 캐시 무효화 (unstable_cache 캐시 무효화)
-    revalidateTag('balance-data', 'max');
-    revalidateTag('patch-notes-data', 'max');
-
-    // 경로 기반 캐시 무효화 (전체 페이지)
-    revalidatePath('/');
-    revalidatePath('/admin');
-    revalidatePath('/character/[name]', 'page');
-    revalidatePath('/admin/character/[name]', 'page');
+    // 캐시 무효화
+    invalidateBalanceCache();
 
     return NextResponse.json({
       success: true,

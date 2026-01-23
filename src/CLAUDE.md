@@ -30,7 +30,8 @@ lib/
 ├── firebase-admin.ts       # Admin SDK (서버)
 ├── firebase-client.ts      # Client SDK
 ├── patch-data.ts           # Firestore 데이터 로드
-└── patch-utils.ts          # 필터/정렬/포맷 유틸
+├── patch-utils.ts          # 필터/정렬/포맷 유틸
+└── admin-utils.ts          # 관리자 API 공용 유틸 (인증, 캐시)
 
 contexts/
 └── AuthContext.tsx         # 인증 상태 관리
@@ -43,8 +44,8 @@ type ChangeType = 'buff' | 'nerf' | 'mixed';
 type ChangeCategory = 'numeric' | 'mechanic' | 'added' | 'removed' | 'unknown';
 
 type Change = {
-  target: string;      // 스킬명
-  stat: string;        // 변경 스탯
+  target: string; // 스킬명
+  stat: string; // 변경 스탯
   before: string;
   after: string;
   changeType: ChangeType;
@@ -79,17 +80,46 @@ Firestore:
 
 ## 주요 함수
 
-| 함수 | 파일 | 역할 |
-|------|------|------|
-| `loadBalanceData()` | patch-data.ts | Firestore에서 전체 데이터 로드 |
-| `extractCharacters()` | patch-data.ts | 데이터를 Character[] 배열로 변환 |
-| `findCharacterByName()` | patch-data.ts | 이름으로 캐릭터 찾기 |
-| `filterAndSortCharacters()` | patch-utils.ts | 필터링 + 정렬 |
+| 함수                         | 파일           | 역할                                  |
+| ---------------------------- | -------------- | ------------------------------------- |
+| `loadBalanceData()`          | patch-data.ts  | Firestore에서 전체 데이터 로드        |
+| `extractCharacters()`        | patch-data.ts  | 데이터를 Character[] 배열로 변환      |
+| `findCharacterByName()`      | patch-data.ts  | 이름으로 캐릭터 찾기                  |
+| `filterAndSortCharacters()`  | patch-utils.ts | 필터링 + 정렬                         |
+| `verifyAdmin()`              | admin-utils.ts | Authorization 헤더로 관리자 권한 검증 |
+| `invalidateBalanceCache()`   | admin-utils.ts | 밸런스 데이터 캐시 전체 무효화        |
+| `invalidateCharacterCache()` | admin-utils.ts | 특정 캐릭터 페이지 캐시만 무효화      |
 
 ## 인증 흐름
 
 ```
 로그인 → Firebase Auth → ID Token
 → API 요청 시 Authorization: Bearer {token}
-→ 서버에서 adminAuth.verifyIdToken() + metadata/admins 확인
+→ 서버에서 verifyAdmin() 호출 (admin-utils.ts)
 ```
+
+## 캐시 무효화 (admin-utils.ts)
+
+관리자 API에서 데이터 수정 후 캐시 무효화 시 사용:
+
+```typescript
+import { verifyAdmin, invalidateBalanceCache, invalidateCharacterCache } from '@/lib/admin-utils';
+
+// 전체 캐시 무효화 (기본)
+invalidateBalanceCache();
+
+// 옵션 지정
+invalidateBalanceCache({
+  tags: ['balance-data', 'patch-notes-data'], // 기본값
+  paths: ['/', '/admin'], // 기본값
+  includeCharacterPages: true, // 기본값
+});
+
+// 특정 캐릭터 페이지만 무효화
+invalidateCharacterCache('재키');
+```
+
+**사용 패턴:**
+
+- 패치 추가/수정/삭제: `invalidateBalanceCache()` (전체)
+- 특정 캐릭터 재계산: `invalidateBalanceCache({ includeCharacterPages: false })` + `invalidateCharacterCache(name)`
