@@ -25,7 +25,7 @@ export const SEASONS: Season[] = [
   {
     number: 1,
     name: 'Vacation',
-    nameKo: '휴가',
+    nameKo: '바캉스',
     startPatch: '1.0',
     startDate: '2023-07-20',
     endPatch: '1.6',
@@ -41,7 +41,7 @@ export const SEASONS: Season[] = [
   {
     number: 3,
     name: 'Change',
-    nameKo: '변화',
+    nameKo: '체인지',
     startPatch: '1.15',
     startDate: '2024-02-15',
     endPatch: '1.21',
@@ -92,6 +92,14 @@ export const SEASONS: Season[] = [
     nameKo: '마츠리',
     startPatch: '9.0',
     startDate: '2025-10-16',
+    endPatch: '9.6d',
+  },
+  {
+    number: 10,
+    name: 'Royal',
+    nameKo: '로얄',
+    startPatch: '10.0',
+    startDate: '2026-01-22',
     endPatch: null,
   },
 ];
