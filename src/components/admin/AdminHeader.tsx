@@ -36,6 +36,12 @@ export function AdminHeader(): React.JSX.Element {
             >
               패치 관리
             </Link>
+            <Link
+              href="/admin/feedback"
+              className="px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors"
+            >
+              피드백
+            </Link>
           </nav>
         </div>
 
