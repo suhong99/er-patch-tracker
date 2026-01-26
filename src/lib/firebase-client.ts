@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -15,3 +16,6 @@ export const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getA
 
 // Firebase Auth 인스턴스
 export const auth = getAuth(app);
+
+// Firebase Firestore 인스턴스 (클라이언트용)
+export const db = getFirestore(app);
