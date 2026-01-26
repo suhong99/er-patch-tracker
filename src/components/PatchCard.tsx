@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import type { PatchEntry, Change } from '@/types/patch';
 import { isNumericChange } from '@/types/patch';
 import { getChangeTypeLabel, getChangeTypeColor, formatDate } from '@/lib/patch-utils';
@@ -40,6 +43,17 @@ const getPatchNoteUrl = (patchId: number): string =>
 
 export default function PatchCard({ patch }: Props): React.ReactElement {
   const groupedChanges = groupChangesByTarget(patch.changes);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyPatchId = async (): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(String(patch.patchId));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // 클립보드 접근 실패 시 무시
+    }
+  };
 
   return (
     <div
@@ -48,11 +62,18 @@ export default function PatchCard({ patch }: Props): React.ReactElement {
       {/* 패치 헤더 */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#2a2d35] bg-[#0f1014] px-5 py-4">
         <div className="flex items-center gap-3">
-          <span
-            className={`font-mono text-xl font-black ${getChangeTypeColor(patch.overallChange)}`}
+          <button
+            onClick={handleCopyPatchId}
+            className={`group relative font-mono text-xl font-black transition-opacity hover:opacity-80 ${getChangeTypeColor(patch.overallChange)}`}
+            title={`패치 ID: ${patch.patchId} (클릭하여 복사)`}
           >
             v{patch.patchVersion}
-          </span>
+            {copied && (
+              <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs font-normal text-emerald-400">
+                ID 복사됨!
+              </span>
+            )}
+          </button>
           <span
             className={`rounded border px-2 py-0.5 text-xs font-bold ${
               patch.overallChange === 'buff'

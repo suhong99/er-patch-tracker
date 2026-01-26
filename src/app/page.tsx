@@ -7,6 +7,7 @@ import {
 } from '@/lib/patch-data';
 import { formatDate } from '@/lib/patch-utils';
 import CharacterList from '@/components/CharacterList';
+import FeedbackButton from '@/components/FeedbackButton';
 
 // 순수 함수: 통계 카드 데이터 생성
 const createStatCards = (
@@ -121,6 +122,12 @@ export default async function Home(): Promise<React.ReactElement> {
           </h2>
           <CharacterList characters={characters} />
         </section>
+
+        {/* 푸터 - 피드백 */}
+        <footer className="mt-16 border-t border-[#2a2d35] pt-8 text-center">
+          <p className="mb-4 text-sm text-zinc-500">잘못된 정보나 개선 사항이 있다면 알려주세요</p>
+          <FeedbackButton />
+        </footer>
       </main>
     </div>
   );
