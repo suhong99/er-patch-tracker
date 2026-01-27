@@ -146,12 +146,22 @@ export function getSeasonByPatchVersion(patchVersion: string): Season | null {
 /**
  * 패치 날짜로 시즌 찾기
  * @param patchDate YYYY-MM-DD 형식의 날짜 문자열
+ *
+ * 패치노트 날짜는 작성일 기준이고 실제 적용은 다음날이므로,
+ * 시즌 시작 전날의 패치노트도 해당 시즌으로 분류한다.
+ * (핫픽스는 당일 적용이라 영향 없음)
  */
 export function getSeasonByDate(patchDate: string): Season | null {
   // 최신 시즌부터 역순으로 확인
   for (let i = SEASONS.length - 1; i >= 0; i--) {
     const season = SEASONS[i];
-    if (patchDate >= season.startDate) {
+
+    // 시즌 시작 전날부터 해당 시즌으로 분류
+    const adjustedStartDate = new Date(season.startDate);
+    adjustedStartDate.setDate(adjustedStartDate.getDate() - 1);
+    const adjustedStartDateStr = adjustedStartDate.toISOString().slice(0, 10);
+
+    if (patchDate >= adjustedStartDateStr) {
       return season;
     }
   }
