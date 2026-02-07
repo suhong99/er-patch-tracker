@@ -18,7 +18,7 @@ export function PatchCardItem({
   onDelete,
 }: PatchCardItemProps): React.JSX.Element {
   return (
-    <div className="p-4 bg-[var(--er-surface)] border border-[var(--er-border)] rounded-lg">
+    <div className="p-4 bg-er-surface border border-er-border rounded-lg">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-3">
           <span

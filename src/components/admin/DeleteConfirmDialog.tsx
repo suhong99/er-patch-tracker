@@ -17,7 +17,7 @@ export function DeleteConfirmDialog({
 }: DeleteConfirmDialogProps): React.JSX.Element {
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--er-surface)] border border-[var(--er-border)] rounded-xl p-6 max-w-md w-full">
+      <div className="bg-er-surface border border-er-border rounded-xl p-6 max-w-md w-full">
         <h3 className="text-lg font-bold text-white mb-4">{title}</h3>
         <p className="text-gray-400 mb-6">{message}</p>
         <div className="flex justify-end gap-3">

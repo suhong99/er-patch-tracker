@@ -155,7 +155,7 @@ export function PatchCharacterList({
       </div>
 
       {isAddCharacterMode && (
-        <div className="p-4 bg-[var(--er-surface)] border border-emerald-500/30 rounded-lg">
+        <div className="p-4 bg-er-surface border border-emerald-500/30 rounded-lg">
           <h3 className="text-sm font-medium text-white mb-3">실험체 추가</h3>
           <div className="flex gap-3">
             <input
@@ -166,7 +166,7 @@ export function PatchCharacterList({
                 if (e.key === 'Enter') handleAddCharacterSubmit();
               }}
               placeholder="캐릭터 이름 입력"
-              className="flex-1 px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white text-sm placeholder-gray-500 focus:border-emerald-500/50 focus:outline-none"
+              className="flex-1 px-3 py-2 bg-[#1a1c23] border border-er-border rounded text-white text-sm placeholder-gray-500 focus:border-emerald-500/50 focus:outline-hidden"
             />
             <button
               onClick={handleAddCharacterSubmit}

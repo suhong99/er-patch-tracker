@@ -224,7 +224,7 @@ function FeedbackForm(): React.ReactElement {
                 value={characterName}
                 onChange={(e) => setCharacterName(e.target.value)}
                 placeholder="예: 재키"
-                className="w-full rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-none"
+                className="w-full rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-hidden"
               />
             </div>
           )}
@@ -241,7 +241,7 @@ function FeedbackForm(): React.ReactElement {
                 value={patchId}
                 onChange={(e) => setPatchId(e.target.value)}
                 placeholder="패치 버전 클릭 시 복사됩니다"
-                className="w-full rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-none"
+                className="w-full rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-hidden"
               />
               <p className="mt-1 text-xs text-zinc-500">
                 실험체 상세 페이지에서 패치 버전(v1.24.0)을 클릭하면 ID가 복사됩니다
@@ -261,7 +261,7 @@ function FeedbackForm(): React.ReactElement {
               onChange={(e) => setTitle(e.target.value)}
               required
               placeholder="피드백 제목을 입력하세요"
-              className="w-full rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-none"
+              className="w-full rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-hidden"
             />
           </div>
 
@@ -277,7 +277,7 @@ function FeedbackForm(): React.ReactElement {
               required
               rows={6}
               placeholder="자세한 내용을 입력하세요"
-              className="w-full resize-none rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-none"
+              className="w-full resize-none rounded-lg border border-[#2a2d35] bg-[#13151a] px-4 py-3 text-zinc-100 placeholder-zinc-600 transition-colors focus:border-violet-500 focus:outline-hidden"
             />
           </div>
 
