@@ -83,7 +83,7 @@ export function ChangeEditRow({
   };
 
   return (
-    <div className="p-4 bg-[#1a1c23] border border-[var(--er-border)] rounded-lg space-y-3">
+    <div className="p-4 bg-[#1a1c23] border border-er-border rounded-lg space-y-3">
       <div className="flex items-center justify-between">
         <span className="text-xs text-gray-500">#{index + 1}</span>
         <button
@@ -102,7 +102,7 @@ export function ChangeEditRow({
             type="text"
             value={change.target}
             onChange={(e) => handleTargetChange(e.target.value)}
-            className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white"
+            className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white"
           />
         </div>
         <div>
@@ -110,7 +110,7 @@ export function ChangeEditRow({
           <select
             value={change.changeCategory}
             onChange={(e) => handleCategoryChange(e.target.value as ChangeCategory)}
-            className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white"
+            className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white"
           >
             {CHANGE_CATEGORIES.map((cat) => (
               <option key={cat.value} value={cat.value}>
@@ -129,7 +129,7 @@ export function ChangeEditRow({
               type="text"
               value={change.stat}
               onChange={(e) => handleNumericFieldChange('stat', e.target.value)}
-              className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white"
+              className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -139,7 +139,7 @@ export function ChangeEditRow({
                 type="text"
                 value={change.before}
                 onChange={(e) => handleNumericFieldChange('before', e.target.value)}
-                className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white"
+                className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white"
               />
             </div>
             <div>
@@ -148,7 +148,7 @@ export function ChangeEditRow({
                 type="text"
                 value={change.after}
                 onChange={(e) => handleNumericFieldChange('after', e.target.value)}
-                className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white"
+                className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export function ChangeEditRow({
             value={change.description}
             onChange={(e) => handleDescriptionFieldChange('description', e.target.value)}
             rows={3}
-            className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white resize-none"
+            className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white resize-none"
             placeholder="변경 내용을 설명해주세요..."
           />
         </div>
@@ -171,7 +171,7 @@ export function ChangeEditRow({
         <select
           value={change.changeType}
           onChange={(e) => handleChangeTypeChange(e.target.value as ChangeType)}
-          className="w-full px-3 py-2 bg-[var(--er-surface)] border border-[var(--er-border)] rounded text-sm text-white"
+          className="w-full px-3 py-2 bg-er-surface border border-er-border rounded text-sm text-white"
         >
           {CHANGE_TYPES.map((type) => (
             <option key={type.value} value={type.value}>

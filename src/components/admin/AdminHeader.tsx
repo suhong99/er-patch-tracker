@@ -11,7 +11,7 @@ export function AdminHeader(): React.JSX.Element {
   };
 
   return (
-    <header className="bg-[var(--er-surface)] border-b border-[var(--er-border)]">
+    <header className="bg-er-surface border-b border-er-border">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link
@@ -23,7 +23,7 @@ export function AdminHeader(): React.JSX.Element {
           <span className="px-2 py-1 bg-violet-600/20 border border-violet-500/30 rounded text-xs text-violet-400">
             ADMIN
           </span>
-          <nav className="flex items-center gap-2 ml-4 pl-4 border-l border-[var(--er-border)]">
+          <nav className="flex items-center gap-2 ml-4 pl-4 border-l border-er-border">
             <Link
               href="/admin"
               className="px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors"
