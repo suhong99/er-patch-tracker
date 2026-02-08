@@ -40,7 +40,7 @@ export function LoginForm(): React.JSX.Element {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full px-4 py-3 bg-[var(--er-surface)] border border-[var(--er-border)] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+          className="w-full px-4 py-3 bg-er-surface border border-er-border rounded-lg text-white placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-violet-500 focus:border-transparent"
           placeholder="admin@example.com"
         />
       </div>
@@ -55,7 +55,7 @@ export function LoginForm(): React.JSX.Element {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="w-full px-4 py-3 bg-[var(--er-surface)] border border-[var(--er-border)] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+          className="w-full px-4 py-3 bg-er-surface border border-er-border rounded-lg text-white placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-violet-500 focus:border-transparent"
           placeholder="••••••••"
         />
       </div>

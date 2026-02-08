@@ -32,7 +32,7 @@ export default function AdminLoginPage(): React.JSX.Element {
           <p className="text-gray-400">ER 패치 트래커 관리자 페이지</p>
         </div>
 
-        <div className="bg-[var(--er-surface)] border border-[var(--er-border)] rounded-xl p-6">
+        <div className="bg-er-surface border border-er-border rounded-xl p-6">
           <LoginForm />
         </div>
 

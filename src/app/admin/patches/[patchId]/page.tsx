@@ -143,7 +143,11 @@ export default function AdminPatchDetailPage(): React.JSX.Element {
           <p className="text-amber-400">이 패치에 영향받은 캐릭터가 없습니다.</p>
         </div>
       ) : (
-        <PatchCharacterList characters={characters} patchId={patchNote.id} />
+        <PatchCharacterList
+          characters={characters}
+          patchId={patchNote.id}
+          patchLinks={{ [patchNote.id]: patchNote.link }}
+        />
       )}
     </div>
   );

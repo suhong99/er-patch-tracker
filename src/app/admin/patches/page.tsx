@@ -47,7 +47,7 @@ export default function AdminPatchesPage(): React.JSX.Element {
             value={patchId}
             onChange={(e) => setPatchId(e.target.value)}
             placeholder="예: 1654"
-            className="w-full px-4 py-3 bg-[var(--er-surface)] border border-[var(--er-border)] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-violet-500 transition-colors"
+            className="w-full px-4 py-3 bg-er-surface border border-er-border rounded-lg text-white placeholder-gray-500 focus:outline-hidden focus:border-violet-500 transition-colors"
           />
           {error && <p className="mt-2 text-sm text-rose-400">{error}</p>}
         </div>
@@ -60,7 +60,7 @@ export default function AdminPatchesPage(): React.JSX.Element {
         </button>
       </form>
 
-      <div className="mt-8 p-4 bg-[var(--er-surface)] border border-[var(--er-border)] rounded-lg">
+      <div className="mt-8 p-4 bg-er-surface border border-er-border rounded-lg">
         <h2 className="text-sm font-medium text-gray-300 mb-2">패치 ID란?</h2>
         <p className="text-sm text-gray-400">
           패치노트 URL에서 확인할 수 있습니다.

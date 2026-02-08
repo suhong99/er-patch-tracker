@@ -24,7 +24,10 @@ npm run lint     # ESLint
 
 ## Git 워크플로우
 
-- `main` → `feature/<이슈번호>` → PR 머지
+- **브랜치 전략**: `main` ← `develop` ← `feature/<이슈번호>`
+  - `main`: 배포용 (직접 커밋 금지)
+  - `develop`: 개발 통합 브랜치 **(PR 타겟)**
+  - `feature/<이슈번호>`: develop에서 분기, 작업 완료 후 **develop으로 PR**
 - 한글 커밋: `[타입] 설명`
 
 ## 상세 문서

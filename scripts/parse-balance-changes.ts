@@ -70,96 +70,29 @@ type PatchNote = {
 };
 
 // ============================================
-// 유효한 캐릭터 목록 (공식 실험체)
+// 캐릭터 이름 관련 (DB 기반)
 // ============================================
 
-const VALID_CHARACTERS = new Set([
-  '가넷',
-  '나딘',
-  '나타폰',
-  '니아',
-  '니키',
-  '다니엘',
-  '다르코',
-  '데비&마를렌',
-  '띠아',
-  '라우라',
-  '레녹스',
-  '레니',
-  '레온',
-  '로지',
-  '루크',
-  '르노어',
-  '리 다이린',
-  '리오',
-  '마르티나',
-  '마이',
-  '마커스',
-  '매그너스',
-  '미르카',
-  '바냐',
-  '바바라',
-  '버니스',
-  '블레어',
-  '비앙카',
-  '샬럿',
-  '셀린',
-  '쇼우',
-  '쇼이치',
-  '수아',
-  '슈린',
-  '시셀라',
-  '실비아',
-  '아델라',
-  '아드리아나',
-  '아디나',
-  '아르다',
-  '아비게일',
-  '아야',
-  '아이솔',
-  '아이작',
-  '알렉스',
-  '알론소',
-  '얀',
-  '에스텔',
-  '에이든',
-  '에키온',
-  '엘레나',
-  '엠마',
-  '요한',
-  '윌리엄',
-  '유민',
-  '유스티나',
-  '유키',
-  '이렘',
-  '이바',
-  '이슈트반',
-  '이안',
-  '일레븐',
-  '자히르',
-  '재키',
-  '제니',
-  '츠바메',
-  '카밀로',
-  '카티야',
-  '칼라',
-  '캐시',
-  '케네스',
-  '클로에',
-  '키아라',
-  '타지아',
-  '테오도르',
-  '펠릭스',
-  '프리야',
-  '피오라',
-  '피올로',
-  '하트',
-  '헤이즈',
-  '헨리',
-  '현우',
-  '혜진',
-  '히스이',
+// 섹션 제목 블랙리스트 (캐릭터가 아닌 것들)
+const SECTION_TITLES = new Set([
+  '실험체',
+  '무기',
+  '아이템',
+  '시스템',
+  '특성',
+  '코발트 프로토콜',
+  '론울프',
+  '옷',
+  '팔/장식',
+  '머리',
+  '다리',
+  '악세서리',
+  '신규 스킨 및 이모티콘',
+  '버그 수정',
 ]);
+
+// 유효한 캐릭터 목록 (DB에서 로드됨)
+let validCharacters: Set<string> = new Set();
 
 function normalizeCharacterName(name: string): string {
   return name
@@ -170,7 +103,66 @@ function normalizeCharacterName(name: string): string {
 }
 
 function isValidCharacter(name: string): boolean {
-  return VALID_CHARACTERS.has(normalizeCharacterName(name));
+  const normalized = normalizeCharacterName(name);
+  // 섹션 제목은 제외
+  if (SECTION_TITLES.has(normalized)) return false;
+  // DB에 등록된 캐릭터인지 확인
+  return validCharacters.has(normalized);
+}
+
+// DB에서 캐릭터 목록 로드
+async function loadValidCharacters(): Promise<Set<string>> {
+  const db = initFirebaseAdmin();
+  const snapshot = await db.collection('characters').get();
+  const characters = new Set<string>();
+
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    if (data.name) {
+      characters.add(data.name);
+    }
+  });
+
+  console.log(`DB에서 ${characters.size}개 캐릭터 목록 로드됨`);
+  return characters;
+}
+
+// 신규 실험체 패턴에서 캐릭터 이름 추출
+function extractNewCharacterFromH5(text: string): string | null {
+  // "신규 실험체 - 펜리르" 패턴
+  const match = text.match(/^신규\s*실험체\s*[-–—]\s*(.+)$/);
+  if (match) {
+    return normalizeCharacterName(match[1]);
+  }
+  return null;
+}
+
+// 신규 캐릭터 DB 등록
+async function registerNewCharacter(name: string): Promise<void> {
+  const db = initFirebaseAdmin();
+  const docRef = db.collection('characters').doc(name);
+  const doc = await docRef.get();
+
+  if (!doc.exists) {
+    const newCharacter: CharacterData = {
+      name,
+      nameEn: name, // 영문명은 일단 한글명과 동일하게
+      stats: {
+        totalPatches: 0,
+        buffCount: 0,
+        nerfCount: 0,
+        mixedCount: 0,
+        currentStreak: { type: null, count: 0 },
+        maxBuffStreak: 0,
+        maxNerfStreak: 0,
+      },
+      patchHistory: [],
+    };
+
+    await docRef.set(newCharacter);
+    validCharacters.add(name);
+    console.log(`  ✨ 신규 실험체 "${name}" DB 등록 완료`);
+  }
 }
 
 // ============================================
@@ -428,6 +420,38 @@ type ParsedCharacter = {
   devComment: string | null;
   changes: Change[];
 };
+
+// 패치노트에서 신규 실험체 감지 및 등록
+async function detectAndRegisterNewCharacters(page: Page, url: string): Promise<string[]> {
+  try {
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // h5 태그에서 "신규 실험체 - XXX" 패턴 찾기
+    const h5Texts = await page.evaluate(() => {
+      const content = document.querySelector('.er-article-detail__content');
+      if (!content) return [];
+
+      const h5Elements = content.querySelectorAll('h5');
+      return Array.from(h5Elements).map((h5) => h5.textContent?.trim() || '');
+    });
+
+    const newCharacters: string[] = [];
+
+    for (const text of h5Texts) {
+      const charName = extractNewCharacterFromH5(text);
+      if (charName && !validCharacters.has(charName)) {
+        await registerNewCharacter(charName);
+        newCharacters.push(charName);
+      }
+    }
+
+    return newCharacters;
+  } catch (error) {
+    console.error(`신규 실험체 감지 오류 (${url}):`, error);
+    return [];
+  }
+}
 
 async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[]> {
   try {
@@ -1071,6 +1095,9 @@ async function main(): Promise<void> {
   if (testMode && testPatchId) {
     console.log('=== 테스트 모드 ===\n');
 
+    // DB에서 유효 캐릭터 목록 로드
+    validCharacters = await loadValidCharacters();
+
     const browser: Browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -1089,6 +1116,12 @@ async function main(): Promise<void> {
     const url = `https://playeternalreturn.com/posts/news/${testPatchId}`;
     console.log(`패치 ID: ${testPatchId}`);
     console.log(`URL: ${url}\n`);
+
+    // 신규 실험체 감지 (테스트 모드에서는 등록하지 않고 출력만)
+    const newChars = await detectAndRegisterNewCharacters(page, url);
+    if (newChars.length > 0) {
+      console.log(`신규 실험체 감지: ${newChars.join(', ')}\n`);
+    }
 
     const characters = await parsePatchNote(page, url);
     await browser.close();
@@ -1138,6 +1171,9 @@ async function main(): Promise<void> {
   const characterMap = await loadExistingCharacters();
   console.log(`기존 캐릭터: ${Object.keys(characterMap).length}명`);
 
+  // DB에서 유효 캐릭터 목록 로드
+  validCharacters = await loadValidCharacters();
+
   // 파싱 대상 패치노트 조회
   const unparsedPatches = await getUnparsedPatchNotes();
 
@@ -1172,6 +1208,9 @@ async function main(): Promise<void> {
     const patch = unparsedPatches[i];
     const progress = `[${i + 1}/${unparsedPatches.length}]`;
     console.log(`${progress} ${patch.title} 파싱 중...`);
+
+    // 신규 실험체 감지 및 등록
+    await detectAndRegisterNewCharacters(page, patch.link);
 
     const characters = await parsePatchNote(page, patch.link);
     const patchVersion = extractPatchVersion(patch.title);

@@ -119,8 +119,8 @@ export function PatchEditForm({
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--er-surface)] border border-[var(--er-border)] rounded-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
-        <div className="p-4 border-b border-[var(--er-border)]">
+      <div className="bg-er-surface border border-er-border rounded-xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
+        <div className="p-4 border-b border-er-border">
           <h2 className="text-lg font-bold text-white">
             {isAddMode
               ? '새 패치 추가'
@@ -141,7 +141,7 @@ export function PatchEditForm({
                     onChange={(e) =>
                       setEditedPatch({ ...editedPatch, patchId: parseInt(e.target.value) || 0 })
                     }
-                    className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+                    className="w-full px-3 py-2 bg-[#1a1c23] border border-er-border rounded text-white"
                     placeholder="예: 125"
                   />
                 </div>
@@ -153,7 +153,7 @@ export function PatchEditForm({
                     onChange={(e) =>
                       setEditedPatch({ ...editedPatch, patchVersion: e.target.value })
                     }
-                    className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+                    className="w-full px-3 py-2 bg-[#1a1c23] border border-er-border rounded text-white"
                     placeholder="예: 1.30.0b"
                   />
                 </div>
@@ -163,7 +163,7 @@ export function PatchEditForm({
                     type="date"
                     value={editedPatch.patchDate}
                     onChange={(e) => setEditedPatch({ ...editedPatch, patchDate: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+                    className="w-full px-3 py-2 bg-[#1a1c23] border border-er-border rounded text-white"
                   />
                 </div>
               </div>
@@ -177,7 +177,7 @@ export function PatchEditForm({
               onChange={(e) =>
                 setEditedPatch({ ...editedPatch, overallChange: e.target.value as ChangeType })
               }
-              className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white"
+              className="w-full px-3 py-2 bg-[#1a1c23] border border-er-border rounded text-white"
             >
               {CHANGE_TYPES.map((type) => (
                 <option key={type.value} value={type.value}>
@@ -195,7 +195,7 @@ export function PatchEditForm({
                 setEditedPatch({ ...editedPatch, devComment: e.target.value || null })
               }
               rows={3}
-              className="w-full px-3 py-2 bg-[#1a1c23] border border-[var(--er-border)] rounded text-white resize-none"
+              className="w-full px-3 py-2 bg-[#1a1c23] border border-er-border rounded text-white resize-none"
               placeholder="코멘트 없음"
             />
           </div>
@@ -233,7 +233,7 @@ export function PatchEditForm({
           )}
         </form>
 
-        <div className="p-4 border-t border-[var(--er-border)] flex justify-end gap-3">
+        <div className="p-4 border-t border-er-border flex justify-end gap-3">
           <button
             type="button"
             onClick={onCancel}
