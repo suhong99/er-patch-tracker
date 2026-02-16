@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Character, ChangeType } from '@/types/patch';
 import { getChangeTypeColor, formatDate } from '@/lib/patch-utils';
-import { getCharacterImagePathByKorean } from '@/lib/character-names';
 
 type Props = {
   character: Character;
+  imageUrl?: string;
 };
 
 // 순수 함수: 스트릭 아이콘 렌더링
@@ -26,14 +26,13 @@ const renderStreakIcon = (type: ChangeType | null): string => {
 const calculatePercent = (value: number, total: number): number =>
   total > 0 ? Math.round((value / total) * 100) : 0;
 
-export default function CharacterCard({ character }: Props): React.ReactElement {
+export default function CharacterCard({ character, imageUrl }: Props): React.ReactElement {
   const { name, stats, patchHistory } = character;
   const latestPatch = patchHistory[0];
   const streakType = stats.currentStreak.type;
   const [imageError, setImageError] = useState(false);
 
-  const imagePath = getCharacterImagePathByKorean(name);
-  const hasImage = imagePath && !imageError;
+  const hasImage = imageUrl && !imageError;
 
   const buffPercent = calculatePercent(stats.buffCount, stats.totalPatches);
   const nerfPercent = calculatePercent(stats.nerfCount, stats.totalPatches);
@@ -55,7 +54,7 @@ export default function CharacterCard({ character }: Props): React.ReactElement 
             <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-[#2a2d35] bg-[#1a1d24]">
               {hasImage ? (
                 <Image
-                  src={imagePath}
+                  src={imageUrl}
                   alt={name}
                   fill
                   sizes="48px"
