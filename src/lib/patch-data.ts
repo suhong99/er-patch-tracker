@@ -155,6 +155,35 @@ export const calculateStatsSummary = (
 export const getAllCharacterNames = (characters: Character[]): string[] =>
   characters.map((char) => char.name).sort((a, b) => a.localeCompare(b, 'ko'));
 
+// 캐릭터 이미지 맵 로드 (Cloudinary URL)
+// 영어 이름 키 → 한글 이름 키로 변환하여 반환
+export type ImageMap = Record<string, string>;
+
+const fetchImageMap = async (): Promise<ImageMap> => {
+  const doc = await db.collection('metadata').doc('characterImages').get();
+  if (!doc.exists) return {};
+
+  const { CHARACTER_NAME_MAP } = await import('./character-names');
+  const englishMap = doc.data() as ImageMap;
+  const koreanMap: ImageMap = {};
+
+  for (const [englishName, url] of Object.entries(englishMap)) {
+    const koreanName = CHARACTER_NAME_MAP[englishName];
+    if (koreanName) {
+      koreanMap[koreanName] = url;
+    }
+    // 영어 키도 유지 (커스텀 캐릭터 등)
+    koreanMap[englishName] = url;
+  }
+
+  return koreanMap;
+};
+
+export const loadImageMap = unstable_cache(fetchImageMap, ['character-images'], {
+  revalidate: 3600,
+  tags: ['character-images'],
+});
+
 // 클라이언트 공용 유틸리티 재export
 export {
   filterAndSortCharacters,

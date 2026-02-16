@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { loadBalanceData, extractCharacters, findCharacterByName } from '@/lib/patch-data';
+import {
+  loadBalanceData,
+  extractCharacters,
+  findCharacterByName,
+  loadImageMap,
+} from '@/lib/patch-data';
 import { getChangeTypeLabel } from '@/lib/patch-utils';
 import {
   groupPatchesBySeason,
@@ -93,7 +98,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CharacterPage({ params }: Props): Promise<React.ReactElement> {
   const { name } = await params;
-  const data = await loadBalanceData();
+  const [data, imageMap] = await Promise.all([loadBalanceData(), loadImageMap()]);
   const characters = extractCharacters(data);
   const character = findCharacterByName(characters, name);
 
@@ -141,7 +146,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
         <header className="mb-10">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-5">
-              <CharacterImage name={character.name} size="lg" />
+              <CharacterImage name={character.name} imageUrl={imageMap[character.name]} size="lg" />
               <div>
                 <div className="flex flex-wrap items-center gap-3">
                   <h1 className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
