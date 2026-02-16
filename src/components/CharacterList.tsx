@@ -6,8 +6,11 @@ import { filterAndSortCharacters } from '@/lib/patch-utils';
 import CharacterCard from './CharacterCard';
 import FilterSort from './FilterSort';
 
+type ImageMap = Record<string, string>;
+
 type Props = {
   characters: Character[];
+  imageMap: ImageMap;
 };
 
 // 순수 함수: 상태 초기값 생성
@@ -18,7 +21,7 @@ const createInitialState = () => ({
   search: '',
 });
 
-export default function CharacterList({ characters }: Props): React.ReactElement {
+export default function CharacterList({ characters, imageMap }: Props): React.ReactElement {
   const [state, setState] = useState(createInitialState);
 
   // 함수형 상태 업데이트
@@ -110,7 +113,11 @@ export default function CharacterList({ characters }: Props): React.ReactElement
       {filteredCharacters.length > 0 ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredCharacters.map((character) => (
-            <CharacterCard key={character.name} character={character} />
+            <CharacterCard
+              key={character.name}
+              character={character}
+              imageUrl={imageMap[character.name]}
+            />
           ))}
         </div>
       ) : (

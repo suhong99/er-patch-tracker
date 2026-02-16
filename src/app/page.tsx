@@ -4,6 +4,7 @@ import {
   calculateStatsSummary,
   getLatestPatchInfo,
   getDataCoverageInfo,
+  loadImageMap,
 } from '@/lib/patch-data';
 import { formatDate } from '@/lib/patch-utils';
 import CharacterList from '@/components/CharacterList';
@@ -38,7 +39,7 @@ const createStatCards = (
 ];
 
 export default async function Home(): Promise<React.ReactElement> {
-  const data = await loadBalanceData();
+  const [data, imageMap] = await Promise.all([loadBalanceData(), loadImageMap()]);
   const characters = extractCharacters(data);
   const summary = calculateStatsSummary(characters);
   const statCards = createStatCards(summary);
@@ -120,7 +121,7 @@ export default async function Home(): Promise<React.ReactElement> {
           <h2 id="character-list-heading" className="sr-only">
             실험체 목록
           </h2>
-          <CharacterList characters={characters} />
+          <CharacterList characters={characters} imageMap={imageMap} />
         </section>
 
         {/* 푸터 - 피드백 */}
