@@ -160,19 +160,24 @@ export const getAllCharacterNames = (characters: Character[]): string[] =>
 export type ImageMap = Record<string, string>;
 
 const fetchImageMap = async (): Promise<ImageMap> => {
-  const doc = await db.collection('metadata').doc('characterImages').get();
-  if (!doc.exists) return {};
+  const [imagesDoc, customDoc] = await Promise.all([
+    db.collection('metadata').doc('characterImages').get(),
+    db.collection('metadata').doc('customCharacters').get(),
+  ]);
+  if (!imagesDoc.exists) return {};
 
   const { CHARACTER_NAME_MAP } = await import('./character-names');
-  const englishMap = doc.data() as ImageMap;
+  const englishMap = imagesDoc.data() as ImageMap;
+  // 관리자 페이지에서 추가한 커스텀 캐릭터 (영어 → 한글) 매핑
+  const customCharacters = (customDoc.exists ? customDoc.data() : {}) as Record<string, string>;
   const koreanMap: ImageMap = {};
 
   for (const [englishName, url] of Object.entries(englishMap)) {
-    const koreanName = CHARACTER_NAME_MAP[englishName];
+    const koreanName = CHARACTER_NAME_MAP[englishName] ?? customCharacters[englishName];
     if (koreanName) {
       koreanMap[koreanName] = url;
     }
-    // 영어 키도 유지 (커스텀 캐릭터 등)
+    // 영어 키도 유지
     koreanMap[englishName] = url;
   }
 
