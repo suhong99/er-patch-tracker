@@ -755,7 +755,11 @@ async function parsePatchNote(page: Page, url: string): Promise<ParsedCharacter[
               }
 
               if (descSpan) {
-                const descText = descSpan.textContent?.replace(/\s+/g, ' ').trim() || '';
+                let descText = descSpan.textContent?.replace(/\s+/g, ' ').trim() || '';
+                // after 값이 <strong><span> 등 별도 태그에 있는 경우 p 전체 텍스트로 fallback
+                if (descP && descText.includes('→') && !descText.match(numericPattern)) {
+                  descText = descP.textContent?.replace(/\s+/g, ' ').trim() || descText;
+                }
                 if (!descText || descText.length < 5) continue;
 
                 // 스킬 헤더 확인 (서브 li에서도 스킬 헤더가 나올 수 있음, 무기 스킬 포함)

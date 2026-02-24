@@ -133,15 +133,18 @@ export default function CharacterCard({ character, imageUrl }: Props): React.Rea
         {/* 최근 패치 */}
         {latestPatch && (
           <div className="relative border-t border-[#2a2d35] pt-3">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-zinc-500">최근</span>
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="shrink-0 text-zinc-500">최근</span>
+              <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
                 <span
-                  className={`font-mono font-bold ${getChangeTypeColor(latestPatch.overallChange)}`}
+                  className={`min-w-0 truncate font-mono font-bold ${getChangeTypeColor(latestPatch.overallChange)}`}
+                  title={latestPatch.patchVersion}
                 >
                   v{latestPatch.patchVersion}
                 </span>
-                <span className="text-xs text-zinc-600">{formatDate(latestPatch.patchDate)}</span>
+                <span className="shrink-0 text-xs text-zinc-600">
+                  {formatDate(latestPatch.patchDate)}
+                </span>
               </div>
             </div>
           </div>
