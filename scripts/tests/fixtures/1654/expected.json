@@ -1,0 +1,1129 @@
+[
+  {
+    "name": "나딘",
+    "nameEn": "나딘",
+    "devComment": "W - 다람쥐 덫의 쿨다운을 줄여 초중반 나딘의 지역 장악과 위기 대처 능력을 올립니다.",
+    "changes": [
+      {
+        "target": "다람쥐 덫(W)",
+        "stat": "쿨다운",
+        "before": "18/16/14/12/10초",
+        "after": "14/13/12/11/10초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "니키",
+    "nameEn": "니키",
+    "devComment": "픽률, 승률, 평균 점수 획득량 모두 매우 좋은 모습을 보이고 있는 니키의 주력 스킬 기본 피해량을 크게 낮추고 쿨다운을 늘립니다.",
+    "changes": [
+      {
+        "target": "격투 액션(Q)",
+        "stat": "최소 피해량",
+        "before": "40/65/90/115/140(+스킬 증폭의 60%)",
+        "after": "20/40/60/80/100(+스킬 증폭의 65%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "격투 액션(Q)",
+        "stat": "최대 피해량",
+        "before": "80/130/180/230/280(+스킬 증폭의 120%)",
+        "after": "40/80/120/160/200(+스킬 증폭의 130%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "격투 액션(Q)",
+        "stat": "쿨다운",
+        "before": "15/13.5/11/10.5/9초",
+        "after": "15/14/13/12/11초",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "강력한 펀치(E)",
+        "stat": "피해량",
+        "before": "60/110/160/210/260(+스킬 증폭의 70%)",
+        "after": "20/60/100/140/180(+스킬 증폭의 80%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "강력한 펀치(E)",
+        "stat": "분노의 펀치!(E2) 피해량",
+        "before": "90/150/210/260/310(+스킬 증폭의 90%)",
+        "after": "50/100/150/200/250(+스킬 증폭의 100%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "다니엘",
+    "nameEn": "다니엘",
+    "devComment": "다니엘은 전반적인 통계가 좋지 않지만 단순히 체급을 올리면 대응이 어려워질 수 있습니다. W - 영감의 축적 피해량을 올리고 자신에게 적용되는 이동 속도 감소 효과의 지속 시간을 줄여 다니엘이 좋은 플레이를 했을 때의 위력을 올립니다.",
+    "changes": [
+      {
+        "target": "영감(W)",
+        "stat": "피해 축적량",
+        "before": "4/7/10/13/16%",
+        "after": "8/11/14/17/20%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "영감(W)",
+        "stat": "자신의 이동 속도 감소 효과 지속 시간",
+        "before": "3초",
+        "after": "2초",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "라우라",
+    "nameEn": "라우라",
+    "devComment": "라우라는 전반적인 통계가 좋지 않습니다. W - 예고장의 속도가 느려져 이전에 비해 대응의 여지가 생긴 상황이기 때문에 R - 황혼의 도둑 피해량을 상향하여 위력을 올립니다.",
+    "changes": [
+      {
+        "target": "황혼의 도둑(R)",
+        "stat": "피해량",
+        "before": "160/300/440(+스킬 증폭의 95%)",
+        "after": "200/340/480(+스킬 증폭의 100%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "리오",
+    "nameEn": "리오",
+    "devComment": "승률과 평균 점수 획득량이 매우 낮은 리오의 레벨 당 공격력을 올리고, 어려운 활용도에 비하여 리턴이 높지 않은 궁극기를 잘 활용했을 때 좋은 리턴을 가질 수 있게 합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "레벨 당 공격력",
+        "before": "3.7",
+        "after": "4",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "연사 / 정사필중(R)",
+        "stat": "적이 벽에 부딪혔을 경우 기절 지속 시간",
+        "before": "1초",
+        "after": "1.5초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "연사 / 정사필중(R)",
+        "stat": "이동 속도 감소 지속 시간",
+        "before": "1.5초",
+        "after": "2초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "연사 / 정사필중(R)",
+        "stat": "발사 후",
+        "before": "0.8초 뒤 피해 증가량 20%",
+        "after": "30%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "마르티나",
+    "nameEn": "마르티나",
+    "devComment": "기본 공격 도중에 W - 일시정지를 사용할 수 있도록 변경됩니다. 기본 공격 중에 일시정지 스킬을 사용하면, 기본 공격이 중단되고 해당 스킬이 발동됩니다.",
+    "changes": [
+      {
+        "target": "일시정지(W)",
+        "description": "기본 공격 중 스킬 사용 불가능 → 가능",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      }
+    ]
+  },
+  {
+    "name": "마이",
+    "nameEn": "마이",
+    "devComment": "승률과 평균 점수 획득량이 낮은 마이의 전반적인 내구도를 상향하고, P - 오뜨꾸뛰르를 잘 활용할 수 있게 하여 교전과 사냥에서의 위력을 늘려 줍니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "39",
+        "after": "42",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "레벨 당 최대 체력",
+        "before": "80",
+        "after": "83",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "채찍 무기 숙련도 레벨 당 공격 속도",
+        "before": "2.8%",
+        "after": "3.6%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "오뜨꾸뛰르 (P)",
+        "stat": "기본 공격 시 추가 피해량 방어력의",
+        "before": "20/25/30%",
+        "after": "25/30/35%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "마커스",
+    "nameEn": "마커스",
+    "devComment": "약한 모습을 보이고 있는 마커스의 전반적인 피해량을 상향하여 위력을 보완합니다.",
+    "changes": [
+      {
+        "target": "전사의 투지(P)",
+        "stat": "일격 추가 피해량",
+        "before": "30/60/90(+공격력의 60%)",
+        "after": "30/60/90(+공격력의 70%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "전투 교범(Q)",
+        "stat": "기본 공격 시 추가 피해량",
+        "before": "15/25/35/45/55(+추가 체력의 16%)",
+        "after": "15/25/35/45/55(+추가 체력의 18%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "매그너스",
+    "nameEn": "매그너스",
+    "devComment": "R - 폭주 바이크의 피해량을 올려 매그너스가 용감하게 돌격하며 교전을 시작했을 때의 위력을 강화합니다.",
+    "changes": [
+      {
+        "target": "폭주 바이크(R)",
+        "stat": "피해량",
+        "before": "110/230/350(+추가 공격력의 150%)(+스킬 증폭의 85%)(+대상 현재 체력의 20%)",
+        "after": "110/230/350(+추가 공격력의 150%)(+스킬 증폭의 85%)(+대상 현재 체력의 30%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "바냐",
+    "nameEn": "바냐",
+    "devComment": "여전히 좋지 않은 모습을 보이고 있는 바냐의 W - 쪽빛 바람의 피해량을 늘리고 E - 염원의 쿨다운을 줄여 전투 지속력을 강화합니다.",
+    "changes": [
+      {
+        "target": "쪽빛 바람(W)",
+        "stat": "쪽빛 바람(W1) 피해량",
+        "before": "20/24/28/32/36(+스킬 증폭의 12%)",
+        "after": "20/23/26/29/32(+스킬 증폭의 16%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "염원(E)",
+        "stat": "쿨다운",
+        "before": "18/17/16/15/14초",
+        "after": "17/16/15/14/13초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "염원(E)",
+        "stat": "스태미나 소모량",
+        "before": "100",
+        "after": "60",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "셀린",
+    "nameEn": "셀린",
+    "devComment": "셀린의 통계가 높지 않고 VF 혈액 샘플 무기의 하향 조정도 있어 전반적인 위력을 보완합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "투척 무기 숙련도 레벨 당 스킬 증폭",
+        "before": "4%",
+        "after": "4.2%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "투척 무기 숙련도 레벨 당 공격 속도",
+        "before": "1.2%",
+        "after": "2%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "쇼우",
+    "nameEn": "쇼우",
+    "devComment": "픽률과 승률 평균 점수 획득량이 높은 모습을 보이고 있습니다. R - 뜨거운 맛의 피해량을 줄여 이를 견제합니다.",
+    "changes": [
+      {
+        "target": "뜨거운 맛(R)",
+        "stat": "피해량",
+        "before": "50/95/140(+스킬 증폭의 35%)(+쇼우 최대 체력의 6%)",
+        "after": "50/95/140(+스킬 증폭의 35%)(+쇼우 최대 체력의 4%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "실비아",
+    "nameEn": "실비아",
+    "devComment": "잘 활용되지 못하고 있는 실비아의 내구도를 올립니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "레벨 당 최대 체력",
+        "before": "85",
+        "after": "88",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아드리아나",
+    "nameEn": "아드리아나",
+    "devComment": "아이템 스킬 부패와 어색했던 상호 작용을 개선하고 전설 무기의 하향 조정으로 Q -방화의 위력을 올립니다.",
+    "changes": [
+      {
+        "target": "방화(Q)",
+        "stat": "피해량",
+        "before": "10/20/30/40/50(+스킬 증폭의 17/19/21/23/25%)",
+        "after": "10/20/30/40/50(+스킬 증폭의 18/20/22/24/26%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "방화(Q)",
+        "description": "화염지대 적중 시 이제 부패 스택이 1회 중첩됩니다.",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      }
+    ]
+  },
+  {
+    "name": "아디나",
+    "nameEn": "아디나",
+    "devComment": "픽률과 평균 점수 획득량이 낮은 아디나를 소폭 상향합니다. 또한 컨정션 위주로만 사용 되고 있는 해 천체의 일반 위력을 소폭 올려 저점을 보완하려 합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 체력",
+        "before": "753",
+        "after": "760",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "레벨 당 스태미나",
+        "before": "15",
+        "after": "25",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "별 읽기(P)",
+        "stat": "이동 속도 증가량",
+        "before": "3/6/9%(+스킬 증폭의 1%)",
+        "after": "4/7/10%(+스킬 증폭의 1%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "루미너리(Q)",
+        "stat": "해 천체 피해량 증가",
+        "before": "10(+스킬 증폭의 10%)",
+        "after": "20(+스킬 증폭의 10%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "루미너리(Q)",
+        "description": "(해 컨정션의 피해량을 증가시키지 않습니다.)",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      },
+      {
+        "target": "트라인 에스펙트(W)",
+        "stat": "해 천체 피해량 증가량",
+        "before": "10(+스킬 증폭의 10%)",
+        "after": "20(+스킬 증폭의 10%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "폴 디그니티(E)",
+        "stat": "해 천체 피해량 증가량",
+        "before": "5(+스킬 증폭의 5%)",
+        "after": "10(+스킬 증폭의 5%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아르다",
+    "nameEn": "아르다",
+    "devComment": "약한 모습을 보이고 있는 아르다의 전반적인 위력을 올립니다.",
+    "changes": [
+      {
+        "target": "유물 탐구(P)",
+        "stat": "고대의 정수 투사체 속도",
+        "before": "15m/s",
+        "after": "18m/s",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "바빌론의 입방체(W)",
+        "stat": "영역 피해량",
+        "before": "40/60/80/100/120(+스킬 증폭의 30%)",
+        "after": "60/75/90/105/120(+스킬 증폭의 30%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "님루드의 비석(E)",
+        "stat": "피해량",
+        "before": "40/80/120/160/200(+스킬 증폭의 40%)",
+        "after": "80/110/140/170/200(+스킬 증폭의 40%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "바빌론의 주사위(R-W)",
+        "stat": "피해량",
+        "before": "40/60/80/100/120(+스킬 증폭의 30%)",
+        "after": "60/75/90/105/120(+스킬 증폭의 30%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "님루드의 문(R-E)",
+        "stat": "피해량",
+        "before": "40/80/120/160/200(+스킬 증폭의 40%)",
+        "after": "80/110/140/170/200(+스킬 증폭의 40%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아비게일",
+    "nameEn": "아비게일",
+    "devComment": "승률과 평균 점수 획득량이 매우 낮은 모습을 보이고 있어 P - 티어링 블레이드와 도끼 무기 스킬을 상향하여 단일 대상 피해량과 광역 피해량 모두 올립니다.",
+    "changes": [
+      {
+        "target": "티어링 블레이드(P)",
+        "stat": "피해량",
+        "before": "30/65/100(+스킬 증폭의 30%)",
+        "after": "30/65/100(+스킬 증폭의 40%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "티어링 블레이드(P)",
+        "stat": "쿨다운",
+        "before": "16/12/8초",
+        "after": "16/11/6초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아야",
+    "nameEn": "아야",
+    "devComment": "저격총 아야의 기본 공격 투사체 속도가 다른 일반적인 기본 공격 투사체 속도보다 과도하게 빠르게 설정되어 있어 이를 조정합니다. 다만 저격총 아야의 통계는 좋지 않으므로 주력 스킬의 위력 강화로 성능을 보완하며, P - 아야의 정의의 보호막 버그가 수정됩니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "저격총 기본 공격 투사체 속도",
+        "before": "36m/s",
+        "after": "18.75m/s",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "저격총 무기 숙련도 레벨 당 공격 속도",
+        "before": "2%",
+        "after": "2.5%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "권총 무기 숙련도 레벨 당 스킬 증폭",
+        "before": "4.6%",
+        "after": "4.4%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "2연발(Q)",
+        "stat": "두 번째 발 피해량",
+        "before": "40/70/100/130/160(+공격력의 30%)(+스킬 증폭의 70%)",
+        "after": "40/70/100/130/160(+공격력의 30%)(+스킬 증폭의 80%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "2연발(Q)",
+        "stat": "공격 속도 증가 지속 시간",
+        "before": "3초",
+        "after": "4초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아이솔",
+    "nameEn": "아이솔",
+    "devComment": "돌격 소총 무기군은 강력한 모습을 보이고 있으나 권총 무기군은 부진한 모습을 보이고 있습니다. 돌격 소총 무기의 숙련도를 낮추고 Q - 셈텍스 폭탄의 위력을 조정하여 균형을 맞추려 합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "돌격 소총 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "1.7%",
+        "after": "1.5%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "셈텍스 폭탄(Q)",
+        "stat": "피해량",
+        "before": "30/60/90/120/150(+공격력의 30%)(+스킬 증폭의 60%)",
+        "after": "50/70/90/110/130(+공격력의 25%)(+스킬 증폭의 75%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "알렉스",
+    "nameEn": "알렉스",
+    "devComment": "낮은 점수 획득량을 기록하고 있는 알렉스의 전반적인 피해량을 상향합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "레벨 당 공격력",
+        "before": "3.9",
+        "after": "4.4",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "알론소",
+    "nameEn": "알론소",
+    "devComment": "알론소는 낮은 픽률과 매우 낮은 점수 획득량을 기록을 기록하고 있습니다. P - 플라즈마 베리어의 쿨다운을 올려 알론소를 대처하기 힘든 부분을 조정하고, Q - 마그네틱 펀치와 R - 게더링 필드의 피해량을 상향하여 알론소가 더 높은 피해량을 가지도록 합니다.",
+    "changes": [
+      {
+        "target": "플라즈마 베리어(P)",
+        "stat": "쿨다운",
+        "before": "18/12/6초",
+        "after": "18/13/8초",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "마그네틱 펀치(Q)",
+        "stat": "피해량",
+        "before": "80/120/160/200/240(+스킬 증폭의 40%)",
+        "after": "100/140/180/220/260(+스킬 증폭의 40%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "마그네틱 펀치(Q)",
+        "stat": "연결된",
+        "before": "대상 기본 공격 시 피해량 (레벨*10)(+적 최대 체력의 8/8.5/9/9.5/10%)",
+        "after": "(레벨*10)(+적 최대 체력의 9/9.5/10/10.5/11%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "게더링 필드(R)",
+        "stat": "폭발 피해량",
+        "before": "50/100/150(+스킬 증폭의 50%)(+추가 체력의 3%) ~ 100/200/300(+스킬 증폭의 100%)(+추가 체력의 6%)",
+        "after": "100/150/200(+스킬 증폭의 50%)(+추가 체력의 4%) ~ 200/300/400(+스킬 증폭의 100%)(+추가 체력의 8%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "에스텔",
+    "nameEn": "에스텔",
+    "devComment": "에스텔의 E - 방패방어와 R - 헬기호출의 쿨다운을 줄여 두 스킬을 조금 더 잘 활용할 수 있도록 합니다. 또한 도끼 무기 스킬을 상향하여 에스텔의 피해량을 올립니다.",
+    "changes": [
+      {
+        "target": "방패방어(E)",
+        "stat": "쿨다운",
+        "before": "15/14/13/12/11초",
+        "after": "14/13/12/11/10초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "헬기 호출(R)",
+        "stat": "쿨다운",
+        "before": "90/75/60초",
+        "after": "80/65/50초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "에이든",
+    "nameEn": "에이든",
+    "devComment": "에이든은 P - 과전하를 활용했을 때 높은 피해량을 주는 실험체입니다. 하지만 활용하지 못했을 때 격차가 매우 커, 과전하 상태가 아닐 때의 피해량을 보완해줍니다.",
+    "changes": [
+      {
+        "target": "뇌격(Q)",
+        "stat": "피해량",
+        "before": "50/80/110/140/170(+공격력의 75%)",
+        "after": "80/110/140/170/200(+공격력의 75%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "낙뢰(R)",
+        "stat": "첫번째 낙뢰 피해량",
+        "before": "60/80/100(+공격력의 50%)",
+        "after": "60/80/100(+공격력의 60%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "낙뢰(R)",
+        "stat": "두번째 낙뢰 피해량",
+        "before": "80/120/160(+공격력의 60%)",
+        "after": "80/120/160(+공격력의 70%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "에키온",
+    "nameEn": "에키온",
+    "devComment": "에키온의 모든 무기들이 좋지 않은 통계를 보여주고 있습니다. 에키온의 기본 공격력을 올려, 전반적인 피해량을 상향합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 공격력",
+        "before": "39",
+        "after": "42",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "엘레나",
+    "nameEn": "엘레나",
+    "devComment": "엘레나가 R - 죽음의 무도를 조금 더 자주 사용할 수 있게 합니다.",
+    "changes": [
+      {
+        "target": "죽음의 무도(R)",
+        "stat": "쿨다운",
+        "before": "80/70/60초",
+        "after": "80/65/50초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "엠마",
+    "nameEn": "엠마",
+    "devComment": "낮은 픽률을 기록하고 있는 엠마의 스킬 피해량을 상향하여 스킬을 적중했을 때 더욱 강한 모습을 보일 수 있도록 합니다.",
+    "changes": [
+      {
+        "target": "비둘기 딜러(Q)",
+        "stat": "피해량",
+        "before": "40/75/110/145/180(+스킬 증폭의 85%)",
+        "after": "40/75/110/145/180(+스킬 증폭의 90%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "폭죽 모자(W)",
+        "stat": "피해량",
+        "before": "80/135/190/245/300(+스킬 증폭의 95%)",
+        "after": "80/135/190/245/300(+스킬 증폭의 100%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "요한",
+    "nameEn": "요한",
+    "devComment": "요한은 계속해서 낮은 픽률을 기록하고 있습니다. Q - 찬란한 광휘의 회복량을 상향하여 서포터로서 입지를 조금 더 다질 수 있도록 합니다.",
+    "changes": [
+      {
+        "target": "찬란한 광휘(Q)",
+        "stat": "회복량",
+        "before": "20/35/50/65/80(+스킬 증폭의 15%)",
+        "after": "20/35/50/65/80(+스킬 증폭의 20%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "찬란한 광휘(Q)",
+        "stat": "강화 회복량",
+        "before": "40/60/80/100/120(+스킬 증폭의 25%)",
+        "after": "40/60/80/100/120(+스킬 증폭의 30%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "윌리엄",
+    "nameEn": "윌리엄",
+    "devComment": "낮은 픽률과 점수 획득량을 기록하고 있는 윌리엄의 피해량을 상향 조정합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 공격력",
+        "before": "40",
+        "after": "42",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "캐치볼(P)",
+        "stat": "피해량",
+        "before": "(공격력의 108/118/128%)*(기본 공격 증폭)",
+        "after": "(공격력의 110/120/130%)*(기본 공격 증폭)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "이렘",
+    "nameEn": "이렘",
+    "devComment": "좋은 모습을 보여주고 있는 이렘의 Q - 바운싱 볼의 피해량을 하향하여 견제 능력을 낮추고, R - 이렘으로 짠~ 의 보호막을 하향하여 교전에 조금 더 리스크를 가지도록 합니다.",
+    "changes": [
+      {
+        "target": "바운싱 볼(Q)",
+        "stat": "피해량",
+        "before": "50/75/100/125/150(+스킬 증폭의 50%)",
+        "after": "50/70/90/110/130(+스킬 증폭의 50%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "이렘으로 짠~(고양이 R)",
+        "stat": "보호막량",
+        "before": "40/70/100/130(+스킬 증폭의 35%)",
+        "after": "40/65/90/115(+스킬 증폭의 30%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "이바",
+    "nameEn": "이바",
+    "devComment": "이바는 잘 활용되지 못하고 있고, VF 혈액 샘플 무기의 하향 조정도 진행 되어, 이바가 P - 텔레키네시스를 조금 더 잘 활용했을 때, 높은 피해량을 가지도록 합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "최대 체력",
+        "before": "780",
+        "after": "820",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "텔레키네시스(P)",
+        "stat": "피해량",
+        "before": "30/50/70(+스킬 증폭의 30%)",
+        "after": "30/60/90(+스킬 증폭의 35%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "이안",
+    "nameEn": "이안",
+    "devComment": "모든 통계가 좋지 않은 이안의 피해량을 상향합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 공격력",
+        "before": "36",
+        "after": "40",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "피투성이 손톱(빙의 W)",
+        "stat": "피해량",
+        "before": "10/40/70/100/130(+공격력의 60%)",
+        "after": "10/40/70/100/130(+공격력의 65%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "일레븐",
+    "nameEn": "일레븐",
+    "devComment": "P - 힘내자고!를 잘 활용했을 때, 일레븐의 팀원들이 더 큰 효과를 보게 합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "40",
+        "after": "42",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "힘내자고!(P)",
+        "stat": "최대 체력 비례 회복량",
+        "before": "1/3/5%",
+        "after": "2/4/6%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "자히르",
+    "nameEn": "자히르",
+    "devComment": "낮은 픽률을 기록하고 있는 자히르의 W - 간디바의 피해량을 상향하여 조금 더 좋은 모습을 보여줄 수 있도록 하고, 이미 높은 피해량과 승률을 기록하는 투척 무기군을 조정합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "투척 무기 숙련도 레벨 당 스킬 증폭",
+        "before": "4.8%",
+        "after": "4.6%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "간디바(W)",
+        "stat": "피해량",
+        "before": "20/40/60/80/100(+스킬 증폭의 45%)",
+        "after": "20/45/70/95/120(+스킬 증폭의 50%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "제니",
+    "nameEn": "제니",
+    "devComment": "낮은 픽률을 기록하고 있는 제니가 R - 시상식의 여왕을 조금 더 활용하기 쉽도록 합니다.",
+    "changes": [
+      {
+        "target": "시상식의 여왕(R)",
+        "stat": "이동 속도 감소",
+        "before": "30%",
+        "after": "30/35/40%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "시상식의 여왕(R)",
+        "stat": "피해량",
+        "before": "100/200/300(+스킬 증폭의 60%)",
+        "after": "100/200/300(+스킬 증폭의 70%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "츠바메",
+    "nameEn": "츠바메",
+    "devComment": "R -오의 - 생사각인의 중첩을 쌓은 츠바메는 대처하기 무척 어려운 편입니다. 츠바메의 스킬셋이 가진 여러 가지 문제점들을 개선하기 위한 작업이 진행되고 있지만 시간이 많이 소요되는 만큼, 우선 극단적으로 몰려있는 궁극기의 위력을 다른 스킬로 이관하고자 합니다. 궁극기의 중첩 당 피해와 회복량을 줄이고 고점을 낮추고 비중첩 피해량과 내구도를 올려 일부 보완합니다. 체력 비례 피해의 계수를 공격력이 아닌 추가 공격력으로 한정해 출시 초기처럼 방어적 아이템을 섞을 때의 위력을 제한합니다. 또, W - 제비걸음의 이동 속도를 줄이고 궁극기와 연계되지 않았을 때의 재사용 대기 시간을 늘려 추격 능력을 줄입니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "39",
+        "after": "43",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "수리검 전개(Q)",
+        "stat": "피해량",
+        "before": "70/110/150/190/230(+공격력의 90%)",
+        "after": "70/120/170/220/270(+공격력의 90%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "제비걸음(W)",
+        "stat": "이동 속도 증가량",
+        "before": "35/40/45/50/55%",
+        "after": "25/30/35/40/45%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "제비걸음(W)",
+        "stat": "쿨다운",
+        "before": "11/10/9/8/7초",
+        "after": "15/14/13/12/11초",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "오의 - 생사 각인(R)",
+        "stat": "피해량",
+        "before": "10/35/60/85/110(+공격력의 85%)(+대상 최대 체력의 1/1.25/1.5/1.75/2%(+공격력 1당 0.05%))",
+        "after": "10/35/60/85/110(+공격력의 100%)(+대상 최대 체력의 1/1.25/1.5/1.75/2%(+추가 공격력 1당 0.07%))",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "오의 - 생사 각인(R)",
+        "stat": "각인된 전투 감각 중첩 당 피해 증가",
+        "before": "33%",
+        "after": "17%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "오의 - 생사 각인(R)",
+        "stat": "체력 회복량 피해량의",
+        "before": "75%",
+        "after": "50%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "오의 - 생사 각인(R)",
+        "stat": "제비걸음(W) 쿨다운 감소",
+        "before": "30%",
+        "after": "50%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "카밀로",
+    "nameEn": "카밀로",
+    "devComment": "전반적인 통계가 좋지 않은 카밀로가 P - 올레를 잘 활용했을 때, 더 좋은 모습을 보일 수 있도록 합니다. 또 레이피어 무기보다 낮은 통계를 보여주는 쌍검 카밀로를 조금 더 상향합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "쌍검 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "2%",
+        "after": "2.2%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "올레(P)",
+        "stat": "쿨다운",
+        "before": "24/22/20초",
+        "after": "22/20/18초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "씨에레(W)",
+        "stat": "피해량",
+        "before": "8/18/28/38/48(공격력의 15%)",
+        "after": "5/15/25/35/45(공격력의 20%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "캐시",
+    "nameEn": "캐시",
+    "devComment": "낮은 승률을 기록하고 있는 캐시의 Q - 동맥 절제술의 피해량을 소폭 상향합니다.",
+    "changes": [
+      {
+        "target": "동맥 절제술(Q)",
+        "stat": "피해량",
+        "before": "40/70/100/130/160(+스킬 증폭의 75%)",
+        "after": "40/70/100/130/160(+스킬 증폭의 80%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "클로에",
+    "nameEn": "클로에",
+    "devComment": "니나의 기본 공격 속도를 높여 니나를 잘 활용했을 때, 더 높은 피해량을 가지도록 합니다.",
+    "changes": [
+      {
+        "target": "살아 있는 마리오네트(P)",
+        "stat": "니나 기본 공격 속도",
+        "before": "0.8",
+        "after": "1",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "키아라",
+    "nameEn": "키아라",
+    "devComment": "키아라는 오랜 시간 동안 계속해서 좋은 모습을 보여주지 못하였습니다. 키아라의 전반적인 능력을 상향하여 키아라가 좋은 모습을 보여줄 수 있도록 합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "36",
+        "after": "39",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "낙인(P)",
+        "stat": "치유 효과 감소",
+        "before": "9/10/11%",
+        "after": "10/11/12%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "부정의 손길(Q)",
+        "stat": "추가 피해량",
+        "before": "10/20/30/40/50(+스킬 증폭의 6%)",
+        "after": "10/20/30/40/50(+스킬 증폭의 8%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "부정의 손길(Q)",
+        "stat": "회복량",
+        "before": "10/13/16/19/22(+스킬 증폭의 3%)",
+        "after": "10/13/16/19/22(+스킬 증폭의 5%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "폭주(R)",
+        "stat": "피해량",
+        "before": "10/30/50(+스킬 증폭의 25%)",
+        "after": "20/40/60(+스킬 증폭의 25%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "테오도르",
+    "nameEn": "테오도르",
+    "devComment": "계속해서 낮은 픽률을 기록하고 있는 테오도르의 Q - 에너지포를 상향하여, 테오도르가 더 좋은 모습을 보여줄 수 있도록 합니다.",
+    "changes": [
+      {
+        "target": "에너지 포(Q)",
+        "stat": "피해량",
+        "before": "50/85/120/155/190(+스킬 증폭의 65%)",
+        "after": "50/85/120/155/190(+스킬 증폭의 70%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "에너지 포(Q)",
+        "stat": "쿨다운",
+        "before": "12/11.5/11/10.5/10초",
+        "after": "13/12/11/10/9초",
+        "changeType": "mixed",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "펠릭스",
+    "nameEn": "펠릭스",
+    "devComment": "펠릭스는 방어적인 아이템을 선택했을 때 계속해서 좋은 모습을 보여주었습니다. 펠릭스가 공격적인 아이템 세팅을 했을 때, 더 이득을 볼 수 있게 합니다. 또한 높은 성능을 가지고 있는 무기를 하향 조정합니다. (창 항목 참조)",
+    "changes": [
+      {
+        "target": "연계 창술(P)",
+        "stat": "소모한 중첩 당 보호막량",
+        "before": "25(+공격력의 40%)",
+        "after": "5(+공격력의 50%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "피올로",
+    "nameEn": "피올로",
+    "devComment": "Q - 쌍절난격을 전부 적중하였을 때, 과한 피해량을 가지는 부분을 조정합니다.",
+    "changes": [
+      {
+        "target": "쌍절난격/내려치기(Q)",
+        "stat": "1,",
+        "before": "5, 10회 적중 시 강화 피해량 20/30/40/50/60(+스킬 증폭의 35%)",
+        "after": "20/30/40/50/60(+스킬 증폭의 30%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "혜진",
+    "nameEn": "혜진",
+    "devComment": "W - 흡령부가 조금 더 잘 연계될 수 있도록 합니다.",
+    "changes": [
+      {
+        "target": "흡령부(W)",
+        "stat": "이동 속도 감소",
+        "before": "30%",
+        "after": "35%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  }
+]

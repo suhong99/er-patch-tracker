@@ -1,0 +1,48 @@
+[
+  {
+    "name": "레녹스",
+    "nameEn": "레녹스",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "위풍당당(P)",
+        "stat": "쿨다운",
+        "before": "16/14/12초",
+        "after": "14/12/10초",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "위풍당당(P)",
+        "stat": "스킬 적중 시 쿨다운 감소량",
+        "before": "15%",
+        "after": "10%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "블레어",
+    "nameEn": "블레어",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "이중 참격(쌍검 Q)",
+        "stat": "1타 피해량",
+        "before": "20/40/60/80/100(+추가 공격력의 100/110/120/130/140%)(+대상 최대 체력의 1/1.5/2/2.5/3(+추가 공격력의 5%))",
+        "after": "20/40/60/80/100(+추가 공격력의 90/100/110/120/130%)(+대상 최대 체력의 1/1.5/2/2.5/3(+추가 공격력의 4%))",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "이중 참격(쌍검 Q)",
+        "stat": "2타 피해량",
+        "before": "20/50/80/110/140(+추가 공격력의 100/110/120/130/140%)",
+        "after": "20/50/80/110/140(+추가 공격력의 90/100/110/120/130%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  }
+]
