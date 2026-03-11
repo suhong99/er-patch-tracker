@@ -149,7 +149,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
               <CharacterImage name={character.name} imageUrl={imageMap[character.name]} size="lg" />
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <h1 className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
+                  <h1 className="bg-linear-to-r from-white to-zinc-400 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
                     {character.name}
                   </h1>
                   {currentStreak.type && currentStreak.count > 0 && (
@@ -239,7 +239,7 @@ export default async function CharacterPage({ params }: Props): Promise<React.Re
                   <div className="relative space-y-4">
                     {/* 타임라인 라인 */}
                     <div
-                      className="absolute bottom-0 left-6 top-0 w-px bg-gradient-to-b from-violet-500/50 via-[#2a2d35] to-transparent"
+                      className="absolute bottom-0 left-6 top-0 w-px bg-linear-to-b from-violet-500/50 via-[#2a2d35] to-transparent"
                       aria-hidden="true"
                     />
 

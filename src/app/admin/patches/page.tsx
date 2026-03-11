@@ -1,60 +1,28 @@
 'use client';
 
-import { useState, useEffect, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { useAuth } from '@/contexts/AuthContext';
-import type { PatchNote } from '@/types/patch';
+import { useRecentPatches } from '@/hooks/useRecentPatches';
+import { parsePatchId } from '@/lib/patch-api';
+import { RecentPatchList } from '@/components/admin/RecentPatchList';
 
 export default function AdminPatchesPage(): React.JSX.Element {
   const router = useRouter();
-  const { user } = useAuth();
+  const { patches, loading } = useRecentPatches();
   const [patchId, setPatchId] = useState('');
   const [error, setError] = useState('');
-  const [recentPatches, setRecentPatches] = useState<PatchNote[]>([]);
-  const [loadingRecent, setLoadingRecent] = useState(true);
-
-  useEffect(() => {
-    const fetchRecentPatches = async (): Promise<void> => {
-      if (!user) return;
-
-      try {
-        const token = await user.getIdToken();
-        const response = await fetch('/api/admin/patches', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (response.ok) {
-          const data = (await response.json()) as { patches: PatchNote[] };
-          setRecentPatches(data.patches);
-        }
-      } catch {
-        // 조용히 실패
-      } finally {
-        setLoadingRecent(false);
-      }
-    };
-
-    fetchRecentPatches();
-  }, [user]);
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
+    const result = parsePatchId(patchId);
+
+    if ('error' in result) {
+      setError(result.error);
+      return;
+    }
+
     setError('');
-
-    const trimmed = patchId.trim();
-    if (!trimmed) {
-      setError('패치 ID를 입력해주세요.');
-      return;
-    }
-
-    const parsed = parseInt(trimmed, 10);
-    if (isNaN(parsed) || parsed <= 0) {
-      setError('유효한 패치 ID를 입력해주세요. (숫자)');
-      return;
-    }
-
-    router.push(`/admin/patches/${parsed}`);
+    router.push(`/admin/patches/${result.id}`);
   };
 
   return (
@@ -66,41 +34,11 @@ export default function AdminPatchesPage(): React.JSX.Element {
         </p>
       </div>
 
-      {/* 최근 패치 목록 */}
       <div className="mb-8">
         <h2 className="text-sm font-medium text-gray-300 mb-3">최근 패치 10개</h2>
-        {loadingRecent ? (
-          <div className="space-y-2">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="h-12 bg-gray-800 rounded-lg animate-pulse" />
-            ))}
-          </div>
-        ) : recentPatches.length > 0 ? (
-          <div className="space-y-2">
-            {recentPatches.map((patch) => (
-              <Link
-                key={patch.id}
-                href={`/admin/patches/${patch.id}`}
-                className="flex items-center justify-between px-4 py-3 bg-er-surface border border-er-border rounded-lg hover:border-violet-500/50 hover:bg-violet-600/5 transition-colors group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <span className="shrink-0 text-xs text-gray-500 font-mono w-14">#{patch.id}</span>
-                  <span className="text-sm text-gray-200 truncate group-hover:text-white transition-colors">
-                    {patch.title}
-                  </span>
-                </div>
-                <span className="shrink-0 text-xs text-gray-500 ml-3">
-                  {patch.createdAt.split('T')[0]}
-                </span>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-gray-500">패치 목록을 불러올 수 없습니다.</p>
-        )}
+        <RecentPatchList patches={patches} loading={loading} />
       </div>
 
-      {/* 직접 ID 입력 */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="patchId" className="block text-sm font-medium text-gray-300 mb-2">

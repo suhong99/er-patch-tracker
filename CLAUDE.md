@@ -21,6 +21,7 @@ npm run lint     # ESLint
 - Server Component 기본, 필요시만 `'use client'`
 - 컴포넌트: PascalCase, 함수/변수: camelCase
 - Tailwind 클래스 사용 (인라인 스타일 금지)
+- **Tailwind v4 문법 사용**: `bg-gradient-to-*` → `bg-linear-to-*`, `from-*`/`via-*`/`to-*` 유지
 
 ## Git 워크플로우
 
