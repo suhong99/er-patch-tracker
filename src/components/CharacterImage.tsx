@@ -43,7 +43,7 @@ export default function CharacterImage({
           priority={size === 'lg'}
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-violet-500/20 to-cyan-500/20">
+        <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-violet-500/20 to-cyan-500/20">
           <span className={`font-bold text-zinc-400 ${text}`}>{initial}</span>
         </div>
       )}

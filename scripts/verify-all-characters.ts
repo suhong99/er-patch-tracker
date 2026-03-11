@@ -103,11 +103,6 @@ interface PatchNote {
   title: string;
 }
 
-interface CharacterPatchData {
-  firebasePatchIds: Set<number>;
-  webPatchIds: Set<number>;
-}
-
 interface VerificationResult {
   character: string;
   firebaseCount: number;

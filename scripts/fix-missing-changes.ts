@@ -13,7 +13,6 @@ import * as fs from 'fs';
 // ============================================
 
 type ChangeType = 'buff' | 'nerf' | 'mixed';
-type ChangeCategory = 'numeric' | 'mechanic' | 'added' | 'removed' | 'unknown';
 
 interface NumericChange {
   target: string;

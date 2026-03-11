@@ -74,7 +74,8 @@ describe('패치노트 파싱 회귀 테스트', () => {
       const strip = (chars: typeof result) =>
         chars.map((char) => ({
           ...char,
-          changes: char.changes.map(({ changeType: _, ...rest }) => rest),
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          changes: char.changes.map(({ changeType: _changeType, ...rest }) => rest),
         }));
 
       expect(strip(result)).toEqual(strip(expected));

@@ -254,7 +254,7 @@ async function main(): Promise<void> {
     const progress = `[${i + 1}/${patchNotes.length}]`;
     process.stdout.write(`${progress} 패치 ${patch.id} 검사 중...`);
 
-    const { oldMethod, newMethod, onlyInNew } = await extractAllCharacters(page, patch.id);
+    const { onlyInNew } = await extractAllCharacters(page, patch.id);
 
     // onlyInNew 중에서 Firebase에도 없는 캐릭터 찾기
     const trulyMissing: string[] = [];

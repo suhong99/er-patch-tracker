@@ -143,7 +143,7 @@ function FeedbackForm(): React.ReactElement {
 
       <main className="relative mx-auto max-w-2xl px-4 py-12 sm:px-6">
         <header className="mb-8">
-          <h1 className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-3xl font-black tracking-tight text-transparent">
+          <h1 className="bg-linear-to-r from-white to-zinc-400 bg-clip-text text-3xl font-black tracking-tight text-transparent">
             피드백 보내기
           </h1>
           <p className="mt-2 text-zinc-500">패치 정보 오류나 개선 사항을 알려주세요</p>
