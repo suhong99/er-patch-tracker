@@ -107,7 +107,6 @@ async function verifyCharacterChanges(
 
       // 캐릭터 요소 다음의 내용 분석
       const details: string[] = [];
-      const currentEl: Element | null = characterElement;
       let hasUlWithChanges = false;
       let hasArrowChanges = false;
       let onlyPriceInfo = true;

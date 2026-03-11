@@ -549,11 +549,11 @@ async function main(): Promise<void> {
     );
 
     for (const { char, patch } of entries) {
-      const {
-        changes: webChanges,
-        found,
-        sectionFound,
-      } = await parseCharacterFromPatch(page, patchId, char.name);
+      const { changes: webChanges, found } = await parseCharacterFromPatch(
+        page,
+        patchId,
+        char.name
+      );
 
       if (!found && patch.changes.length > 0) {
         // 웹에서 캐릭터를 못 찾음 (수동 확인 필요)

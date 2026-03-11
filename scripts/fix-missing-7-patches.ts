@@ -7,9 +7,6 @@
 
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { initFirebaseAdmin } from './lib/firebase-admin';
-import { readFileSync } from 'fs';
-import path from 'path';
-
 // 수정 대상 패치 목록
 const TARGET_PATCHES = [
   { patchId: 2331, character: '라우라', patchTitle: '1.35 패치노트', patchDate: '2024-11-20' },

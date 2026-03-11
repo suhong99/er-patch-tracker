@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
 
 type CharacterEntry = {
@@ -34,8 +35,28 @@ export function AdminImageManager({ characters: baseCharacters }: Props): React.
   const [adding, setAdding] = useState(false);
 
   useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      try {
+        if (!user) throw new Error('로그인이 필요합니다');
+        const token = await user.getIdToken();
+        const authHeader = `Bearer ${token}`;
+        const res = await fetch('/api/admin/images', {
+          headers: { Authorization: authHeader },
+        });
+        if (!res.ok) throw new Error('데이터 조회 실패');
+        const data = (await res.json()) as { imageMap: ImageMap; customCharacters: NameMap };
+        setImageMap(data.imageMap);
+        setCustomCharacters(data.customCharacters);
+      } catch (err) {
+        console.error(err);
+        setError('데이터를 불러오지 못했습니다');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchData();
-  }, []);
+  }, [user]);
 
   // 기존 맵 + 커스텀 캐릭터 합치기
   const allCharacters: CharacterEntry[] = [
@@ -49,24 +70,6 @@ export function AdminImageManager({ characters: baseCharacters }: Props): React.
     if (!user) throw new Error('로그인이 필요합니다');
     const token = await user.getIdToken();
     return `Bearer ${token}`;
-  }
-
-  async function fetchData(): Promise<void> {
-    try {
-      const authHeader = await getAuthHeader();
-      const res = await fetch('/api/admin/images', {
-        headers: { Authorization: authHeader },
-      });
-      if (!res.ok) throw new Error('데이터 조회 실패');
-      const data = (await res.json()) as { imageMap: ImageMap; customCharacters: NameMap };
-      setImageMap(data.imageMap);
-      setCustomCharacters(data.customCharacters);
-    } catch (err) {
-      console.error(err);
-      setError('데이터를 불러오지 못했습니다');
-    } finally {
-      setLoading(false);
-    }
   }
 
   function handleUploadClick(englishName: string): void {
@@ -269,9 +272,11 @@ export function AdminImageManager({ characters: baseCharacters }: Props): React.
               {/* 이미지 프리뷰 */}
               <div className="w-16 h-20 rounded overflow-hidden bg-gray-800 flex items-center justify-center">
                 {isUploaded ? (
-                  <img
+                  <Image
                     src={imageMap[character.englishName]}
                     alt={character.koreanName}
+                    width={64}
+                    height={80}
                     className="w-full h-full object-contain"
                   />
                 ) : (

@@ -63,7 +63,8 @@ function deepEqual(a: unknown, b: unknown): boolean {
 
 // changeType 제외한 비교용 객체 생성
 function withoutChangeType(change: Change): Omit<Change, 'changeType'> {
-  const { changeType: _, ...rest } = change as Change & { changeType: string };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { changeType: _changeType, ...rest } = change as Change & { changeType: string };
   return rest;
 }
 
