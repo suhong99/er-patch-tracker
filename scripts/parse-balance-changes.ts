@@ -298,8 +298,61 @@ function extractNumbers(value: string): number[] {
   return matches ? matches.map(Number) : [];
 }
 
+// 대상 최대 체력 비례 스케일링 판단 기준 HP
+// 실험체 최소 HP 범위(1000~3000)에서 보수적으로 설정:
+// 이 값에서 상향이면 어떤 상황에서도 상향으로 볼 수 있다
+const HP_SCALING_REFERENCE = 1200;
+
+// "대상 최대 체력의 X%" 또는 "대상 최대 체력의 X/Y/Z%" 패턴에서 퍼센트 평균 합산 추출
+function extractHpScalingPercent(str: string): number {
+  let total = 0;
+  // X/Y/Z% 형식도 허용 (레벨별 수치)
+  const pattern = /대상\s*최대\s*체력의\s*([\d./]+)\s*%/g;
+  let match;
+  while ((match = pattern.exec(str)) !== null) {
+    const values = match[1]
+      .split('/')
+      .map(Number)
+      .filter((v) => !isNaN(v));
+    if (values.length > 0) {
+      total += values.reduce((a, b) => a + b, 0) / values.length;
+    }
+  }
+  return total;
+}
+
+// HP 스케일링을 반영한 실효 수치 계산
+// ex) "40(+대상 최대 체력의 2%)" → 40 + 1200 * 0.02 = 64
+// ex) "20/40/60(+대상 최대 체력의 4/6/8%)" → avg(20,40,60) + 1200 * avg(4,6,8)/100 = 40 + 72 = 112
+function computeEffectiveAvg(str: string): number | null {
+  // HP 스케일링 부분을 제거한 뒤 기본 수치만 추출 (HP% 숫자가 base에 섞이지 않도록)
+  const strWithoutHp = str.replace(/\(?\+?대상\s*최대\s*체력의\s*[\d./]+%\)?/g, '');
+  const nums = extractNumbers(strWithoutHp);
+  if (nums.length === 0) return null;
+  const baseAvg = nums.reduce((a, b) => a + b, 0) / nums.length;
+  const hpPercent = extractHpScalingPercent(str);
+  return baseAvg + (HP_SCALING_REFERENCE * hpPercent) / 100;
+}
+
 function determineChangeType(stat: string, before: string, after: string): ChangeType {
   const statLower = stat.toLowerCase();
+
+  // HP 스케일링이 포함된 경우 실효 수치로 비교
+  const beforeHp = extractHpScalingPercent(before);
+  const afterHp = extractHpScalingPercent(after);
+
+  if (beforeHp > 0 || afterHp > 0) {
+    const beforeEff = computeEffectiveAvg(before);
+    const afterEff = computeEffectiveAvg(after);
+    if (beforeEff !== null && afterEff !== null && beforeEff !== afterEff) {
+      const isIncrease = afterEff > beforeEff;
+      const isDecreaseBuffStat = DECREASE_IS_BUFF.some((k) => statLower.includes(k.toLowerCase()));
+      if (isDecreaseBuffStat) return isIncrease ? 'nerf' : 'buff';
+      return isIncrease ? 'buff' : 'nerf';
+    }
+    return 'mixed';
+  }
+
   const beforeNums = extractNumbers(before);
   const afterNums = extractNumbers(after);
 
@@ -499,8 +552,14 @@ export async function parsePageContent(page: Page): Promise<ParsedCharacter[]> {
 
     // 캐릭터 이름 패턴: <p><span><strong>캐릭터명</strong></span></p>
     // 중요: 최상위 요소만 선택 (중첩된 ul 제외)
+    // H2/H3도 포함: 아이템 스킬 등 메이저 섹션이 H2로 시작하는 경우 경계로 처리
     const allElements = Array.from(content.children).filter(
-      (el) => el.tagName === 'P' || el.tagName === 'UL' || el.tagName === 'H5'
+      (el) =>
+        el.tagName === 'P' ||
+        el.tagName === 'UL' ||
+        el.tagName === 'H5' ||
+        el.tagName === 'H2' ||
+        el.tagName === 'H3'
     );
     let inCharacterSection = false;
     let currentCharName = '';
@@ -535,6 +594,22 @@ export async function parsePageContent(page: Page): Promise<ParsedCharacter[]> {
       }
 
       if (!inCharacterSection) continue;
+
+      // H2/H3는 메이저 섹션 구분자 (예: "아이템 스킬") → 실험체 섹션 종료 처리
+      if (el.tagName === 'H2' || el.tagName === 'H3') {
+        if (currentCharName && currentChanges.length > 0) {
+          results.push({
+            name: currentCharName,
+            nameEn: currentCharName,
+            devComment: currentDevComment.length > 0 ? currentDevComment.join(' ') : null,
+            changes: currentChanges,
+          });
+          // 루프 후 "마지막 캐릭터 저장" 코드가 중복 push하지 않도록 초기화
+          currentCharName = '';
+          currentChanges = [];
+        }
+        break;
+      }
 
       // 새 캐릭터 시작 확인 (p > span > strong 구조)
       if (el.tagName === 'P') {
