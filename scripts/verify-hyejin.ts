@@ -548,11 +548,7 @@ async function main(): Promise<void> {
     console.log(`\n패치 ${patch.patchId} (${patch.patchVersion}) 검증 중...`);
     console.log(`   DB 변경사항: ${patch.changes.length}개`);
 
-    const { changes, structure, rawSection } = await parseCharacterSection(
-      page,
-      patch.patchId,
-      '혜진'
-    );
+    const { changes, structure } = await parseCharacterSection(page, patch.patchId, '혜진');
     structure.patchVersion = patch.patchVersion;
     structures.push(structure);
 

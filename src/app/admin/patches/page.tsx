@@ -2,29 +2,27 @@
 
 import { useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import { useRecentPatches } from '@/hooks/useRecentPatches';
+import { parsePatchId } from '@/lib/patch-api';
+import { RecentPatchList } from '@/components/admin/RecentPatchList';
 
 export default function AdminPatchesPage(): React.JSX.Element {
   const router = useRouter();
+  const { patches, loading } = useRecentPatches();
   const [patchId, setPatchId] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
+    const result = parsePatchId(patchId);
+
+    if ('error' in result) {
+      setError(result.error);
+      return;
+    }
+
     setError('');
-
-    const trimmed = patchId.trim();
-    if (!trimmed) {
-      setError('패치 ID를 입력해주세요.');
-      return;
-    }
-
-    const parsed = parseInt(trimmed, 10);
-    if (isNaN(parsed) || parsed <= 0) {
-      setError('유효한 패치 ID를 입력해주세요. (숫자)');
-      return;
-    }
-
-    router.push(`/admin/patches/${parsed}`);
+    router.push(`/admin/patches/${result.id}`);
   };
 
   return (
@@ -36,10 +34,15 @@ export default function AdminPatchesPage(): React.JSX.Element {
         </p>
       </div>
 
+      <div className="mb-8">
+        <h2 className="text-sm font-medium text-gray-300 mb-3">최근 패치 10개</h2>
+        <RecentPatchList patches={patches} loading={loading} />
+      </div>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="patchId" className="block text-sm font-medium text-gray-300 mb-2">
-            패치 ID
+            패치 ID 직접 입력
           </label>
           <input
             type="text"
@@ -60,7 +63,7 @@ export default function AdminPatchesPage(): React.JSX.Element {
         </button>
       </form>
 
-      <div className="mt-8 p-4 bg-er-surface border border-er-border rounded-lg">
+      <div className="mt-6 p-4 bg-er-surface border border-er-border rounded-lg">
         <h2 className="text-sm font-medium text-gray-300 mb-2">패치 ID란?</h2>
         <p className="text-sm text-gray-400">
           패치노트 URL에서 확인할 수 있습니다.

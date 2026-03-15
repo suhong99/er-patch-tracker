@@ -27,11 +27,6 @@ type PatchNote = {
   isParsed?: boolean;
 };
 
-type CharacterPatchInfo = {
-  name: string;
-  patchIds: Set<number>;
-};
-
 type MissingPatch = {
   patchId: number;
   patchTitle: string;

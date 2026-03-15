@@ -45,7 +45,7 @@ export default function CharacterCard({ character, imageUrl }: Props): React.Rea
     <Link href={`/character/${encodeURIComponent(name)}`}>
       <div className="group relative overflow-hidden rounded-lg border border-[#2a2d35] bg-[#13151a] p-5 transition-all duration-300 hover:border-violet-500/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)]">
         {/* 배경 그라데이션 효과 */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-cyan-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-violet-500/5 via-transparent to-cyan-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {/* 헤더 */}
         <div className="relative mb-4 flex items-start justify-between">
@@ -62,7 +62,7 @@ export default function CharacterCard({ character, imageUrl }: Props): React.Rea
                   onError={() => setImageError(true)}
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-violet-500/20 to-cyan-500/20">
+                <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-violet-500/20 to-cyan-500/20">
                   <span className="text-lg font-bold text-zinc-400">{initial}</span>
                 </div>
               )}
@@ -97,19 +97,19 @@ export default function CharacterCard({ character, imageUrl }: Props): React.Rea
           <div className="flex h-1.5 overflow-hidden rounded-full bg-[#1a1d24]">
             {stats.buffCount > 0 && (
               <div
-                className="bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all"
+                className="bg-linear-to-r from-emerald-500 to-emerald-400 transition-all"
                 style={{ width: `${buffPercent}%` }}
               />
             )}
             {stats.mixedCount > 0 && (
               <div
-                className="bg-gradient-to-r from-amber-500 to-amber-400 transition-all"
+                className="bg-linear-to-r from-amber-500 to-amber-400 transition-all"
                 style={{ width: `${mixedPercent}%` }}
               />
             )}
             {stats.nerfCount > 0 && (
               <div
-                className="bg-gradient-to-r from-rose-500 to-rose-400 transition-all"
+                className="bg-linear-to-r from-rose-500 to-rose-400 transition-all"
                 style={{ width: `${nerfPercent}%` }}
               />
             )}
@@ -133,22 +133,25 @@ export default function CharacterCard({ character, imageUrl }: Props): React.Rea
         {/* 최근 패치 */}
         {latestPatch && (
           <div className="relative border-t border-[#2a2d35] pt-3">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-zinc-500">최근</span>
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="shrink-0 text-zinc-500">최근</span>
+              <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
                 <span
-                  className={`font-mono font-bold ${getChangeTypeColor(latestPatch.overallChange)}`}
+                  className={`min-w-0 truncate font-mono font-bold ${getChangeTypeColor(latestPatch.overallChange)}`}
+                  title={latestPatch.patchVersion}
                 >
                   v{latestPatch.patchVersion}
                 </span>
-                <span className="text-xs text-zinc-600">{formatDate(latestPatch.patchDate)}</span>
+                <span className="shrink-0 text-xs text-zinc-600">
+                  {formatDate(latestPatch.patchDate)}
+                </span>
               </div>
             </div>
           </div>
         )}
 
         {/* 하단 글로우 라인 */}
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-violet-500 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
     </Link>
   );

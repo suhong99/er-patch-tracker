@@ -21,6 +21,7 @@ npm run lint     # ESLint
 - Server Component 기본, 필요시만 `'use client'`
 - 컴포넌트: PascalCase, 함수/변수: camelCase
 - Tailwind 클래스 사용 (인라인 스타일 금지)
+- **Tailwind v4 문법 사용**: `bg-gradient-to-*` → `bg-linear-to-*`, `from-*`/`via-*`/`to-*` 유지
 
 ## Git 워크플로우
 
@@ -46,6 +47,7 @@ npm run lint     # ESLint
 
 **현재/최근 작업:**
 
+- `docs/work-logs/2026-02-24-누락패치수동추가.md` - 누락 패치 수동 추가 스크립트 (feature/67)
 - `docs/work-logs/2026-01-07-온디맨드캐시무효화.md` - On-demand 캐시 무효화 (feature/25)
 - `docs/work-logs/2026-01-02-시즌별패치구분.md` - 시즌별 패치 구분 기능 (feature/17)
 

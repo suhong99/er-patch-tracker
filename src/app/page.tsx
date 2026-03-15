@@ -97,12 +97,12 @@ export default async function Home(): Promise<React.ReactElement> {
             >
               {/* 상단 악센트 라인 */}
               <div
-                className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${card.accent} opacity-50`}
+                className={`absolute inset-x-0 top-0 h-px bg-linear-to-r ${card.accent} opacity-50`}
               />
 
               <p className="text-sm font-medium text-zinc-500">{card.label}</p>
               <p
-                className={`mt-2 bg-gradient-to-r ${card.accent} bg-clip-text text-3xl font-black text-transparent`}
+                className={`mt-2 bg-linear-to-r ${card.accent} bg-clip-text text-3xl font-black text-transparent`}
               >
                 {card.value}
               </p>
@@ -110,7 +110,7 @@ export default async function Home(): Promise<React.ReactElement> {
 
               {/* 배경 그라데이션 */}
               <div
-                className={`pointer-events-none absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-gradient-to-r ${card.accent} opacity-5 blur-2xl`}
+                className={`pointer-events-none absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-linear-to-r ${card.accent} opacity-5 blur-2xl`}
               />
             </div>
           ))}

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import { v2 as cloudinary } from 'cloudinary';
 import { db } from '@/lib/firebase-admin';
 import { verifyAdmin } from '@/lib/admin-utils';
@@ -77,6 +78,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // Firestore에 URL 등록
     await db.doc(IMAGES_DOC).set({ [englishName]: imageUrl }, { merge: true });
 
+    // 이미지 맵 캐시 무효화
+    revalidateTag('character-images', 'max');
+
     return NextResponse.json({ success: true, englishName, imageUrl });
   } catch (error) {
     console.error('이미지 업로드 실패:', error);
@@ -102,6 +106,9 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
     }
 
     await db.doc(CUSTOM_CHARACTERS_DOC).set({ [englishName]: koreanName }, { merge: true });
+
+    // 이미지 맵 캐시 무효화 (커스텀 캐릭터 추가 시 매핑 변경)
+    revalidateTag('character-images', 'max');
 
     return NextResponse.json({ success: true, englishName, koreanName });
   } catch (error) {
