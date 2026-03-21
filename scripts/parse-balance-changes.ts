@@ -595,8 +595,12 @@ export async function parsePageContent(page: Page): Promise<ParsedCharacter[]> {
 
       if (!inCharacterSection) continue;
 
-      // H2/H3는 메이저 섹션 구분자 (예: "아이템 스킬") → 실험체 섹션 종료 처리
-      if (el.tagName === 'H2' || el.tagName === 'H3') {
+      // H2/H3/H5(비-실험체섹션)는 메이저 섹션 구분자 → 실험체 섹션 종료 처리
+      if (
+        el.tagName === 'H2' ||
+        el.tagName === 'H3' ||
+        (el.tagName === 'H5' && el !== characterSectionStart)
+      ) {
         if (currentCharName && currentChanges.length > 0) {
           results.push({
             name: currentCharName,
