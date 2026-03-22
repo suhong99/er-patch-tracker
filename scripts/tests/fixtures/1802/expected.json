@@ -1,0 +1,62 @@
+[
+  {
+    "name": "리 다이린",
+    "nameEn": "리 다이린",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "글러브 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "2%",
+        "after": "1.7%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "마르티나",
+    "nameEn": "마르티나",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "카메라 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "1.6%",
+        "after": "1.4%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아야",
+    "nameEn": "아야",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "돌격 소총 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "1.4%",
+        "after": "1.2%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "유키",
+    "nameEn": "유키",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "양손검 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "2.6%",
+        "after": "2.3%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "character": null,
+    "description": "담금질 특성의 방어력 증가 효과가 잘못 적용되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "7일차 밤 이후 휴대용 안전지대 가젯 설치가 불가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 가젯 볼트 스킬의 아이콘을 클릭하여 직접 사용이 불가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "가이드 미션 내 극찬 주기 미션에 달성 가능 모드가 표시되도록 개선"
+  },
+  {
+    "character": null,
+    "description": "언어 환경에 관계없이 후반 목표 아이템 재료 모두 획득 시 출력되는 제작 관련 텍스트가 한국어로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "브레이크 & 터미네이트 & 클러치 효과의 체력 회복량이 의도와 다르게 적용되던 문제 수정"
+  },
+  {
+    "character": "바바라",
+    "description": "바바라 BT-Mk3 강화 센트리건(RQ) 레일건 스킬 피해량이 잘못 적용되는 문제 수정"
+  },
+  {
+    "character": "테오도르",
+    "description": "테오도르 증폭 스크린(W) 을 통과한 기본 공격의 추가 스킬 피해가 첫 대상에게 기본 공격 피해 타입으로 적용되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "아카이브에서 시나리오 스킵 이후 목록으로 복귀 시 시나리오 관람 상태가 갱신되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "언어 환경에 관계없이 제작소 > 교환소 탭 내 토큰 만료 기간 관련 텍스트가 한국어로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정 > 방송 모드 탭에서 유니온 대전 매칭 및 이벤트 대전 매칭의 설명이 표시되지 않는 문제 수정"
+  }
+]

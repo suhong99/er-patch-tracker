@@ -1,0 +1,274 @@
+[
+  {
+    "character": null,
+    "description": "스킬 사용 직후 사망 시 부활 후 스킬이 발동되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "닉네임 숨기기 기능을 체력바 상단 이름 표기 설정 항목으로 이동"
+  },
+  {
+    "character": null,
+    "description": "탈출 성공 시 실험체의 위치가 이동되며 이동 숙련도 경험치를 획득하는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "절과 성당 지역 특정 위치에서 저격총 무기 스킬 저격(D) 사용 시 시야가 정상 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "인게임 아이템 제작창(B)에서 마이 전용 제작 아이템이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시체에 있는 재료로 아이템 제작 시 시체 특수 재료 이펙트가 사라지지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "빈사 상태가 될 경우 빈사 스킬 오퍼레이터 가이드 추가"
+  },
+  {
+    "character": null,
+    "description": "빈사 후 아군에 의해 소생될 경우 캐릭터 이미지가 붉은색으로 표시되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "인접한 시체 상자에 두 개의 특수 재료 중 한 개만 획득하더라도 시체 특수 재료 이펙트가 사라지는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "이동 중 다른 대상과 충돌 시 비정상적으로 이동되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "빈사 상태에서 사망 시 팀원 아이콘이 빈사 상태로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시야 요청 핑 이펙트가 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "학교 지역 내 일부 위치에서 벽을 넘어 채집 가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "게임 현황 UI에서 오메가 출현 후 오메가 카운트 핑 전송 시 시스템 메시지가 잘못 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "빈사 스킬 분열 폭발(Q) 이펙트가 전장의 안개에서 보이는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "커뮤니케이션 핑 플레이트에서 어디 갈래? 텍스트가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "게임 현황 UI에서 무시하기 버튼 마우스 오버 시 의도와 다르게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 상위 등급 장비 아이템 제작 오퍼레이터 가이드 내 다른 무기군을 추천해 주는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "확장 미니맵에 단축키로 핑 입력 시 핑이 사라지지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "가디언 슈트가 바닥에 버려진 다른 아이템보다 작게 설정된 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "낮은 빈도로 코발트 프로토콜에서 선택한 특성이 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "코발트 프로토콜에서 실드팩 툴팁 내용이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "코발트 프로토콜에서 수집가 인퓨전 툴팁 내 적중 대상이 잘못 출력되는 문제 수정"
+  },
+  {
+    "character": "다니엘",
+    "description": "다니엘 그림자 이동(E) 공격 이펙트 방향이 반대로 출력되는 문제 수정"
+  },
+  {
+    "character": "로지",
+    "description": "로지 이지샷(Q) 툴팁에 폰트 색상이 적용되지 않은 문제 수정"
+  },
+  {
+    "character": "리오",
+    "description": "무녀 리오 스킨 착용 중 레니 당근! 바주카(Q) 보호막 획득 상태에서 화궁 기본 공격 시 보호막 이펙트가 변경되는 문제 수정"
+  },
+  {
+    "character": "마이",
+    "description": "마이 캣 워크(E)을 아군에게 사용 시 전투 상태가 되는 문제 수정"
+  },
+  {
+    "character": "아이솔",
+    "description": "사관후보생 아이솔 화망(W) 사용 중 애니메이션이 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "알렘 이모티콘 사운드 추가"
+  },
+  {
+    "character": "에스텔",
+    "description": "일본어 환경에서 에스텔 특정 상황의 보이스가 의도와 다르게 적용된 문제 수정"
+  },
+  {
+    "character": "에스텔",
+    "description": "에스텔 제작 중 방패방어(E) 사용 시 방패가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "에이든",
+    "description": "카페 매니저 에이든 전하 소산(W) 전기장 이펙트와 지속 시간이 일치하지 않는 문제 수정"
+  },
+  {
+    "character": "엘레나",
+    "description": "학생회장 엘레나 스킨의 로비 애니메이션에서 메모장이 의도와 다르게 적용된 문제 수정"
+  },
+  {
+    "character": "엠마",
+    "description": "엠마 마술 토끼(E) 변이 적용 사운드가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "츠바메",
+    "description": "암향소영 츠바메 스킨 착용 중 제작 및 채집 도구가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "카티야",
+    "description": "카티야 대상 지정 불가 상태일 때 보안 콘솔 점령 시 애니메이션이 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": "카티야",
+    "description": "카티야 목표물 포착(W)을 요한 신성의 향로 오브젝트에 적중 시 체력 감소 효과가 적용되는 문제 수정"
+  },
+  {
+    "character": "카티야",
+    "description": "카티야 사망 시 드론 폭발 시점과 이펙트가 일치하지 않는 문제 수정"
+  },
+  {
+    "character": "카티야",
+    "description": "카티야 이모티콘 사운드 추가"
+  },
+  {
+    "character": "칼라",
+    "description": "칼라 관통 작살(Q) 사용 중 사망 시 스킬을 사용한 위치에 시야가 밝혀진 상태로 유지되는 문제 수정"
+  },
+  {
+    "character": "캐시",
+    "description": "캐시 이머전시 OP(R) 회복 영역 이펙트와 효과 지속 시간이 일치하지 않는 문제 수정"
+  },
+  {
+    "character": "캐시",
+    "description": "특정 상황에서 캐시 동맥절제술(Q) 강화 기본 공격 애니메이션이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "캐시",
+    "description": "특정 상황에 캐시 동맥절제술(Q) 쿨다운 감소 효과가 다르게 적용되는 문제 수정"
+  },
+  {
+    "character": "프리야",
+    "description": "특정 상황에서 프리야 개화의 선율(Q) 범위 이펙트가 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": "프리야",
+    "description": "프리야 대지의 메아리(R) 사용 후 전술 스킬 아티팩트 사용 시 일정 시간동안 이동 애니메이션이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "피오라",
+    "description": "피오라 플레슈(R) 대상의 위치에 따라 피격 판정이 다른 문제 수정"
+  },
+  {
+    "character": "헤이즈",
+    "description": "헤이즈 엑셀러레이션 로켓(RQ) 투사체 이펙트 위치가 잘못 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "매칭 시도 중 9219 에러가 발생하는 케이스 일부 수정최초 매칭 시도와 관련된 케이스들을 다수 수정하였으나, 탈주자 발생 후 재매칭 할 때 발생하는 케이스가 남아있어 추적중입니다."
+  },
+  {
+    "character": null,
+    "description": "최초 매칭 시도와 관련된 케이스들을 다수 수정하였으나, 탈주자 발생 후 재매칭 할 때 발생하는 케이스가 남아있어 추적중입니다."
+  },
+  {
+    "character": null,
+    "description": "친구 목록에서 게임 중인 유저가 로비 상태로 표시되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "제작소 > 교환소 > 체인지 토큰 탭에서 상품 정렬이 의도와 다르게 적용된 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "제작소 > 박스 개봉 시 결과물로 새로 획득한 박스의 보유 정보가 즉시 갱신되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "낮은 빈도로 꽃 박스 개봉 후 해당 박스를 모두 소모하였을 때 개봉 버튼이 활성화 상태로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시즌 출석부에서 종료 시점을 확인할 수 있도록 개선"
+  },
+  {
+    "character": null,
+    "description": "계정 최대 레벨이 확장됩니다.500 → 600"
+  },
+  {
+    "character": null,
+    "description": "500 → 600"
+  },
+  {
+    "character": null,
+    "description": "귀속 서버 알림 툴팁 내용이 일부만 노출되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "ER 패스 미션에서 초록 점(리워드 닷)이 출력된 주차 선택 중일 때 초록 점(리워드 닷)이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "제작소에서 시크릿 드롭스 박스 추가 아이콘이 수량과 겹쳐서 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "감시 카메라 획득처에 변이 박쥐 처치에 대한 내용이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 ESC 키 입력 시 툴팁 및 상호작용 효과가 남아있는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "일부 언어 환경에서 친구 요청 내 버튼 명칭이 한국어로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "고스트헌터 유키 봉인해제 프로필 아이콘 이펙트가 친구 목록 영역 밖에서 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "프로필 > 프로필 설정 페이지에서 빨간 점(레드 닷) 출력 규칙이 잘못 적용된 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "매치메이킹 지역 선택에서 귀속 서버 정보 아이콘 툴팁이 커서와 겹치는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정 > 서비스에서 게임 버전 정렬이 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "보관함 > 캐릭터 탭에서 무기 스킬 마우스 오버 시 테두리가 사각형으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "로비 버튼 사운드 추가 및 개선"
+  }
+]
