@@ -1,0 +1,206 @@
+[
+  {
+    "character": null,
+    "description": "임시 안전지대에서 2팀이 남는 경우 임시 안전지대 페이즈가 즉시 종료되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "옵션 > 오퍼레이터 목표 아이템 변경 안내 세부 설정 추가"
+  },
+  {
+    "character": null,
+    "description": "벽력 특성의 전이 피해가 의도와 다르게 적용되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "튜토리얼 3장 진행 중 금지 구역이 설정될 때 빈번하게 오류 팝업이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "세컨드 윈드 - 핏빛 계약 아이템 스킬의 방해 효과 저항이 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "게임 재접속 시 게임 현황 UI의 모든 오브젝트 시간 정보가 잘못 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "처치 플레이어가 없는 처치 수가 1등 팀에게 추가되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "낮은 빈도로 시체가 사라지는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "관전 및 리플레이에서 특정 상황에 TK가 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "관전 및 리플레이에서 팀 수와 생존자 수가 실제 생존 중인 실험체 수와 일치하지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "빈사 상태의 적을 사망시키지 않고 팀을 전멸시키는 경우 RP 점수 현황판에서 제거 수 대신 빈사 수가 증가하는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "탈출에 성공한 팀이 있으면 첫 번째 외침, 마지막 속삭임 업적이 클리어되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 스킬 즉시 시전 사거리 표시 중 이동 명령으로 스킬이 취소되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "관전 및 리플레이에서 실험체 시야 설정 후 다른 팀원으로 시야 변경 시 닉네임이 갱신되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 사망 시 부활 후 공격 명령이 동작하는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 지역의 아이템 상자 확인 시 사운드가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "인벤토리의 특정 위치로 아이템 이동 시 드랍되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "2일차 밤에 빈사 후 3일차에 사망한 팀원의 아이콘에 크레딧 부활 가능 표시가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "중국어 간체 및 번체로 언어 설정 후 튜토리얼 진행 시 캐릭터 대사 및 어나운스 보이스가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "AI 대전 실험체 선택 단계에서 바로 시작으로 게임 진입 시 알 수 없는 에러 팝업이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "하이퍼루프로 아군에게 이동 시 도착 발판과 가고 있음 핑 위치가 다른 위치에 출력되는 문제 수정"
+  },
+  {
+    "character": "나타폰",
+    "description": "코발트 프로토콜에서 나타폰 셔터 찬스(R) 로 A.M.D.S 효과를 발동시킬 수 없는 문제 수정"
+  },
+  {
+    "character": "니키",
+    "description": "사립탐정 니키 스킨 착용 중 제작 시 제작 도구가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "마커스",
+    "description": "마커스 전사의 투지(P) 확장 툴팁에 충격 상태에 시야 획득 내용이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "비앙카",
+    "description": "비앙카 순환(E) 정신 집중 종료 후 전술 스킬 아티펙트 사용 시 스킬 피해가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "위드리아나 로비 애니메이션에서 회전 시 실험체 중심을 기준으로 회전하지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "위드리아나 스킨 사용 중 특정 상황에 화염 난사(R) 이펙트가 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": "아디나",
+    "description": "아디나 폴 디그니티(E) 지정 대상이 간이 모닥불 위에 있을 때 스킬을 사용할 수 없는 문제 수정"
+  },
+  {
+    "character": "얀",
+    "description": "얀 특정 상황에서 어퍼컷(D) 피해가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": "에이든",
+    "description": "에이든 특정 상황에 백스탭(E) 쿨다운 초기화가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": "유키",
+    "description": "고스트헌터 유키 스킨 사용 중 쌍검 무기로 화무십일홍(R) 적중 시 잔상 이펙트가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "유키",
+    "description": "유키 아이템 제작 완료 후 대기 상태 애니메이션으로 부자연스럽게 전환되는 문제 수정"
+  },
+  {
+    "character": "일레븐",
+    "description": "일레븐 게임 시작 시 제작 도구가 출력된 상태로 진행되는 문제 수정"
+  },
+  {
+    "character": "츠바메",
+    "description": "츠바메 특정 상황에서 실험체가 보이지 않게 되는 문제 수정"
+  },
+  {
+    "character": "카티야",
+    "description": "일본어 환경에서 카티야 특정 상황의 보이스가 의도와 다르게 적용된 문제 수정"
+  },
+  {
+    "character": "키아라",
+    "description": "키아라 부정의 손길(Q)을 다수의 적에게 적중 시 가장 가까운 대상에게만 낙인(P) 효과가 적용되는 문제 수정"
+  },
+  {
+    "character": "키아라",
+    "description": "키아라 연습모드에서 쿨다운 초기화 기능 사용 시 심판(R2)이 스킬 시전 상태로 출력되는 문제 수정"
+  },
+  {
+    "character": "펠릭스",
+    "description": "펠릭스 뇌룡격(R) 정신 집중 종료 후 전술 스킬 아티펙트 사용 시 스킬 피해가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": "헤이즈",
+    "description": "헤이즈 로켓 런처(R) 상태에서 산탄 포화(W) 사용 시 샷건이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "헤이즈",
+    "description": "헤이즈 웨폰 케이스(P) 죽음의 상인 효과로 적 타격 시 일부 이펙트가 유지되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "이벤트 미션 보상으로 미보유 스킨 획득할 때에도 스킨 획득 연출이 출력되도록 개선"
+  },
+  {
+    "character": null,
+    "description": "신규 추가된 업적이 특정 상황에서 제대로 카운트되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에 업적 카운트가 초기화 되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "게임 준비 단계에서 로비로 되돌아오면 도전 과제와 프로필 메뉴 버튼을 클릭할 수 없는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "옵션 > 입력 > 커뮤니케이션에서 빠른 퇴각핑 옵션이 인게임 진입 시 활성화로 전환되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "연구소 데이터 박스 보상 목록에서 이름으로 검색 시 엠블럼 상품이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "컬렉션 완성 후 보상을 수령해도 보상 알림이 즉시 제거되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "제작소 > 박스에서 연구소 데이터 박스를 보유 상태가 잘못 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "튜토리얼 종료 후 옵션 > 게임 탭의 자동 획득 기능 사용 옵션이 해제 상태로 저장되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 결과 화면의 업적 미션 UI가 멈추는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "제작소에서 같은 종류의 온전한 아이템과 도안이 일괄 분해 되지 않는 문제 수정"
+  }
+]

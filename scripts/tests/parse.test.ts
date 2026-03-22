@@ -16,6 +16,7 @@ import puppeteer, { Browser, Page } from 'puppeteer';
 import * as fs from 'fs';
 import * as path from 'path';
 import { parsePageContent, setValidCharacters } from '../parse-balance-changes';
+import { parseBugFixes, setBugValidCharacters } from '../parse-bug-fixes';
 
 const FIXTURES_DIR = path.join(__dirname, 'fixtures');
 
@@ -79,6 +80,56 @@ describe('패치노트 파싱 회귀 테스트', () => {
         }));
 
       expect(strip(result)).toEqual(strip(expected));
+    });
+  }
+});
+
+describe('버그 수정 파싱 회귀 테스트', () => {
+  let browser: Browser;
+  let page: Page;
+
+  beforeAll(async () => {
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+    page = await browser.newPage();
+    await page.setViewport({ width: 1920, height: 1080 });
+  });
+
+  afterAll(async () => {
+    await browser.close();
+  });
+
+  const bugFixtureIds = fixtureIds.filter((id) =>
+    fs.existsSync(path.join(FIXTURES_DIR, id, 'bugs.json'))
+  );
+
+  if (bugFixtureIds.length === 0) {
+    test('버그 픽스처 없음', () => {
+      expect(true).toBe(true);
+    });
+  }
+
+  for (const patchId of bugFixtureIds) {
+    test(`patch ${patchId} 버그 파싱 결과 일치`, async () => {
+      const fixtureDir = path.join(FIXTURES_DIR, patchId);
+
+      const contentHtml = fs.readFileSync(path.join(fixtureDir, 'content.html'), 'utf-8');
+      const expectedBugs = JSON.parse(fs.readFileSync(path.join(fixtureDir, 'bugs.json'), 'utf-8'));
+      const chars: string[] = JSON.parse(
+        fs.readFileSync(path.join(FIXTURES_DIR, 'characters.json'), 'utf-8')
+      );
+
+      setBugValidCharacters(new Set(chars));
+
+      await page.setContent(`<html><body>${contentHtml}</body></html>`, {
+        waitUntil: 'domcontentloaded',
+      });
+
+      const result = await parseBugFixes(page);
+
+      expect(result).toEqual(expectedBugs);
     });
   }
 });
