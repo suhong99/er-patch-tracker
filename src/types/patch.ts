@@ -104,3 +104,24 @@ export type LatestPatchInfo = {
   crawledAt: string;
   patchDate: string;
 };
+
+// 버그 수정 데이터
+export type BugFix = {
+  character: string | null;
+  description: string;
+};
+
+// 버그 랭킹용 실험체 요약
+export type CharacterBugSummary = {
+  name: string;
+  totalBugCount: number;
+  bugPatchCount: number;
+};
+
+// 실험체 버그 히스토리의 패치 단위
+export type PatchBugEntry = {
+  patchId: number;
+  patchVersion: string;
+  patchDate: string;
+  bugs: string[];
+};
