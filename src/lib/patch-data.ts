@@ -6,6 +6,8 @@ import type {
   PatchNotesData,
   LatestPatchInfo,
   PatchNote,
+  CharacterBugSummary,
+  PatchBugEntry,
 } from '@/types/patch';
 
 // 내부 함수: 밸런스 데이터 fetch (Firebase에서 직접 조회)
@@ -188,6 +190,74 @@ export const loadImageMap = unstable_cache(fetchImageMap, ['character-images'], 
   revalidate: 3600,
   tags: ['character-images'],
 });
+
+// ─── 버그 데이터 ───────────────────────────────────────────
+
+type RawBugFix = { character: string | null; description: string };
+
+const fetchBugRankingData = async (): Promise<CharacterBugSummary[]> => {
+  const snapshot = await db.collection('characters').get();
+  const results: CharacterBugSummary[] = [];
+
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    const totalBugCount = (data.totalBugCount as number | undefined) ?? 0;
+    const bugPatchIds = (data.bugPatchIds as number[] | undefined) ?? [];
+    if (totalBugCount > 0) {
+      results.push({
+        name: data.name as string,
+        totalBugCount,
+        bugPatchCount: bugPatchIds.length,
+      });
+    }
+  });
+
+  return results.sort((a, b) => b.totalBugCount - a.totalBugCount);
+};
+
+export const loadBugRankingData = unstable_cache(fetchBugRankingData, ['bug-ranking-data'], {
+  revalidate: 3600,
+  tags: ['bug-ranking-data'],
+});
+
+const fetchCharacterBugHistory = async (name: string): Promise<PatchBugEntry[]> => {
+  const charDoc = await db.collection('characters').doc(name).get();
+  if (!charDoc.exists) return [];
+
+  const charData = charDoc.data() ?? {};
+  const bugPatchIds = (charData.bugPatchIds as number[] | undefined) ?? [];
+  if (bugPatchIds.length === 0) return [];
+
+  const results: PatchBugEntry[] = [];
+
+  for (let i = 0; i < bugPatchIds.length; i += 30) {
+    const chunk = bugPatchIds.slice(i, i + 30);
+    const patchSnapshot = await db.collection('patchNotes').where('id', 'in', chunk).get();
+
+    patchSnapshot.forEach((doc) => {
+      const data = doc.data();
+      const bugFixes = (data.bugFixes as RawBugFix[] | undefined) ?? [];
+      const charBugs = bugFixes.filter((b) => b.character === name).map((b) => b.description);
+
+      if (charBugs.length > 0) {
+        results.push({
+          patchId: data.id as number,
+          patchVersion: extractPatchVersion(data.title as string),
+          patchDate: data.createdAt as string,
+          bugs: charBugs,
+        });
+      }
+    });
+  }
+
+  return results.sort((a, b) => b.patchId - a.patchId);
+};
+
+export const loadCharacterBugHistory = (name: string): Promise<PatchBugEntry[]> =>
+  unstable_cache(() => fetchCharacterBugHistory(name), [`character-bug-history-${name}`], {
+    revalidate: 3600,
+    tags: ['bug-ranking-data'],
+  })();
 
 // 클라이언트 공용 유틸리티 재export
 export {
