@@ -19,11 +19,13 @@ npx tsx scripts/parse-balance-changes.ts
 
 ### 크롤링/파싱
 
-| 스크립트                   | 역할                                        |
-| -------------------------- | ------------------------------------------- |
-| `crawl-patch-notes.ts`     | 공식 사이트에서 패치노트 크롤링             |
-| `validate-links.ts`        | 패치노트 링크 검증, 캐릭터 데이터 유무 확인 |
-| `parse-balance-changes.ts` | 패치노트 HTML 파싱, 변경사항 추출           |
+| 스크립트                   | 역할                                              |
+| -------------------------- | ------------------------------------------------- |
+| `crawl-patch-notes.ts`     | 공식 사이트에서 패치노트 크롤링                   |
+| `validate-links.ts`        | 패치노트 링크 검증, 캐릭터 데이터 유무 확인       |
+| `parse-balance-changes.ts` | 패치노트 HTML 파싱, 밸런스 변경사항 추출          |
+| `crawl-bug-fixes.ts`       | 전체 패치 순회하며 버그 수정 파싱 → Firebase 저장 |
+| `parse-bug-fixes.ts`       | 버그 수정 섹션 파서 (crawl-bug-fixes.ts에서 사용) |
 
 ### 데이터 수정
 

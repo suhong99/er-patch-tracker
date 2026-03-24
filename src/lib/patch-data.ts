@@ -244,6 +244,7 @@ const fetchCharacterBugHistory = async (name: string): Promise<PatchBugEntry[]> 
           patchId: data.id as number,
           patchVersion: extractPatchVersion(data.title as string),
           patchDate: data.createdAt as string,
+          patchLink: (data.link as string) ?? '',
           bugs: charBugs,
         });
       }
