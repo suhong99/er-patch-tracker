@@ -123,5 +123,6 @@ export type PatchBugEntry = {
   patchId: number;
   patchVersion: string;
   patchDate: string;
+  patchLink: string;
   bugs: string[];
 };

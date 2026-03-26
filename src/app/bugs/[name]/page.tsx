@@ -161,6 +161,30 @@ export default async function CharacterBugPage({ params }: Props): Promise<React
                           <span className="text-xs text-zinc-500">
                             {formatDate(patch.patchDate)}
                           </span>
+                          {patch.patchLink && (
+                            <a
+                              href={patch.patchLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="ml-auto flex items-center gap-1 rounded-md border border-zinc-700 bg-zinc-800/50 px-2 py-0.5 text-xs text-zinc-400 transition-colors hover:border-zinc-500 hover:text-zinc-200"
+                            >
+                              패치노트
+                              <svg
+                                className="h-3 w-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                />
+                              </svg>
+                            </a>
+                          )}
                         </div>
 
                         {/* 버그 목록 */}
