@@ -195,24 +195,41 @@ export const loadImageMap = unstable_cache(fetchImageMap, ['character-images'], 
 
 type RawBugFix = { character: string | null; description: string };
 
+const BUG_DATA_START = '2023-05-16';
+
+/** 두 ISO 날짜 사이의 일수 */
+function daysBetween(startIso: string, endIso: string): number {
+  const ms = new Date(endIso).getTime() - new Date(startIso).getTime();
+  return Math.max(1, Math.round(ms / (1000 * 60 * 60 * 24)));
+}
+
 const fetchBugRankingData = async (): Promise<CharacterBugSummary[]> => {
   const snapshot = await db.collection('characters').get();
   const results: CharacterBugSummary[] = [];
+  const today = new Date().toISOString().slice(0, 10);
 
   snapshot.forEach((doc) => {
     const data = doc.data();
     const totalBugCount = (data.totalBugCount as number | undefined) ?? 0;
     const bugPatchIds = (data.bugPatchIds as number[] | undefined) ?? [];
-    if (totalBugCount > 0) {
-      results.push({
-        name: data.name as string,
-        totalBugCount,
-        bugPatchCount: bugPatchIds.length,
-      });
-    }
+    if (totalBugCount === 0) return;
+
+    const releaseDate = (data.releaseDate as string | undefined) ?? BUG_DATA_START;
+    const effectiveStartDate = releaseDate > BUG_DATA_START ? releaseDate : BUG_DATA_START;
+    const days = daysBetween(effectiveStartDate, today);
+    const bugsPerMonth = totalBugCount / (days / 30);
+
+    results.push({
+      name: data.name as string,
+      totalBugCount,
+      bugPatchCount: bugPatchIds.length,
+      bugsPerMonth,
+      releaseDate,
+      effectiveStartDate,
+    });
   });
 
-  return results.sort((a, b) => b.totalBugCount - a.totalBugCount);
+  return results.sort((a, b) => b.bugsPerMonth - a.bugsPerMonth);
 };
 
 export const loadBugRankingData = unstable_cache(fetchBugRankingData, ['bug-ranking-data'], {
