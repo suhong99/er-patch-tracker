@@ -1,0 +1,243 @@
+[
+  {
+    "name": "가넷",
+    "nameEn": "가넷",
+    "devComment": "Q - 짓뭉개기&꿰뚫기의 체력 소모량을 낮추어 가넷의 교전 유지력을 보완합니다.",
+    "changes": [
+      {
+        "target": "짓뭉개기&꿰뚫기(Q)",
+        "stat": "체력 소모량 현재 체력의",
+        "before": "3%",
+        "after": "2%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "니아",
+    "nameEn": "니아",
+    "devComment": "R - 니아의 게임 월드의 배터리 중첩 당 보호막량을 상향하여, 니아가 기본 스킬을 잘 적중한 이후 궁극기를 시전했을 때 보다 높은 보호막을 가질 수 있도록 조정합니다.",
+    "changes": [
+      {
+        "target": "니아의 게임월드(R)",
+        "stat": "배터리 중첩 당 보호막량",
+        "before": "10/15/20",
+        "after": "15/20/25",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "르노어",
+    "nameEn": "르노어",
+    "devComment": "Q - 스타카토의 피해량을 높여 르노어의 피해 능력을 보완합니다.",
+    "changes": [
+      {
+        "target": "스타카토(Q)",
+        "stat": "피해량",
+        "before": "60/80/100/120/140(+스킬 증폭의 60%)",
+        "after": "70/90/110/130/150(+스킬 증폭의 60%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "마커스",
+    "nameEn": "마커스",
+    "devComment": "망치 마커스는 높은 기본 능력치를 바탕으로 우수한 성능을 보이고 있습니다. 무기 숙련도 효과를 낮추어 위력을 견제합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "망치 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "3.2%",
+        "after": "2.9%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "미르카",
+    "nameEn": "미르카",
+    "devComment": "현재 미르카의 W - 리펄스 배리어는 완전히 파괴되지 않는 상황에서도 리펄스 게이지를 지나치게 쉽게 획득할 수 있었습니다. 이에 따라 방어력에 비례한 게이지 획득량을 낮추어, 게이지 획득 효율을 조정합니다. 또한, E - 백스텝 러시의 충돌 범위를 좁혀 적중 난이도를 높입니다.",
+    "changes": [
+      {
+        "target": "리펄스 배리어(W)",
+        "stat": "리펄스 게이지 획득량 증가 방어력",
+        "before": "1 당 0.35%",
+        "after": "0.3%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "백스텝 러시(E)",
+        "stat": "충돌 범위: 반지름",
+        "before": "1.3m",
+        "after": "1.25m",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "바바라",
+    "nameEn": "바바라",
+    "devComment": "높은 내구도를 가진 바바라의 Q - BT-Mk2 센트리건의 방어력을 하향 조정합니다.",
+    "changes": [
+      {
+        "target": "BT-Mk2 센트리건(Q)",
+        "stat": "센트리건 방어력",
+        "before": "80",
+        "after": "75",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "블레어",
+    "nameEn": "블레어",
+    "devComment": "블레어는 뛰어난 근접 교전 능력과 높은 피해량을 바탕으로 우수한 성과를 보이고 있습니다. 무기 숙련도 효과를 낮추어 교전 위력을 일부 견제합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "쌍검 무기 숙련도 레벨 당 기본 공격 증폭",
+        "before": "1.8%",
+        "after": "1.6%",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "셀린",
+    "nameEn": "셀린",
+    "devComment": "Q - 플라즈마 폭탄의 피해량을 높여 셀린의 피해 능력을 강화합니다.",
+    "changes": [
+      {
+        "target": "플라즈마 폭탄(Q)",
+        "stat": "피해량",
+        "before": "90/110/130/150/170(+스킬 증폭의 40%)",
+        "after": "80/105/130/155/180(+스킬 증폭의 40%)",
+        "changeType": "mixed",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "시셀라",
+    "nameEn": "시셀라",
+    "devComment": "시셀라는 지속적으로 평균 이하의 지표를 기록하고 있습니다. 주력 스킬인 Q - 윌슨! 도와줘의 피해량을 높여 전반적인 위력을 상향 조정합니다.",
+    "changes": [
+      {
+        "target": "윌슨! 도와줘(Q)",
+        "stat": "경로 피해량",
+        "before": "30/40/50/60/70(+스킬 증폭의 30%)",
+        "after": "40/50/60/70/80(+스킬 증폭의 30%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "윌슨! 도와줘(Q)",
+        "stat": "도착 피해량",
+        "before": "70/105/140/175/210(+스킬 증폭의 65%)",
+        "after": "80/115/150/185/220(+스킬 증폭의 65%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아야",
+    "nameEn": "아야",
+    "devComment": "스킬 증폭 무기군 아야는 특히 중하위권 실력대에서 강력한 모습을 보이고 있습니다. W - 고정 사격의 피해량을 하향 조정하여 위력을 견제합니다.",
+    "changes": [
+      {
+        "target": "고정 사격(W)",
+        "stat": "피해량",
+        "before": "20/30/40/50/60(+공격력의 50%)(+스킬 증폭의 30/35/40/45/50%)",
+        "after": "20/30/40/50/60(+공격력의 50%)(+스킬 증폭의 28/33/38/43/48%)",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "아이작",
+    "nameEn": "아이작",
+    "devComment": "아이작의 기본 방어력을 높여 내구도를 강화합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "48",
+        "after": "50",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "유스티나",
+    "nameEn": "유스티나",
+    "devComment": "W - 집중 포격의 피해량을 높여 유스티나의 피해 능력을 보완합니다.",
+    "changes": [
+      {
+        "target": "집중 포격(W)",
+        "stat": "피해량",
+        "before": "40/60/80/100/120(+스킬 증폭의 35%)",
+        "after": "50/70/90/110/130(+스킬 증폭의 35%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "자히르",
+    "nameEn": "자히르",
+    "devComment": "Q - 나라야나스트라의 강화 피해량을 높여 스킬 연계 시 위력을 상향합니다.",
+    "changes": [
+      {
+        "target": "나라야나스트라(Q)",
+        "stat": "강화 피해량",
+        "before": "60/110/160/210/260(+스킬 증폭의 65%)",
+        "after": "60/110/160/210/260(+스킬 증폭의 70%)",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "펠릭스",
+    "nameEn": "펠릭스",
+    "devComment": "펠릭스의 레벨 당 공격력을 낮추어 전반적인 위력을 견제합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "레벨 당 공격력",
+        "before": "4.5",
+        "after": "4.3",
+        "changeType": "nerf",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "헨리",
+    "nameEn": "헨리",
+    "devComment": "헨리의 기본 방어력을 높여 부족한 내구도를 보완합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "50",
+        "after": "52",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  }
+]

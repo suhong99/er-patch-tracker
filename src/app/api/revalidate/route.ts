@@ -17,13 +17,13 @@ export async function POST(request: Request): Promise<NextResponse> {
     }
 
     // 태그 기반 캐시 무효화 (unstable_cache 캐시 무효화)
-    const tags = body.tags ?? ['balance-data', 'patch-notes-data'];
+    const tags = body.tags ?? ['balance-data', 'patch-notes-data', 'bug-ranking-data'];
     for (const tag of tags) {
       revalidateTag(tag, 'max');
     }
 
     // 경로 기반 캐시 무효화
-    const paths = body.paths ?? ['/', '/admin'];
+    const paths = body.paths ?? ['/', '/admin', '/bugs'];
     for (const path of paths) {
       revalidatePath(path);
     }
@@ -31,6 +31,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     // 모든 캐릭터 페이지 무효화
     revalidatePath('/character/[name]', 'page');
     revalidatePath('/admin/character/[name]', 'page');
+    revalidatePath('/bugs/[name]', 'page');
 
     return NextResponse.json({
       success: true,

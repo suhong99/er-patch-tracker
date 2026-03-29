@@ -6,6 +6,8 @@ import type {
   PatchNotesData,
   LatestPatchInfo,
   PatchNote,
+  CharacterBugSummary,
+  PatchBugEntry,
 } from '@/types/patch';
 
 // 내부 함수: 밸런스 데이터 fetch (Firebase에서 직접 조회)
@@ -188,6 +190,92 @@ export const loadImageMap = unstable_cache(fetchImageMap, ['character-images'], 
   revalidate: 3600,
   tags: ['character-images'],
 });
+
+// ─── 버그 데이터 ───────────────────────────────────────────
+
+type RawBugFix = { character: string | null; description: string };
+
+const BUG_DATA_START = '2023-05-16';
+
+/** 두 ISO 날짜 사이의 일수 */
+function daysBetween(startIso: string, endIso: string): number {
+  const ms = new Date(endIso).getTime() - new Date(startIso).getTime();
+  return Math.max(1, Math.round(ms / (1000 * 60 * 60 * 24)));
+}
+
+const fetchBugRankingData = async (): Promise<CharacterBugSummary[]> => {
+  const snapshot = await db.collection('characters').get();
+  const results: CharacterBugSummary[] = [];
+  const today = new Date().toISOString().slice(0, 10);
+
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    const totalBugCount = (data.totalBugCount as number | undefined) ?? 0;
+    const bugPatchIds = (data.bugPatchIds as number[] | undefined) ?? [];
+    if (totalBugCount === 0) return;
+
+    const releaseDate = (data.releaseDate as string | undefined) ?? BUG_DATA_START;
+    const effectiveStartDate = releaseDate > BUG_DATA_START ? releaseDate : BUG_DATA_START;
+    const days = daysBetween(effectiveStartDate, today);
+    const bugsPerMonth = totalBugCount / (days / 30);
+
+    results.push({
+      name: data.name as string,
+      totalBugCount,
+      bugPatchCount: bugPatchIds.length,
+      bugsPerMonth,
+      releaseDate,
+      effectiveStartDate,
+    });
+  });
+
+  return results.sort((a, b) => b.bugsPerMonth - a.bugsPerMonth);
+};
+
+export const loadBugRankingData = unstable_cache(fetchBugRankingData, ['bug-ranking-data'], {
+  revalidate: 3600,
+  tags: ['bug-ranking-data'],
+});
+
+const fetchCharacterBugHistory = async (name: string): Promise<PatchBugEntry[]> => {
+  const charDoc = await db.collection('characters').doc(name).get();
+  if (!charDoc.exists) return [];
+
+  const charData = charDoc.data() ?? {};
+  const bugPatchIds = (charData.bugPatchIds as number[] | undefined) ?? [];
+  if (bugPatchIds.length === 0) return [];
+
+  const results: PatchBugEntry[] = [];
+
+  for (let i = 0; i < bugPatchIds.length; i += 30) {
+    const chunk = bugPatchIds.slice(i, i + 30);
+    const patchSnapshot = await db.collection('patchNotes').where('id', 'in', chunk).get();
+
+    patchSnapshot.forEach((doc) => {
+      const data = doc.data();
+      const bugFixes = (data.bugFixes as RawBugFix[] | undefined) ?? [];
+      const charBugs = bugFixes.filter((b) => b.character === name).map((b) => b.description);
+
+      if (charBugs.length > 0) {
+        results.push({
+          patchId: data.id as number,
+          patchVersion: extractPatchVersion(data.title as string),
+          patchDate: data.createdAt as string,
+          patchLink: (data.link as string) ?? '',
+          bugs: charBugs,
+        });
+      }
+    });
+  }
+
+  return results.sort((a, b) => b.patchId - a.patchId);
+};
+
+export const loadCharacterBugHistory = (name: string): Promise<PatchBugEntry[]> =>
+  unstable_cache(() => fetchCharacterBugHistory(name), [`character-bug-history-${name}`], {
+    revalidate: 3600,
+    tags: ['bug-ranking-data'],
+  })();
 
 // 클라이언트 공용 유틸리티 재export
 export {

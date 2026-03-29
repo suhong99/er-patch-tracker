@@ -1,0 +1,282 @@
+[
+  {
+    "character": null,
+    "description": "실험체가 존재하지 않는 곳에서 스킬 효과음이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "적을 연속 처치 시 코인 토스 특성이 1회만 발동되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "키오스크 오픈 시 탐색 숙련도가 2회 증가하는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 목표 경로 지정 선이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "미니맵 가독성 향상을 위해 지역 명 텍스트와 겹치게 생성되던 일부 오브젝트의 위치를 조정 (대상 지역: 양궁장, 고급 주택가, 성당, 묘지)"
+  },
+  {
+    "character": null,
+    "description": "B0-R1 (보리)가 스폰될 때 안개 둥지(자색 안개) 영역 및 생성 예정 지역을 피해서 스폰되도록 로직 개선, 보다 자연스러운 위치에 등장할 수 있도록 개선"
+  },
+  {
+    "character": null,
+    "description": "안개 둥지 전용 화면 밖 핑 방향 표시 연출 및 아이콘 추가"
+  },
+  {
+    "character": null,
+    "description": "P5R 희노애락 망원 카메라 스킨을 특정 위치에 설치 시 모델링이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "B0-R1 (보리)를 도주 중일 때 처치 시 상자 모델링이 2개로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "B0-R1 (보리)가 등장할 때 레벨에 맞지 않는 상자 등급이 적용되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "기본 튜토리얼 첫 번째 지역 재료 수집에서 가죽 획득 이후 다음 미션 진행이 불가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "기본 튜토리얼 빈사 상태 회복에서 리오를 선택할 수 없는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "기본 튜토리얼 전설 장비 제작에서 키오스크 내 교환이 가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 설정 상태에서 인게임 진입 시 첫 번째 지역의 배경음이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "클러치 연출에서 닉네임이 정렬 방식이 의도와 다르게 적용된 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "리플레이에서 특정 상황에 건너 타임라인 이동 시 안내 로봇 LUMI이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "론울프 모드에서 브리핑 룸에 엔드 게임 특정 이펙트가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "코발트 프로토콜에서 기동 타격대 인퓨전 툴팁에서 이동 속도 감소 수치가 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 스킬 반복 사용 시 일부 스킬 이펙트가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "일부 캐릭터 설치 스킬 사용 시 바라보는 방향으로 스킬이 설치되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "일부 실험체 상세 페이지에서 보이스 영역에 특정 항목의 대사가 중복 출력되는 문제 수정"
+  },
+  {
+    "character": "매그너스",
+    "description": "매그너스 폭주 바이크(R) 카메라 잠금 모드를 화면 중심 상태에서 스킬 사용 후 캐릭터찾기 시 카메라가 비정상적으로 동작되는 문제 수정"
+  },
+  {
+    "character": "블레어",
+    "description": "블레어 XMS-5 활성화(R) 제니를 탐지 중 제니 죽음의 연기(P) 발동하여 부활 시 탐지가 불가한 문제 수정"
+  },
+  {
+    "character": "시셀라",
+    "description": "시셀라 모두 해방이에요.(R) 더미에게 사용 시 윌슨 표시가 잘못된 위치에 출력되는 문제 수정"
+  },
+  {
+    "character": "아드리아나",
+    "description": "아드리아나 기름 뿌리기(W) 특정 상황에 인디케이터와 실제 스킬 사용 위치가 일치하지 않는 문제 수정"
+  },
+  {
+    "character": "아르다",
+    "description": "아르다 스킬 툴팁에서 잘못된 텍스트가 출력되는 문제 수정"
+  },
+  {
+    "character": "아르다",
+    "description": "아르다 바빌론의 입방체(W) 및 님루드의 비석(E) 스킬 사거리가 표시되지 않는 문제 수정"
+  },
+  {
+    "character": "아비게일",
+    "description": "아비게일 좌표 이펙트가 조커 알렉스 스킨의 교란(E) 홀로그램에 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "알렉스",
+    "description": "조커 알렉스 스킨 착용 중 특정 상황에 휴식 해제 시 책상 제거되지 않는 문제 수정"
+  },
+  {
+    "character": "알렉스",
+    "description": "알렉스 펄스 스팅(E) 특정 상황에서 전장의 안개에 일부 이펙트가 적군 시점에 노출되는 문제 수정"
+  },
+  {
+    "character": "알렉스",
+    "description": "알렉스 무기 스킬 습득 시 효과음이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": "알렉스",
+    "description": "알렉스의 무기 보급 상자 도감에서 노출되지 않게 수정"
+  },
+  {
+    "character": null,
+    "description": "엘라나 카스미 스킨 착용 중 항공 보급 상자 개봉 중 옷 소매와 장갑이 겹쳐서 출력되는 문제 수정"
+  },
+  {
+    "character": "이바",
+    "description": "이바 VF 방출(R) 일반 시전 상태에서 스킬 사용 시 즉시 시전되는 문제 수정"
+  },
+  {
+    "character": "제니",
+    "description": "마피아 제니 스킨 착용 중 레드 와인 배역 상태에서 권총의 특정 애니메이션이 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": "테오도르",
+    "description": "테오도르 기동특임대 스킨 착용 중 증폭 스크린(W) 스킬 사용 시 최대 사거리가 표시되지 않는 문제 수정"
+  },
+  {
+    "character": "펜리르",
+    "description": "펜리르 최후의 발악(P) 불사 상태일 때 추적하던 적이 시야에서 사라질 경우(부쉬 진입 등), 제자리에 멈추지 않고 적의 마지막 확인 위치까지 계속 이동하도록 개선"
+  },
+  {
+    "character": "피오라",
+    "description": "하우스키퍼 피오라 스킨 착용 중 뚜셰(P) 표식 시작 위치가 기존 스킨과 다르게 적용되는 문제 수정"
+  },
+  {
+    "character": "헤이즈",
+    "description": "노블 에이스 바니 헤이즈 스킨 착용 중 특정 상황에 춤 감정 표현 사용 시 금고가 제거되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시퀀스 패키지 상품 구매 팝업에서 특정 상황에 구매 가능 횟수가 1로 변경되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "상품 구매 팝업에서 교환권 부족 팝업에 잘못된 내용이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "로비에서 컬렉션 알림 표시가 제거되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "미션 및 패스(ER 패스, 이벤트 패스 등)에서 일괄 획득 버튼이 수령 가능 여부에 따라 명확히 구분되도록 상태(활성화/비활성화) 및 색상 표시 개선"
+  },
+  {
+    "character": null,
+    "description": "퀘스트 북 목록이 가장 최근에 출시된 순서로 정렬되어 노출되도록 개선"
+  },
+  {
+    "character": null,
+    "description": "튜토리얼 파트 클리어 시 로비로 강제 복귀하지 않고 곧바로 다음 파트를 이어서 진행할 수 있는 선택 팝업이 노출되도록 개선"
+  },
+  {
+    "character": null,
+    "description": "프로필 설정 일부 페이지에서 빈 공간에 커서를 두고 휠 스크롤 조작 시 스크롤이 이동하지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "이모티콘을 보조 단축키로 사용 시 비정상적으로 동작하는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "해상도 21:9 비율에서 일부 로비 스크린이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "ER 패스 보상에서 휠 스크롤 조작 시 스킨 항목이 중복 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "일부 에피소드의 시나리오에서 효과음이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "이벤트 에피소드 2의 시나리오 5화 중 텍스트가 잘못 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "색상 커스텀에서 팀 8 색상 선택 항목이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "P5R 콜라보 스킨 구독 패키지 팝업에서 잘못된 텍스트가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "P5R 콜라보 스킨 패키지에서 일부 영역에 의도와 다른 이미지가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "P5R 콜라보 스킨 구독 패키지 팝업에서 특정 영역에 잘못된 이미지가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "P5R 콜라보 스페셜 로비 배경에서 일부 영역에 잘못된 이미지가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "P5R D-Day 팀 슬롯 배경 화면에서 특정 영역에 잘못된 이미지가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시즌10 경기 이네이트 이모티콘에 흰색 테두리가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시즌10 올웨이즈 인천 프로필 아이콘 이미지의 해상도가 낮게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "시즌10 부산 베스파 프로필 아이콘 이미지의 해상도가 낮게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정(옵션) 검색에서 대문자와 소문자의 검색 결과가 다르게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정(옵션) 검색에서 검색 결과가 없을 때 안내 문구가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정(옵션) 검색에서 검색 결과에 일부 항목이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "게임 종료 후 일부 설정 상태가 실제와 다르게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "닉네임 변경 중 중복 닉네임 입력 시 안내 문구가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "프로필 > 개요 탭에서 시즌 종료까지 남은 시간 텍스트가 일부 내용만 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "루트 상세 검색 필터 활성화 중 루트 목록과 상호작용이 가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "모드 실험체 설정 팝업에서 화살표 이미지의 해상도가 낮게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "사용자 설정 대전에서 다른 유저 시점에 날씨 설정이 다르게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "약관 동의 체크 박스 클릭 범위 확대"
+  }
+]
