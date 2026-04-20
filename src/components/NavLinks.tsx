@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 const NAV_ITEMS = [
   { href: '/', label: '패치 내역' },
   { href: '/bugs', label: '버그 랭킹' },
+  { href: '/stats', label: '스텟 비교' },
 ] as const;
 
 export default function NavLinks(): React.JSX.Element {
