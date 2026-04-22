@@ -459,7 +459,13 @@ async function main(): Promise<void> {
   console.log(`\n결과 저장: ${outputPath}`);
 }
 
-main().catch((err) => {
-  console.error('치명적 오류:', err);
-  process.exit(1);
-});
+const scriptName = process.argv[1] ?? '';
+if (
+  scriptName.endsWith('crawl-character-stats.ts') ||
+  scriptName.endsWith('crawl-character-stats.js')
+) {
+  main().catch((err) => {
+    console.error('치명적 오류:', err);
+    process.exit(1);
+  });
+}
