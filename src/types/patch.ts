@@ -122,6 +122,8 @@ export type WeaponStat = {
 export type BaseStats = {
   hpBase: number | null;
   hpGrowth: number | null;
+  hpRegenBase: number | null;
+  hpRegenGrowth: number | null;
   defenseBase: number | null;
   defenseGrowth: number | null;
   attackBase: number | null;
