@@ -8,6 +8,7 @@ import {
   getWeaponStatRanking,
   getCharacterWeaponRank,
   getRankForWeaponCombo,
+  type StatComponents,
 } from '@/lib/stats-data';
 import { loadImageMap } from '@/lib/patch-data';
 import CharacterImage from '@/components/CharacterImage';
@@ -37,6 +38,7 @@ type StatCardData = {
   statKey: string;
   value: number;
   growth: number | null;
+  components: StatComponents | null;
   rankInfo: { rank: number; total: number } | undefined;
   minVal: number;
   maxVal: number;
@@ -86,6 +88,7 @@ export default async function StatsDetailPage({ params }: Props): Promise<React.
         statKey: config.key,
         value,
         growth: config.getGrowth(character.baseStats),
+        components: config.getComponents ? config.getComponents(character.baseStats) : null,
         rankInfo,
         minVal: validValues[0] ?? 0,
         maxVal: validValues[validValues.length - 1] ?? 1,
@@ -129,8 +132,21 @@ export default async function StatsDetailPage({ params }: Props): Promise<React.
         {/* 값 */}
         <p className={`font-mono text-3xl font-black ${d.textClass}`}>{d.formatValue(d.value)}</p>
 
-        {/* 성장치 */}
-        {d.growth !== null && (
+        {/* Lv.20 구성요소: 기본값 + 성장치 */}
+        {d.components && d.components.base !== null && d.components.growth !== null && (
+          <p className="mt-1 text-xs text-zinc-500">
+            <span className="font-mono text-zinc-400">
+              {d.components.formatBase(d.components.base)}
+            </span>{' '}
+            기본 <span className="text-zinc-600">·</span> 레벨당{' '}
+            <span className="font-mono text-zinc-400">
+              +{d.components.formatGrowth(d.components.growth)}
+            </span>
+          </p>
+        )}
+
+        {/* 성장치 (기본 스탯용) */}
+        {d.growth !== null && !d.components && (
           <p className="mt-1 text-xs text-zinc-500">
             레벨당 <span className="font-mono text-zinc-400">+{d.growth}</span>
           </p>

@@ -13,9 +13,11 @@ export type StatKey =
   | 'defense'
   | 'moveSpeed'
   | 'attackSpeed'
+  | 'hpRegen'
   | 'hp20'
   | 'attack20'
   | 'defense20'
+  | 'hpRegen20'
   | 'attackSpeedGrowth'
   | 'basicAttackAmpGrowth'
   | 'skillAmpGrowth';
@@ -30,6 +32,13 @@ export type WeaponStatEntry = {
 
 export type StatSection = 'base' | 'lv20' | 'weapon';
 
+export type StatComponents = {
+  base: number | null;
+  growth: number | null;
+  formatBase: (v: number) => string;
+  formatGrowth: (v: number) => string;
+};
+
 export type StatConfig = {
   key: StatKey;
   label: string;
@@ -40,6 +49,7 @@ export type StatConfig = {
   bgClass: string;
   getValue: (stats: BaseStats) => number | null;
   getGrowth: (stats: BaseStats) => number | null;
+  getComponents?: (stats: BaseStats) => StatComponents;
   formatValue: (v: number) => string;
   weaponStatKey?: WeaponStatKey;
 };
@@ -47,7 +57,11 @@ export type StatConfig = {
 const defaultFormat = (v: number): string => String(v);
 const decimalFormat = (v: number): string => v.toFixed(2);
 const percentFormat = (v: number): string => `${v}%`;
-const roundedFormat = (v: number): string => Math.round(v).toLocaleString('ko-KR');
+// Lv.20 스탯 포맷: 소수점이 있으면 1자리, 정수면 한국 표기
+const lv20Format = (v: number): string => {
+  const r = Math.round(v * 10) / 10;
+  return Number.isInteger(r) ? r.toLocaleString('ko-KR') : r.toFixed(1);
+};
 
 const lv20 = (base: number | null, growth: number | null): number | null =>
   base !== null && growth !== null ? base + growth * 19 : null;
@@ -122,6 +136,18 @@ export const STAT_CATEGORIES: StatConfig[] = [
     getGrowth: () => null,
     formatValue: decimalFormat,
   },
+  {
+    key: 'hpRegen',
+    label: '체력 재생',
+    description: '레벨 1 기본 체력 재생',
+    section: 'base',
+    barClass: 'from-green-500 to-green-400',
+    textClass: 'text-green-400',
+    bgClass: 'bg-green-500/10',
+    getValue: (s) => s.hpRegenBase,
+    getGrowth: (s) => s.hpRegenGrowth,
+    formatValue: decimalFormat,
+  },
   // ── 레벨 20 최종 스텟 ─────────────────────────
   {
     key: 'hp20',
@@ -133,7 +159,13 @@ export const STAT_CATEGORIES: StatConfig[] = [
     bgClass: 'bg-teal-500/10',
     getValue: (s) => lv20(s.hpBase, s.hpGrowth),
     getGrowth: () => null,
-    formatValue: roundedFormat,
+    getComponents: (s) => ({
+      base: s.hpBase,
+      growth: s.hpGrowth,
+      formatBase: defaultFormat,
+      formatGrowth: defaultFormat,
+    }),
+    formatValue: lv20Format,
   },
   {
     key: 'attack20',
@@ -145,7 +177,13 @@ export const STAT_CATEGORIES: StatConfig[] = [
     bgClass: 'bg-pink-500/10',
     getValue: (s) => lv20(s.attackBase, s.attackGrowth),
     getGrowth: () => null,
-    formatValue: roundedFormat,
+    getComponents: (s) => ({
+      base: s.attackBase,
+      growth: s.attackGrowth,
+      formatBase: defaultFormat,
+      formatGrowth: defaultFormat,
+    }),
+    formatValue: lv20Format,
   },
   {
     key: 'defense20',
@@ -157,7 +195,31 @@ export const STAT_CATEGORIES: StatConfig[] = [
     bgClass: 'bg-blue-500/10',
     getValue: (s) => lv20(s.defenseBase, s.defenseGrowth),
     getGrowth: () => null,
-    formatValue: roundedFormat,
+    getComponents: (s) => ({
+      base: s.defenseBase,
+      growth: s.defenseGrowth,
+      formatBase: defaultFormat,
+      formatGrowth: defaultFormat,
+    }),
+    formatValue: lv20Format,
+  },
+  {
+    key: 'hpRegen20',
+    label: '체력 재생 (Lv.20)',
+    description: '레벨 20 체력 재생 · 기본 + 성장 × 19',
+    section: 'lv20',
+    barClass: 'from-lime-500 to-lime-400',
+    textClass: 'text-lime-400',
+    bgClass: 'bg-lime-500/10',
+    getValue: (s) => lv20(s.hpRegenBase, s.hpRegenGrowth),
+    getGrowth: () => null,
+    getComponents: (s) => ({
+      base: s.hpRegenBase,
+      growth: s.hpRegenGrowth,
+      formatBase: decimalFormat,
+      formatGrowth: decimalFormat,
+    }),
+    formatValue: lv20Format,
   },
   // ── 무기 성장치 (캐릭터 × 무기군 조합 랭킹) ──
   {
