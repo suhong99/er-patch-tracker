@@ -139,6 +139,12 @@ export type CharacterBugSummary = {
   name: string;
   totalBugCount: number;
   bugPatchCount: number;
+  /** 기간 대비 버그 수 (월당) */
+  bugsPerMonth: number;
+  /** 실제 출시일 (ISO) */
+  releaseDate: string;
+  /** 계산 기준 시작일 (max(releaseDate, "2023-05-16"), ISO) */
+  effectiveStartDate: string;
 };
 
 // 실험체 버그 히스토리의 패치 단위
