@@ -80,3 +80,13 @@ export function invalidateCharacterCache(characterName: string): void {
   revalidatePath(`/character/${encodedName}`, 'page');
   revalidatePath(`/admin/character/${encodedName}`, 'page');
 }
+
+/**
+ * 실험체 스탯 관련 캐시를 무효화합니다.
+ */
+export function invalidateStatsCache(): void {
+  revalidateTag('character-stats', 'max');
+  revalidatePath('/stats', 'page');
+  revalidatePath('/stats/[name]', 'page');
+  revalidatePath('/admin/stats', 'page');
+}
