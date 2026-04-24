@@ -111,6 +111,29 @@ export type BugFix = {
   description: string;
 };
 
+// 실험체 기본 스텟 (무기군별)
+export type WeaponStat = {
+  weaponType: string;
+  attackSpeedGrowth: number | null;
+  basicAttackAmpGrowth: number | null;
+  skillAmpGrowth: number | null;
+};
+
+export type BaseStats = {
+  hpBase: number | null;
+  hpGrowth: number | null;
+  hpRegenBase: number | null;
+  hpRegenGrowth: number | null;
+  defenseBase: number | null;
+  defenseGrowth: number | null;
+  attackBase: number | null;
+  attackGrowth: number | null;
+  attackSpeedBase: number | null;
+  moveSpeed: number | null;
+  weaponStats: WeaponStat[];
+  crawledAt: string;
+};
+
 // 버그 랭킹용 실험체 요약
 export type CharacterBugSummary = {
   name: string;

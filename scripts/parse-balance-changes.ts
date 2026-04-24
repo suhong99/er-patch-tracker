@@ -1,6 +1,7 @@
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { initFirebaseAdmin } from './lib/firebase-admin';
 import { triggerRevalidation } from './lib/revalidate';
+import type { CharacterBaseStats } from './crawl-character-stats';
 
 // ============================================
 // 타입 정의
@@ -68,6 +69,142 @@ type PatchNote = {
   hasCharacterData?: boolean;
   isParsed?: boolean;
 };
+
+// ============================================
+// 기본 스탯 동기화
+// ============================================
+
+// Firestore에 저장되는 baseStats 구조 (name/namuWikiUrl/parseError 제외)
+type BaseStatsFirestore = Omit<CharacterBaseStats, 'name' | 'namuWikiUrl' | 'parseError'>;
+
+// weaponStats/crawledAt 제외한 순수 수치 필드 타입
+type NumericBaseStatField = Exclude<keyof BaseStatsFirestore, 'weaponStats' | 'crawledAt'>;
+
+// 기본 스탯 / 무기 숙련도 변경이 저장되는 target 값
+const BASE_STAT_TARGET = '기본 스탯' as const;
+
+// 패치노트 스탯명 → baseStats 필드 매핑
+const BASE_STAT_FIELD_MAP: Readonly<Record<string, NumericBaseStatField>> = {
+  '기본 체력': 'hpBase',
+  '최대 체력': 'hpBase',
+  '레벨 당 체력': 'hpGrowth',
+  '체력 성장': 'hpGrowth',
+  '기본 방어력': 'defenseBase',
+  '레벨 당 방어력': 'defenseGrowth',
+  '방어력 성장': 'defenseGrowth',
+  '기본 공격력': 'attackBase',
+  '레벨 당 공격력': 'attackGrowth',
+  '공격력 성장': 'attackGrowth',
+  '기본 공격 속도': 'attackSpeedBase',
+  '이동 속도': 'moveSpeed',
+  이동속도: 'moveSpeed',
+  '기본 이동속도': 'moveSpeed',
+} as const;
+
+// 무기 숙련도 스탯명 → WeaponStat 필드 매핑
+const WEAPON_MASTERY_STAT_MAP: Readonly<
+  Record<string, 'attackSpeedGrowth' | 'basicAttackAmpGrowth' | 'skillAmpGrowth'>
+> = {
+  '기본 공격 증폭': 'basicAttackAmpGrowth',
+  '공격 속도': 'attackSpeedGrowth',
+  '스킬 증폭': 'skillAmpGrowth',
+} as const;
+
+// 패치노트 값 문자열 → 숫자 (%, + 등 제거)
+function parsePatchStatValue(str: string): number | null {
+  const cleaned = str.replace(/[+%,\s]/g, '');
+  const n = parseFloat(cleaned);
+  return isNaN(n) ? null : n;
+}
+
+/**
+ * 패치노트에서 파싱된 기본 스탯 / 무기 숙련도 변경사항을
+ * Firestore의 baseStats 필드에 직접 적용한다.
+ *
+ * Namu Wiki 재크롤링 없이 after 값만 반영하므로
+ * 패치 직후 즉시 정확한 값이 저장된다.
+ */
+async function applyBaseStatChangesFromPatch(
+  characterName: string,
+  changes: Change[]
+): Promise<void> {
+  const numericBaseStatChanges = changes.filter(
+    (c): c is NumericChange =>
+      c.target === BASE_STAT_TARGET && c.changeCategory === 'numeric' && 'stat' in c
+  );
+
+  if (numericBaseStatChanges.length === 0) return;
+
+  const db = initFirebaseAdmin();
+  const docRef = db.collection('characters').doc(characterName);
+  const doc = await docRef.get();
+  const data = doc.data() as { baseStats?: BaseStatsFirestore } | undefined;
+
+  if (!data?.baseStats) {
+    console.log(`  ⚠️ ${characterName}: baseStats 미설정 - 스킵`);
+    return;
+  }
+
+  // 얕은 복사 (weaponStats 배열 원소는 개별 복사)
+  const baseStats: BaseStatsFirestore = {
+    ...data.baseStats,
+    weaponStats: data.baseStats.weaponStats.map((w) => ({ ...w })),
+  };
+
+  let changed = false;
+
+  for (const change of numericBaseStatChanges) {
+    const afterValue = parsePatchStatValue(change.after);
+    if (afterValue === null) {
+      console.log(`  ⚠️ ${characterName}: 값 파싱 실패 "${change.stat}" after="${change.after}"`);
+      continue;
+    }
+
+    // 무기 숙련도 패턴: "{무기타입} 무기 숙련도 레벨 당 {스탯타입}"
+    const weaponMatch = change.stat.match(/^(.+?)\s+무기\s*숙련도\s+레벨\s+당\s+(.+)$/);
+    if (weaponMatch) {
+      const weaponType = weaponMatch[1].trim();
+      const masteryType = weaponMatch[2].trim();
+      const statField = WEAPON_MASTERY_STAT_MAP[masteryType];
+
+      if (!statField) {
+        console.log(`  ⚠️ ${characterName}: 알 수 없는 무기 숙련도 스탯 "${masteryType}"`);
+        continue;
+      }
+
+      const weaponStat = baseStats.weaponStats.find((w) => w.weaponType === weaponType);
+      if (!weaponStat) {
+        console.log(`  ⚠️ ${characterName}: 무기 타입 "${weaponType}" 없음`);
+        continue;
+      }
+
+      weaponStat[statField] = afterValue;
+      changed = true;
+      console.log(
+        `  📊 ${characterName} [${weaponType}] ${masteryType}: ${change.before} → ${afterValue}`
+      );
+      continue;
+    }
+
+    // 기본 스탯 필드 직접 매핑
+    const field = BASE_STAT_FIELD_MAP[change.stat];
+    if (!field) {
+      console.log(`  ⚠️ ${characterName}: 알 수 없는 스탯명 "${change.stat}"`);
+      continue;
+    }
+
+    baseStats[field] = afterValue;
+    changed = true;
+    console.log(`  📊 ${characterName} ${change.stat}: ${change.before} → ${afterValue}`);
+  }
+
+  if (changed) {
+    baseStats.crawledAt = new Date().toISOString();
+    // baseStats 필드만 update (다른 캐릭터 데이터 보호)
+    await docRef.update({ baseStats });
+    console.log(`  ✅ ${characterName} baseStats 업데이트 완료`);
+  }
+}
 
 // ============================================
 // 캐릭터 이름 관련 (DB 기반)
@@ -1339,6 +1476,8 @@ async function main(): Promise<void> {
   });
 
   const affectedCharacters = new Set<string>();
+  // 기본 스탯 / 무기 숙련도 변경이 있는 캐릭터 → 해당 패치의 changes 보관
+  const baseStatChangeMap = new Map<string, Change[]>();
 
   for (let i = 0; i < unparsedPatches.length; i++) {
     const patch = unparsedPatches[i];
@@ -1385,6 +1524,11 @@ async function main(): Promise<void> {
         changes: char.changes,
       });
 
+      // 기본 스탯 / 무기 숙련도 변경 감지 → after 값 직접 반영 대상으로 보관
+      if (char.changes.some((change) => change.target === BASE_STAT_TARGET)) {
+        baseStatChangeMap.set(key, char.changes);
+      }
+
       const commentInfo = char.devComment ? ` (코멘트: "${char.devComment.slice(0, 30)}...")` : '';
       console.log(
         `  - ${char.name}: ${char.changes.length}개 변경 (${overallChange})${commentInfo}`
@@ -1399,6 +1543,14 @@ async function main(): Promise<void> {
   }
 
   await browser.close();
+
+  // 기본 스탯 / 무기 숙련도 변경 캐릭터 → 패치노트 after 값을 baseStats에 직접 반영
+  if (baseStatChangeMap.size > 0) {
+    console.log(`\n기본 스탯 변경 감지 (${baseStatChangeMap.size}명) → baseStats 업데이트 중...`);
+    for (const [name, changes] of baseStatChangeMap) {
+      await applyBaseStatChangesFromPatch(name, changes);
+    }
+  }
 
   // 변경된 캐릭터만 통계 재계산
   console.log(`\n${affectedCharacters.size}명의 캐릭터 통계 재계산 중...`);
