@@ -286,6 +286,11 @@ export const getWeaponStatRanking = (
   return result.sort((a, b) => b.value - a.value);
 };
 
+const competitionRank = (sortedValues: number[], idx: number): number => {
+  const target = sortedValues[idx];
+  return sortedValues.findIndex((v) => v === target) + 1;
+};
+
 // 캐릭터의 최고 순위 (무기군 중 가장 높은 값 기준)
 export const getCharacterWeaponRank = (
   weaponRanking: WeaponStatEntry[],
@@ -293,7 +298,11 @@ export const getCharacterWeaponRank = (
 ): { rank: number; total: number } | undefined => {
   const idx = weaponRanking.findIndex((e) => e.characterName === characterName);
   if (idx === -1) return undefined;
-  return { rank: idx + 1, total: weaponRanking.length };
+  const rank = competitionRank(
+    weaponRanking.map((e) => e.value),
+    idx
+  );
+  return { rank, total: weaponRanking.length };
 };
 
 // 특정 캐릭터 × 무기군 조합의 순위
@@ -306,7 +315,11 @@ export const getRankForWeaponCombo = (
     (e) => e.characterName === characterName && e.weaponType === weaponType
   );
   if (idx === -1) return null;
-  return { rank: idx + 1, total: weaponRanking.length };
+  const rank = competitionRank(
+    weaponRanking.map((e) => e.value),
+    idx
+  );
+  return { rank, total: weaponRanking.length };
 };
 
 export const findStatConfig = (key: string | undefined): StatConfig =>
@@ -322,7 +335,11 @@ export const getRankings = (
 
   const map = new Map<string, { rank: number; total: number }>();
   valid.forEach((e, i) => {
-    map.set(e.name, { rank: i + 1, total: valid.length });
+    const value = config.getValue(e.baseStats) ?? 0;
+    const prevValue = i > 0 ? (config.getValue(valid[i - 1].baseStats) ?? 0) : null;
+    const rank =
+      prevValue !== null && value === prevValue ? map.get(valid[i - 1].name)!.rank : i + 1;
+    map.set(e.name, { rank, total: valid.length });
   });
   return map;
 };

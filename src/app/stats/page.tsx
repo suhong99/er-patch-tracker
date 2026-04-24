@@ -53,6 +53,15 @@ export default async function StatsPage({ searchParams }: Props): Promise<React.
 
   const maxValue = rankedItems.length > 0 ? rankedItems[0].value : 1;
 
+  const itemRanks: number[] = [];
+  rankedItems.forEach((item, i) => {
+    if (i === 0 || item.value !== rankedItems[i - 1].value) {
+      itemRanks.push(i + 1);
+    } else {
+      itemRanks.push(itemRanks[i - 1]);
+    }
+  });
+
   return (
     <div className="min-h-screen bg-[#0a0b0f]">
       <div
@@ -117,6 +126,7 @@ export default async function StatsPage({ searchParams }: Props): Promise<React.
         <div className="space-y-2">
           {rankedItems.map((item, index) => {
             const pct = Math.round((item.value / maxValue) * 100);
+            const rank = itemRanks[index];
 
             return (
               <Link
@@ -127,16 +137,16 @@ export default async function StatsPage({ searchParams }: Props): Promise<React.
                 {/* 순위 */}
                 <div
                   className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-black ${
-                    index === 0
+                    rank === 1
                       ? 'bg-yellow-400/20 text-yellow-300'
-                      : index === 1
+                      : rank === 2
                         ? 'bg-zinc-400/10 text-zinc-300'
-                        : index === 2
+                        : rank === 3
                           ? 'bg-orange-700/20 text-orange-400'
                           : 'bg-[#1a1d24] text-zinc-500'
                   }`}
                 >
-                  {index + 1}
+                  {rank}
                 </div>
 
                 {/* 이미지 */}
