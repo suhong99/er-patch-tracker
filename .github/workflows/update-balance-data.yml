@@ -56,3 +56,8 @@ jobs:
           SITE_URL: ${{ secrets.SITE_URL }}
           REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
         run: npx tsx scripts/parse-balance-changes.ts
+
+      - name: Crawl bug fixes
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: npx tsx scripts/crawl-bug-fixes.ts

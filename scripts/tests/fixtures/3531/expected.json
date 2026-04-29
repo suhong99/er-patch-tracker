@@ -1,0 +1,100 @@
+[
+  {
+    "name": "나딘",
+    "nameEn": "나딘",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "늑대 맹습(R)",
+        "description": "지속 시간이 체력바 아래에 표시되도록 개선됩니다.",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      }
+    ]
+  },
+  {
+    "name": "바냐",
+    "nameEn": "바냐",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "쪽빛 바람(W)",
+        "description": "지속 시간이 체력바 아래에 표시되도록 개선됩니다.",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      }
+    ]
+  },
+  {
+    "name": "블레어",
+    "nameEn": "블레어",
+    "devComment": "전술 스킬 거짓 서약이 삭제됨에 따라, 의존도가 높았던 블레어의 내구도를 보완합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 체력",
+        "before": "940",
+        "after": "970",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "블레이드 시프트(P)",
+        "stat": "체력 회복량 입힌 피해의",
+        "before": "8(+추가 공격력의 4%)%",
+        "after": "8(+추가 공격력의 5%)%",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  },
+  {
+    "name": "쇼이치",
+    "nameEn": "쇼이치",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "부당거래(P)",
+        "description": "부당거래 중첩이 체력바 아래에 표시되도록 개선됩니다.",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      }
+    ]
+  },
+  {
+    "name": "피오라",
+    "nameEn": "피오라",
+    "devComment": null,
+    "changes": [
+      {
+        "target": "플레슈(R)",
+        "description": "남은 사용 횟수가 체력바 아래에 표시되도록 개선됩니다.",
+        "changeType": "mixed",
+        "changeCategory": "mechanic"
+      }
+    ]
+  },
+  {
+    "name": "히스이",
+    "nameEn": "히스이",
+    "devComment": "전술 스킬 거짓 서약이 삭제됨에 따라, 의존도가 높았던 히스이의 내구도를 보완합니다.",
+    "changes": [
+      {
+        "target": "기본 스탯",
+        "stat": "기본 체력",
+        "before": "940",
+        "after": "980",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      },
+      {
+        "target": "기본 스탯",
+        "stat": "기본 방어력",
+        "before": "52",
+        "after": "54",
+        "changeType": "buff",
+        "changeCategory": "numeric"
+      }
+    ]
+  }
+]
