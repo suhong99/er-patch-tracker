@@ -1,0 +1,270 @@
+[
+  {
+    "character": null,
+    "description": "특정 상황에서 보안 콘솔 점령 시 CCTV 주변 시야가 활성화되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에 6일 차 낮 LUMI 특수 상점에서 아군 부활이 불가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "루트 목표 아이템에 전술 강화 모듈 아이템이 등록되어 있을 때 루트 보호 단축키가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "터미네이트 및 클러치 시 적 처치 음성이 중복 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "인벤토리에 일부 아이템을 보유한 상태로 사망 시 시체 상자에서 아이템이 제거되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "호텔 지역에 일부 부쉬 크기가 잘못 적용되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "휴대용 VLS를 키오스크 근처에 설치 시 확장 미니맵에 휴대용 VLS 아이콘이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "아군 선택 단축키를 입력 시 카메라와 미니맵의 이동 시점이 일치하지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 레벨에서 취약 특성의 방어력 감소량이 비정상적으로 적용되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "EMP 드론 툴팁에서 망원 카메라 무력화 관련 내용이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "전술 스킬 초월 레벨업 툴팁에서 보호막 지속 시간 항목이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "전술 스킬 진실의 칼날 레벨업 툴팁에서 최소 이동 속도 증가량 항목이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "전술 스킬 치유의 바람 레벨업 툴팁에서 잘못된 항목이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "리플레이에서 타임라인 이동 시 낮은 빈도로 오류 팝업이 발생하며 로비로 이동되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "리플레이에서 타임라인 이동 시 크로노 스피어 범위 이펙트가 남아 있는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "사용자 설정 대전 론울프 모드 리플레이에서 타임라인 이동 시 오류 팝업이 발생하며 로비로 이동되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "론울프 모드에서 B0-r1 (보리)가 등장하지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "코발트 프로토콜에서 일부 전술 스킬 레벨업 툴팁에 쿨다운 고정 설명이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "일부 기존 제작소 스킨(뱀파이어 쇼이치, 픽셀아트 띠아, 고스트헌터 유키, 러블리 세레나데 일레븐, 스파클링 트윈즈 데비&마를렌)에 전용 춤 감정 표현 추가"
+  },
+  {
+    "character": null,
+    "description": "일부 실험체 및 영웅 등급 스킨 착용 중 음식 제작 시 전용 대사 추가"
+  },
+  {
+    "character": null,
+    "description": "일부 실험체가 특정 행동 이후 모델링이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "이동 가능한 스킬 사용 중 상호작용 예약이 이동 명령으로 취소되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "휴식 상태 진입 시도 직후 일부 오브젝트 채집 시 취소가 불가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "톤파 무기 스킬 고속 회전(D) 특정 거리에서 사용한 스킬을 반사했을 때 반사 피해가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "톤파 무기 스킬 고속 회전(D) 특정 지역에서 일부 스킬을 반사했을 때 반사 피해가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": "니아",
+    "description": "니아 니아의 게임월드(R) 일부 스킬 레벨 확장 툴팁에서 보호막 스킬 증폭 계수 수치가 증가하지 않는 문제 수정"
+  },
+  {
+    "character": "셀린",
+    "description": "셀린 자력 융합(R) 쿨다운이 최대 수치보다 높게 적용되는 문제 수정"
+  },
+  {
+    "character": "쇼우",
+    "description": "쇼우 뜨거운 맛(R) 시전 중 리오 연사(R1) 적중 시 시전 방향이 비정상적으로 적용되는 문제 수정"
+  },
+  {
+    "character": "수아",
+    "description": "수아 기본 스킨 착용 중 로비 연출에서 옷 장식 모델링이 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": "수아",
+    "description": "코발트 프로토콜에서 수아 소생 인퓨전 효과로 부활 후 이펙트가 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": "시셀라",
+    "description": "시셀라 이동 중 정지 시 대기 자세 복귀 애니메이션이 어색하게 출력되는 문제 수정"
+  },
+  {
+    "character": "실비아",
+    "description": "퀸 실비아 스킨 착용 중 운석 및 생명의 나무 채집 시 특정 시점에 연출이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "실비아",
+    "description": "퀸 실비아 스킨 착용 중 휴식 상태 진입 시도 직후 일부 오브젝트 채집 시 책상이 제거되지 않는 문제 수정"
+  },
+  {
+    "character": "실비아",
+    "description": "실비아 일부 스킨 착용 중 개울 지역 진입 시 잘못된 대사가 출력되는 문제 수정"
+  },
+  {
+    "character": "실비아",
+    "description": "실비아 일부 스킨 착용 중 아이템 스킬 마탄 발동 시 투사체 발사 위치가 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": "실비아",
+    "description": "퀸 실비아 스킨 착용 중 특정 상황에서 보안 콘솔 상호작용 시 춤 감정 표현 연출이 출력되는 문제 수정"
+  },
+  {
+    "character": "실비아",
+    "description": "퀸 실비아 스킨 착용 중 기동전(R) 바이크 탑승 직후 소환 해제 시 가면 모델링이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": "알렉스",
+    "description": "알렉스 특정 상황에서 스킬 사용 시 서큘러 시스템 특성 체력 회복 효과가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": "코렐라인",
+    "description": "코렐라인 단죄의 섬광(Q) 강화 상태 투사체를 제거할 때 폭발하는 문제 수정"
+  },
+  {
+    "character": "코렐라인",
+    "description": "코렐라인 진실의 거울 / 거짓의 거울(W) 연못 지역에서 일부 위치에 스킬 사용 시 거울이 비정상적인 위치에 소환되는 문제 수정"
+  },
+  {
+    "character": "헨리",
+    "description": "헨리 시간 제어 장치(W) 영역에 시간 도약(E) 사용 시 이펙트 지속 시간이 비정상적으로 출력되는 문제 수정"
+  },
+  {
+    "character": "히스이",
+    "description": "코발트 프로토콜에서 히스이 모노호시자오 / 츠바메가에시(R) 툴팁에 쿨다운 보정 수치가 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "가이드 미션에서 획득 가능한 보상이 존재하더라도 일괄 획득 버튼이 비활성화 상태로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "전략 > 특성에서 신규 특성 생성 시 목록에 즉시 추가되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "이스포츠 박스 개봉 후 획득 팝업에서 낮은 빈도로 NEW 표시가 보유 상태와 관계없이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 닉네임 변경 중 잘못된 안내 문구가 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "메인 에피소드 1에서 일부 이미지가 잘못된 비율로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "튜토리얼에서 Skip 텍스트가 버튼 영역을 벗어나는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "도감에서 필터 적용 시 강화 아이템이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "상세 가이드에 지역 기믹 가이드 내용 추가"
+  },
+  {
+    "character": null,
+    "description": "계정 이용 제한 정지 사유가 채팅 제재와 관련된 경우 제재 안내 팝업에 해당 채팅 내역이 함께 표시되도록 개선일부 정책상 노출이 어려운 내용은 제외될 수 있습니다."
+  },
+  {
+    "character": null,
+    "description": "일부 정책상 노출이 어려운 내용은 제외될 수 있습니다."
+  },
+  {
+    "character": null,
+    "description": "루트 상세 검색 필터에서 최신 버전만 보기 필터 기능이 비정상적으로 동작하는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "루트 상세 검색 필터에서 정렬 순서를 사용 수 및 최신 버전만 보기 필터가 동시에 정상 적용되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "루트 상세 검색 필터에서 변경 사항이 없는 상태로 닫기 시 변경 사항 관련 알림 팝업이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "루트 상세 검색 필터에서 아이템 도감에 최대 스태미나 항목이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "특정 상황에서 루트 상세 검색 필터에 언어 설정이 영어로 설정되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "실험 기록 > 키오스크에서 교환을 항목에서 글머리 기호가 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "실험 기록 > 스페셜 실험 기록 보상 획득 팝업에서 잘못된 항목이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정 > 입력에서 정보 오버레이 단축키를 Alt로 설정 불가능한 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정 > 일부 항목 툴팁에 내용이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정 > 체력바 상단 이름 표기 항목에 툴팁이 출력되지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정에서 마우스 좌우 반전 메뉴의 명칭이 툴팁 설명과 동일하게 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "설정 > 오퍼레이터 세부 설정에서 균열 툴팁에 난류 관련 내용이 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "미러볼 드론 스킨 미리보기 영역에 특정 항목이 회전하지 않는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "랭크 보상 획득 가능한 계정으로 접속 시 화면이 검은색으로 출력되는 문제 수정"
+  },
+  {
+    "character": null,
+    "description": "해상도 21:9 비율 설정 상태에서 매치메이킹 지역 선택 팝업에 일부 영역이 출력되지 않는 문제 수정"
+  }
+]

@@ -1544,14 +1544,6 @@ async function main(): Promise<void> {
 
   await browser.close();
 
-  // 기본 스탯 / 무기 숙련도 변경 캐릭터 → 패치노트 after 값을 baseStats에 직접 반영
-  if (baseStatChangeMap.size > 0) {
-    console.log(`\n기본 스탯 변경 감지 (${baseStatChangeMap.size}명) → baseStats 업데이트 중...`);
-    for (const [name, changes] of baseStatChangeMap) {
-      await applyBaseStatChangesFromPatch(name, changes);
-    }
-  }
-
   // 변경된 캐릭터만 통계 재계산
   console.log(`\n${affectedCharacters.size}명의 캐릭터 통계 재계산 중...`);
 
@@ -1566,6 +1558,16 @@ async function main(): Promise<void> {
   // Firestore에 저장
   await saveCharacters(characterMap);
   await updateMetadata(Object.keys(characterMap).length);
+
+  // 기본 스탯 / 무기 숙련도 변경 캐릭터 → 패치노트 after 값을 baseStats에 직접 반영
+  // saveCharacters(batch.set)가 characterMap의 old baseStats로 덮어쓰기 때문에
+  // 반드시 saveCharacters 이후에 실행해야 함
+  if (baseStatChangeMap.size > 0) {
+    console.log(`\n기본 스탯 변경 감지 (${baseStatChangeMap.size}명) → baseStats 업데이트 중...`);
+    for (const [name, changes] of baseStatChangeMap) {
+      await applyBaseStatChangesFromPatch(name, changes);
+    }
+  }
 
   // 요약 출력
   const characterCount = Object.keys(characterMap).length;
