@@ -204,30 +204,29 @@ function daysBetween(startIso: string, endIso: string): number {
 }
 
 const fetchBugRankingData = async (): Promise<CharacterBugSummary[]> => {
-  const snapshot = await db.collection('characters').get();
+  const balanceData = await loadBalanceData();
   const results: CharacterBugSummary[] = [];
   const today = new Date().toISOString().slice(0, 10);
 
-  snapshot.forEach((doc) => {
-    const data = doc.data();
-    const totalBugCount = (data.totalBugCount as number | undefined) ?? 0;
-    const bugPatchIds = (data.bugPatchIds as number[] | undefined) ?? [];
-    if (totalBugCount === 0) return;
+  for (const char of Object.values(balanceData.characters)) {
+    const totalBugCount = char.totalBugCount ?? 0;
+    const bugPatchIds = char.bugPatchIds ?? [];
+    if (totalBugCount === 0) continue;
 
-    const releaseDate = (data.releaseDate as string | undefined) ?? BUG_DATA_START;
+    const releaseDate = char.releaseDate ?? BUG_DATA_START;
     const effectiveStartDate = releaseDate > BUG_DATA_START ? releaseDate : BUG_DATA_START;
     const days = daysBetween(effectiveStartDate, today);
     const bugsPerMonth = totalBugCount / (days / 30);
 
     results.push({
-      name: data.name as string,
+      name: char.name,
       totalBugCount,
       bugPatchCount: bugPatchIds.length,
       bugsPerMonth,
       releaseDate,
       effectiveStartDate,
     });
-  });
+  }
 
   return results.sort((a, b) => b.bugsPerMonth - a.bugsPerMonth);
 };
