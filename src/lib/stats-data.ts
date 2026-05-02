@@ -1,5 +1,5 @@
 import { unstable_cache } from 'next/cache';
-import { db } from './firebase-admin';
+import { loadBalanceData } from './patch-data';
 import type { BaseStats, WeaponStat } from '@/types/patch';
 
 export type CharacterStatEntry = {
@@ -345,20 +345,11 @@ export const getRankings = (
 };
 
 const fetchAllStats = async (): Promise<CharacterStatEntry[]> => {
-  const snapshot = await db.collection('characters').get();
-  const results: CharacterStatEntry[] = [];
-
-  snapshot.forEach((doc) => {
-    const data = doc.data();
-    if (data.baseStats) {
-      results.push({
-        name: data.name as string,
-        baseStats: data.baseStats as BaseStats,
-      });
-    }
-  });
-
-  return results.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+  const data = await loadBalanceData();
+  return Object.values(data.characters)
+    .filter((char): char is typeof char & { baseStats: BaseStats } => char.baseStats !== undefined)
+    .map((char) => ({ name: char.name, baseStats: char.baseStats }))
+    .sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 };
 
 export const loadAllStats = unstable_cache(fetchAllStats, ['character-stats'], {

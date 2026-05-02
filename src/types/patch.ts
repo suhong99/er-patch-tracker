@@ -61,6 +61,10 @@ export type Character = {
   name: string;
   stats: CharacterStats;
   patchHistory: PatchEntry[];
+  baseStats?: BaseStats;
+  totalBugCount?: number;
+  bugPatchIds?: number[];
+  releaseDate?: string;
 };
 
 export type BalanceChangesData = {
